@@ -72,7 +72,18 @@ try {
         const page = await context.newPage();
         for (const p of pages) {
           const url = pathPrefix === "/" ? p : pathPrefix.replace(/\/$/, "") + p;
-          await page.goto(server.url + url);
+          const resp = await page.goto(server.url + url);
+          if (process.env.DEBUG_A11Y && p === "/en/" && name === BROWSERS[0] && setting === SETTINGS[0]) {
+            const cssResp = await page.evaluate(() => fetch(document.querySelector('link[rel="stylesheet"]').href).then(r => r.status));
+            const info = await page.evaluate(() => {
+              const el = document.querySelector('.site-header nav a[aria-current="page"]') || document.querySelector(".site-header nav a");
+              if (!el) return { error: "no nav link found" };
+              const r = el.getBoundingClientRect();
+              const cs = getComputedStyle(el);
+              return { href: el.getAttribute("href"), h: r.height, w: r.width, display: cs.display, padding: cs.padding, margin: cs.margin };
+            });
+            console.log("DEBUG page status:", resp.status(), "css status:", cssResp, "link info:", JSON.stringify(info));
+          }
           const results = await new AxeBuilder({ page }).withTags([...WCAG_TAGS, "best-practice"]).analyze();
           const where = `${p} (${name}, ${setting.name})`;
           for (const v of results.violations) {
