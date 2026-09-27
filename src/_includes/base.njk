@@ -4,6 +4,9 @@
 <html lang="{{ lang }}-CA">
 <head>
   <meta charset="utf-8">
+  <!-- Restores a saved theme choice, and marks JS as available, before the
+       page paints. No cookies or third-party script: same-origin, inline. -->
+  <script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ catalog.site.name | loc(lang) }}</title>
   <meta name="description" content="{{ catalog.site.tagline | loc(lang) }}">
@@ -15,7 +18,21 @@
   <header class="site-header">
     <div class="wrap">
       <p class="site-name"><a href="/{{ lang }}/">{{ catalog.site.name | loc(lang) }}</a></p>
-      <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA">{{ "lang_switch" | t(lang) }}</a>
+      <div class="header-controls">
+        <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA">{{ "lang_switch" | t(lang) }}</a>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false"
+          data-label-dark="{{ 'theme_to_dark' | t(lang) }}" data-label-light="{{ 'theme_to_light' | t(lang) }}">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <mask id="moon-mask-{{ lang }}"><rect width="24" height="24" fill="white"/><circle cx="15" cy="9" r="7" fill="black"/></mask>
+            <circle cx="12" cy="12" r="9" fill="currentColor" mask="url(#moon-mask-{{ lang }})"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <span class="theme-toggle-label">{{ "theme_to_dark" | t(lang) }}</span>
+        </button>
+      </div>
     </div>
     <nav class="wrap" aria-label="{{ 'nav_label' | t(lang) }}">
       <ul>
@@ -36,5 +53,6 @@
       {% if lang == "fr" and (catalog.frPending | frPending("strings")) %}<p>{{ "interface_pending" | t(lang) }}</p>{% endif %}
     </div>
   </footer>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>

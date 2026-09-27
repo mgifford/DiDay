@@ -12,8 +12,10 @@
   color-scheme: light dark;
 }
 
+/* Dark by system preference, unless the theme toggle has set an explicit
+   choice (data-theme on <html>, saved in localStorage by src/js/theme.js). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #121a1f;
     --ink: #e6ecee;
     --muted: #a9b7be;
@@ -21,7 +23,30 @@
     --spruce: #8fcfae;
     --maple: #ff8a80;
     --rule: #34444d;
+    color-scheme: dark;
   }
+}
+
+/* Explicit choice wins over system preference either way. */
+:root[data-theme="dark"] {
+  --paper: #121a1f;
+  --ink: #e6ecee;
+  --muted: #a9b7be;
+  --lake: #8cc4e4;
+  --spruce: #8fcfae;
+  --maple: #ff8a80;
+  --rule: #34444d;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --paper: #f6f8f8;
+  --ink: #18232b;
+  --muted: #4a5a64;
+  --lake: #1f4e6b;
+  --spruce: #2e5a46;
+  --maple: #a4221a;
+  --rule: #c9d3d6;
+  color-scheme: light;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -59,6 +84,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 .site-header { border-bottom: 1px solid var(--rule); padding-block: 0.75rem; }
 .site-header .wrap:first-child { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.header-controls { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .site-name { margin: 0; font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
 .site-name a { color: var(--ink); text-decoration: none; }
 .site-header nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; padding: 0; margin: 0.5rem 0 0; }
@@ -76,6 +102,29 @@ a:hover { text-decoration-thickness: 2px; }
   padding-block: 0.45rem;
   margin-block: -0.45rem;
 }
+
+/* Theme toggle. Hidden until src/js/theme.js confirms it will work, so a
+   no-JS visitor never sees a dead control - the toggle needs script to
+   persist a choice, since the site sets no cookies. Without it, the page
+   still follows the OS light/dark setting via prefers-color-scheme. */
+.theme-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+}
+.js .theme-toggle { display: inline-flex; }
+.theme-toggle:hover { border-color: var(--lake); }
+.theme-toggle svg { width: 1.1em; height: 1.1em; flex: none; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
+.theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 
 /* The one bold element: the next date. */
 .hero { padding-block: 1rem 0.5rem; border-bottom: 1px solid var(--rule); }

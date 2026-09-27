@@ -23,6 +23,12 @@ nav_about:
 lang_switch:
   en: Français
   fr: English
+theme_to_dark:
+  en: Dark theme
+  fr: Thème sombre
+theme_to_light:
+  en: Light theme
+  fr: Thème clair
 next_date:
   en: Next first Sunday
   fr: Prochain premier dimanche
