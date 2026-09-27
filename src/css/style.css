@@ -64,6 +64,19 @@ a:hover { text-decoration-thickness: 2px; }
 .site-header nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; padding: 0; margin: 0.5rem 0 0; }
 .site-header nav a[aria-current="page"] { color: var(--ink); font-weight: 600; text-decoration: none; }
 
+/* WCAG 2.2 target size (2.5.8): plain text links measure smaller than
+   24px because their hit area follows font metrics, not line-height. The
+   padding/negative-margin pair grows the clickable area without moving
+   anything on screen. Applies to every link that isn't running prose text. */
+.site-name a,
+.lang-switch,
+.site-header nav a,
+.site-footer a {
+  display: inline-block;
+  padding-block: 0.45rem;
+  margin-block: -0.45rem;
+}
+
 /* The one bold element: the next date. */
 .hero { padding-block: 1rem 0.5rem; border-bottom: 1px solid var(--rule); }
 .hero h1 { font-size: 1.5rem; font-weight: 500; }
