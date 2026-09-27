@@ -49,6 +49,17 @@ test("finds missing pages and fragments in the built site", () => {
   assert.deepEqual(problems.map((p) => p.ref).sort(), ["/en/#nope", "/fr/"]);
 });
 
+test("resolves prefixed hrefs against the unprefixed build output", () => {
+  // Eleventy bakes pathPrefix into every absolute href (e.g. "/DiDay/en/"),
+  // but the files it writes to `_site` are never nested under that prefix.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "site-"));
+  fs.mkdirSync(path.join(dir, "en"));
+  fs.writeFileSync(path.join(dir, "en", "index.html"),
+    '<a href="/DiDay/en/">self</a><a href="/DiDay/fr/">missing</a><a href="/DiDay/en/#top">top</a><h1 id="top">x</h1>');
+  const { problems } = checkInternal(dir, { pathPrefix: "/DiDay/" });
+  assert.deepEqual(problems.map((p) => p.ref).sort(), ["/DiDay/fr/"]);
+});
+
 test("records where each URL is used", () => {
   const urls = collectDataUrls({
     site: { repo: "https://example.org/repo" },
