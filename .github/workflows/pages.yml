@@ -31,6 +31,9 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
       - run: npm ci
+      # Also needed by the internal link checker below: the built pages'
+      # hrefs carry this prefix, so the checker must know it to find the
+      # matching files under _site.
       - name: Check content and build
         run: npm run build
         env:
@@ -40,6 +43,8 @@ jobs:
         run: npm run lint:html
       - name: Check links between pages
         run: npm run check:internal-links
+        env:
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
       - name: Install Firefox for accessibility testing
         run: npx playwright install --with-deps firefox
       # Chromium runs weekly instead, in checks.yml.
