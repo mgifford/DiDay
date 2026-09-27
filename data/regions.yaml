@@ -1,0 +1,57 @@
+# Countries that count as "European owned". ISO 3166-1 alpha-2 codes.
+europe:
+  # European Union
+  - AT
+  - BE
+  - BG
+  - HR
+  - CY
+  - CZ
+  - DK
+  - EE
+  - FI
+  - FR
+  - DE
+  - GR
+  - HU
+  - IE
+  - IT
+  - LV
+  - LT
+  - LU
+  - MT
+  - NL
+  - PL
+  - PT
+  - RO
+  - SK
+  - SI
+  - ES
+  - SE
+  # EEA, Switzerland and the UK
+  - IS
+  - LI
+  - NO
+  - CH
+  - GB
+  # Rest of Europe
+  - UA
+  - MD
+  - AL
+  - BA
+  - ME
+  - MK
+  - RS
+  - XK
+  - AD
+  - MC
+  - SM
+  - VA
+
+# Never listed, even as an exception. Hong Kong and Macao are part of China.
+excluded:
+  - RU
+  - BY
+  - CN
+  - HK
+  - MO

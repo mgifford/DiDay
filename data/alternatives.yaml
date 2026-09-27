@@ -1,0 +1,111 @@
+# Inclusion rules (enforced by scripts/validate.js):
+#   Listed if Canadian owned, open source, or European owned, ranked in that order.
+#   Anything else needs a bilingual "exception" explaining why, and is ranked last.
+#   Set draft: true to keep an entry out of the site while it is researched.
+#
+# Evidence: every claim needs a source that supports it. List the claims each
+# source supports under "supports": headquarters, ownership, open_source.
+#
+# headquarters and ownership use ISO 3166-1 alpha-2 codes, or null if unknown.
+# wikidata: the item ID (Q...) used by the weekly ownership check. Optional.
+# Wikipedia links are placeholders; prefer primary sources.
+- id: kobo
+  name: Kobo
+  url: https://www.kobo.com/
+  wikidata: Q389251
+  category: ebooks
+  headquarters: CA
+  ownership: JP
+  open_source: false
+  exception:
+    en: Based in Toronto but owned by Rakuten of Japan, so it does not meet the ownership rules.
+    fr: Siège à Toronto, mais propriété de Rakuten (Japon); ne respecte donc pas les critères de propriété.
+  notes:
+    en: Kobo e-readers open EPUB files, the format most other stores and libraries use.
+    fr: Les liseuses Kobo lisent les fichiers EPUB, le format utilisé par la plupart des autres librairies et bibliothèques.
+  sources:
+    - title: Kobo Inc. (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Kobo_Inc.
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: public-library
+  name:
+    en: Your public library
+    fr: Votre bibliothèque publique
+  url: null
+  category: ebooks
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Many Canadian libraries lend e-books through OverDrive (the Libby app), which is U.S.-owned. The library itself is public.
+    fr: Beaucoup de bibliothèques canadiennes prêtent des livres numériques par OverDrive (l'application Libby), une entreprise américaine. La bibliothèque elle-même est publique.
+  sources:
+    - title: Public library (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Public_library
+      supports: [headquarters, ownership]
+    - title: OverDrive, Inc. (Wikipedia)
+      url: https://en.wikipedia.org/wiki/OverDrive,_Inc.
+      supports: []
+  verified: false
+
+- id: hushmail
+  name: Hushmail
+  url: https://www.hushmail.com/
+  category: email
+  headquarters: CA
+  ownership: null
+  open_source: false
+  # Not published until ownership is sourced.
+  draft: true
+  notes:
+    en: Paid email service based in Vancouver. Ownership has not been researched yet.
+    fr: Service de courriel payant établi à Vancouver. La propriété n'a pas encore été vérifiée.
+  sources:
+    - title: Hushmail (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Hushmail
+      supports: [headquarters]
+  verified: false
+
+- id: proton-mail
+  name: Proton Mail
+  url: https://proton.me/mail
+  wikidata: Q17355735
+  category: email
+  headquarters: CH
+  ownership: CH
+  open_source: true
+  notes:
+    en: Swiss. The apps are open source. Listed where no Canadian-owned option fits.
+    fr: Entreprise suisse. Les applications sont à code source ouvert. Proposé quand aucune option de propriété canadienne ne convient.
+  sources:
+    - title: Proton Mail (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Proton_Mail
+      supports: [headquarters, ownership]
+    - title: Proton home page
+      url: https://proton.me/
+      supports: [headquarters, open_source]
+  verified: false
+
+- id: gander
+  name: Gander
+  url: https://gandersocial.ca/
+  category: social
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Canadian social network, crowdfunded by Canadian investors. It runs on its own network and plans to connect with the Bluesky (AT Protocol) network. It does not connect to Mastodon.
+    fr: Réseau social canadien, financé par des investisseurs canadiens. Il fonctionne sur son propre réseau et prévoit de se connecter au réseau Bluesky (protocole AT). Il ne communique pas avec Mastodon.
+  sources:
+    - title: Canadian social-media platform Gander officially launches (The Globe and Mail, June 2026)
+      url: https://www.theglobeandmail.com/business/article-gander-canadian-social-media-platform-launches-data-sovereignty/
+      supports: [headquarters, ownership]
+    - title: Why we're inviting Canadians to co-own Gander Social (Gander)
+      url: https://gandersocial.ca/just-giver-why-were-inviting-canadians-to-co-own-gander-social/
+      supports: [ownership]
+    - title: Why Gander (Gander)
+      url: https://gandersocial.ca/why-gander/
+      supports: []
+  verified: false

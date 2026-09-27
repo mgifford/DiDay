@@ -1,0 +1,69 @@
+name: Weekly checks
+
+on:
+  schedule:
+    # Mondays, one hour after the site rebuild.
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - id: check
+        run: npm run check:links
+        continue-on-error: true
+      - name: Open or update an issue
+        if: steps.check.outcome == 'failure'
+        run: scripts/report-issue.sh "Broken links" reports/links.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  ownership:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: check
+        run: npm run check:wikidata
+        continue-on-error: true
+      - name: Open or update an issue
+        if: steps.check.outcome == 'failure'
+        run: scripts/report-issue.sh "Ownership changes to review" reports/wikidata.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  accessibility-chromium:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - id: check
+        run: npm run check:a11y:chromium
+        continue-on-error: true
+      - name: Open or update an issue
+        if: steps.check.outcome == 'failure'
+        run: scripts/report-issue.sh "Accessibility problems in Chromium" reports/a11y.md
+        env:
+          GH_TOKEN: ${{ github.token }}

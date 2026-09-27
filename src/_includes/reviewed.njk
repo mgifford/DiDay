@@ -1,0 +1,8 @@
+{#- Expects: item, kind, lang. Shows the review date, and a warning once it has expired. -#}
+{%- set rv = item | review(kind) -%}
+{%- if rv.reviewed %}
+<p class="reviewed">{{ "last_reviewed" | t(lang) }}{{ "colon" | t(lang) }} <time datetime="{{ rv.reviewed | isoDate }}">{{ rv.reviewed | longDate(lang) }}</time></p>
+{%- if rv.state == "overdue" %}
+<p class="flag">{{ "review_overdue" | t(lang) }}</p>
+{%- endif %}
+{%- endif %}

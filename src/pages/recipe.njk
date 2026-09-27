@@ -1,0 +1,36 @@
+---
+pagination:
+  data: catalog.recipePages
+  size: 1
+  alias: p
+permalink: "/{{ p.lang }}/recipes/{{ p.recipe.id }}/"
+layout: base.njk
+eleventyComputed:
+  lang: "{{ p.lang }}"
+  pageTitle: "{{ p.recipe.title | loc(p.lang) }}"
+---
+{%- set r = p.recipe -%}
+<h1>{{ r.title | loc(lang) }}</h1>
+{% if not r.verified %}<p class="flag">{{ "unverified" | t(lang) }}</p>{% endif %}
+{% if lang == "fr" and (catalog.frPending | frPending("recipes." + r.id)) %}<p class="flag">{{ "translation_pending" | t(lang) }}</p>{% endif %}
+<dl class="facts">
+  <div><dt>{{ "time" | t(lang) }}</dt><dd>{{ r.minutes }} {{ "minutes" | t(lang) }}</dd></div>
+  <div><dt>{{ "difficulty" | t(lang) }}</dt><dd>{{ ("difficulty_" + r.difficulty) | t(lang) }}</dd></div>
+  {% if r.replaces.length %}
+  <div><dt>{{ "replaces" | t(lang) }}</dt><dd>{% for x in catalog.cancel | byIds(r.replaces) %}{{ x.service }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+  {% endif %}
+</dl>
+
+{% set item = r %}{% set kind = "recipes" %}{% include "reviewed.njk" %}
+{% set name = r.title | loc(lang) %}{% include "report.njk" %}
+
+<h2>{{ "steps" | t(lang) }}</h2>
+<ol class="steps">
+  {% for step in r.steps[lang] %}<li>{{ step }}</li>{% endfor %}
+</ol>
+
+<h2>{{ "options" | t(lang) }}</h2>
+{% for alt in catalog.alternatives | byIds(r.alternatives) | ranked %}
+  {% set level = 3 %}
+  {% include "alternative.njk" %}
+{% endfor %}

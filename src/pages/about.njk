@@ -1,0 +1,21 @@
+---
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+permalink: "/{{ lang }}/about/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'nav_about' | t(lang) }}"
+---
+<h1>{{ "nav_about" | t(lang) }}</h1>
+<p>{{ "about_intro" | t(lang) }}</p>
+<h2>{{ "about_criteria_heading" | t(lang) }}</h2>
+<p>{{ "about_criteria" | t(lang) }}</p>
+<h2>{{ "about_evidence_heading" | t(lang) }}</h2>
+<p>{{ "about_evidence" | t(lang) }}</p>
+<p>{{ "report_intro" | t(lang) }}</p>
+{% set name = catalog.site.name | loc(lang) %}{% include "report.njk" %}
+{% if catalog.site.mastodon %}<p>{{ "public_reports_notice" | t(lang) }}</p>{% endif %}
+<h2>{{ "about_site_heading" | t(lang) }}</h2>
+<p>{{ "about_site" | t(lang) }}</p>

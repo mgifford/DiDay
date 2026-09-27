@@ -1,0 +1,42 @@
+# U.S. subscriptions with cancellation instructions.
+# Cancellation URLs come from resistandunsubscribe.com and point to U.S. help pages.
+# Replace them with Canadian (.ca, en-ca, fr-ca) pages where they exist.
+- id: kindle-unlimited
+  company: Amazon
+  service: Kindle Unlimited
+  ownership: US
+  cancel_url: https://www.amazon.com/gp/help/customer/display.html?nodeId=GLSQ4722655M4ZEJ
+  alternatives: [kobo, public-library]
+  recipe: ebooks-without-amazon
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: amazon-prime
+  company: Amazon
+  service: Amazon Prime
+  ownership: US
+  cancel_url: https://www.amazon.com/amazonprime
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: google-one
+  company: Google
+  service: Google One
+  ownership: US
+  cancel_url: https://support.google.com/googleone/answer/9056360
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: apple-music
+  company: Apple
+  service: Apple Music
+  ownership: US
+  cancel_url: https://support.apple.com/en-us/118399
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false

@@ -1,0 +1,33 @@
+---
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+permalink: "/{{ lang }}/cancel/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'nav_cancel' | t(lang) }}"
+---
+<h1>{{ "nav_cancel" | t(lang) }}</h1>
+<p>{{ "cancel_intro" | t(lang) }}</p>
+{% for x in catalog.cancel %}
+<section class="cancel">
+  <h2>{{ x.service }} <span class="company">({{ x.company }})</span></h2>
+  {% if not x.verified %}<p class="flag">{{ "unverified" | t(lang) }}</p>{% endif %}
+  <p><a class="cancel-link" href="{{ x.cancel_url }}">{{ "how_to_cancel" | t(lang) }}{{ "colon" | t(lang) }} {{ x.service }}</a></p>
+  {% set alts = catalog.alternatives | byIds(x.alternatives) | ranked %}
+  {% if alts.length %}
+  <p>{{ "switch_to" | t(lang) }}{{ "colon" | t(lang) }}
+    {% for a in alts %}<a href="/{{ lang }}/alternatives/#{{ a.id }}">{{ a.name | loc(lang) }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+  </p>
+  {% else %}
+  <p><a href="{{ catalog.site.repo }}/issues">{{ "no_alternative" | t(lang) }}</a></p>
+  {% endif %}
+  {% set item = x %}{% set kind = "cancel" %}{% include "reviewed.njk" %}
+  {% set name = x.service %}{% include "report.njk" %}
+  {% if x.recipe %}
+  {% set rec = (catalog.recipes | byIds([x.recipe]))[0] %}
+  <p><a href="/{{ lang }}/recipes/{{ rec.id }}/">{{ "read_recipe" | t(lang) }}{{ "colon" | t(lang) }} {{ rec.title | loc(lang) }}</a></p>
+  {% endif %}
+</section>
+{% endfor %}

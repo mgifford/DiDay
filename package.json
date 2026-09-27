@@ -1,0 +1,33 @@
+{
+  "name": "first-sunday-canada",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bilingual Canadian site: switch one service off Big Tech on the first Sunday of every month.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "build": "npm run validate && eleventy",
+    "start": "eleventy --serve",
+    "lint:html": "html-validate \"_site/**/*.html\"",
+    "check:internal-links": "node scripts/check-links.js --internal-only",
+    "check:links": "node scripts/check-links.js",
+    "check:wikidata": "node scripts/check-wikidata.js",
+    "test:unit": "node --test \"test/*.test.js\"",
+    "test": "npm run test:unit && npm run build && npm run lint:html && npm run check:internal-links",
+    "french": "node scripts/french.js",
+    "check:a11y": "node scripts/check-a11y.js --browsers=firefox",
+    "check:a11y:all": "node scripts/check-a11y.js --browsers=firefox,chromium",
+    "check:a11y:chromium": "node scripts/check-a11y.js --browsers=chromium",
+    "check:reviews": "node scripts/check-reviews.js",
+    "mastodon": "node scripts/mastodon-inbox.js",
+    "reminders": "node scripts/reminders.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@axe-core/playwright": "^4.13.0",
+    "html-validate": "^11.16.0",
+    "js-yaml": "^5.4.2",
+    "playwright": "1.56.0"
+  }
+}

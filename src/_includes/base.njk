@@ -1,0 +1,40 @@
+{%- set other = "fr" if lang == "en" else "en" -%}
+{%- set otherUrl = page.url | replace("/" + lang + "/", "/" + other + "/") -%}
+<!doctype html>
+<html lang="{{ lang }}-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ catalog.site.name | loc(lang) }}</title>
+  <meta name="description" content="{{ catalog.site.tagline | loc(lang) }}">
+  <link rel="alternate" hreflang="{{ other }}-CA" href="{{ otherUrl }}">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">{{ "skip" | t(lang) }}</a>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="site-name"><a href="/{{ lang }}/">{{ catalog.site.name | loc(lang) }}</a></p>
+      <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA">{{ "lang_switch" | t(lang) }}</a>
+    </div>
+    <nav class="wrap" aria-label="{{ 'nav_label' | t(lang) }}">
+      <ul>
+        {%- for item in [["", "nav_home"], ["recipes/", "nav_recipes"], ["cancel/", "nav_cancel"], ["alternatives/", "nav_alternatives"], ["about/", "nav_about"]] %}
+        {%- set href = "/" + lang + "/" + item[0] %}
+        <li><a href="{{ href }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ item[1] | t(lang) }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a href="{{ catalog.site.repo }}">{{ "footer_contribute" | t(lang) }}</a></p>
+      <p>{{ "footer_license" | t(lang) }}</p>
+      {% if lang == "fr" and (catalog.frPending | frPending("strings")) %}<p>{{ "interface_pending" | t(lang) }}</p>{% endif %}
+    </div>
+  </footer>
+</body>
+</html>

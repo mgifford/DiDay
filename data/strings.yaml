@@ -1,0 +1,230 @@
+# Interface text. Every key needs en and fr.
+skip:
+  en: Skip to main content
+  fr: Passer au contenu principal
+nav_label:
+  en: Main
+  fr: Principal
+nav_home:
+  en: Home
+  fr: Accueil
+nav_recipes:
+  en: Switch recipes
+  fr: Recettes pour changer
+nav_cancel:
+  en: What to cancel
+  fr: Quoi annuler
+nav_alternatives:
+  en: Alternatives
+  fr: Solutions de rechange
+nav_about:
+  en: About
+  fr: À propos
+lang_switch:
+  en: Français
+  fr: English
+next_date:
+  en: Next first Sunday
+  fr: Prochain premier dimanche
+add_calendar:
+  en: Add all dates to your calendar (.ics file)
+  fr: Ajouter toutes les dates à votre calendrier (fichier .ics)
+upcoming:
+  en: Upcoming dates
+  fr: Dates à venir
+how_heading:
+  en: How it works
+  fr: Comment ça marche
+how_steps:
+  en:
+    - Pick one U.S. service you pay for or rely on.
+    - Follow a switch recipe to move to a Canadian or non-U.S. option.
+    - Cancel the old subscription, then tell someone what you did.
+  fr:
+    - Choisissez un service américain que vous payez ou utilisez.
+    - Suivez une recette pour passer à une option canadienne ou non américaine.
+    - Annulez l'ancien abonnement, puis parlez-en à quelqu'un.
+how_pace:
+  en: One service a month is enough. Skipping a month is fine.
+  fr: Un service par mois suffit. Sauter un mois, ce n'est pas grave.
+recipes_intro:
+  en: Step-by-step guides for moving one service at a time.
+  fr: Des guides étape par étape pour changer un service à la fois.
+cancel_intro:
+  en: U.S. subscriptions, how to cancel them, and what to use instead.
+  fr: Des abonnements américains, comment les annuler et quoi utiliser à la place.
+alternatives_intro:
+  en: Every listing shows where the company is based, who owns it, and our source.
+  fr: Chaque fiche indique le siège de l'entreprise, son propriétaire et notre source.
+minutes:
+  en: minutes
+  fr: minutes
+difficulty:
+  en: Difficulty
+  fr: Difficulté
+difficulty_easy:
+  en: easy
+  fr: facile
+difficulty_average:
+  en: average
+  fr: moyenne
+difficulty_hard:
+  en: hard
+  fr: difficile
+time:
+  en: Time
+  fr: Durée
+steps:
+  en: Steps
+  fr: Étapes
+options:
+  en: Options
+  fr: Options
+replaces:
+  en: Cancels
+  fr: Remplace
+how_to_cancel:
+  en: How to cancel
+  fr: Comment annuler
+switch_to:
+  en: Switch to
+  fr: Passer à
+read_recipe:
+  en: Read the recipe
+  fr: Lire la recette
+no_alternative:
+  en: No reviewed alternative yet. Suggest one on GitHub.
+  fr: Aucune solution vérifiée pour l'instant. Proposez-en une sur GitHub.
+headquarters:
+  en: Headquarters
+  fr: Siège
+ownership:
+  en: Owned in
+  fr: Propriété
+open_source:
+  en: Open source
+  fr: Code source ouvert
+yes:
+  en: "Yes"
+  fr: Oui
+no:
+  en: "No"
+  fr: Non
+unknown:
+  en: Not yet researched
+  fr: Pas encore vérifié
+sources:
+  en: Sources
+  fr: Sources
+website:
+  en: Website
+  fr: Site Web
+unverified:
+  en: Sample entry, not yet reviewed.
+  fr: Exemple, pas encore vérifié.
+about_intro:
+  en: A volunteer, open source project. Anyone can propose a change on GitHub.
+  fr: Un projet bénévole à code source ouvert. Tout le monde peut proposer une modification sur GitHub.
+about_criteria_heading:
+  en: What we list
+  fr: Ce que nous inscrivons
+about_criteria:
+  en: We list services that are Canadian owned, open source, or European owned, ranked in that order. Ownership decides, not headquarters. A company based in Toronto but owned abroad does not count as Canadian. Anything outside these rules is labelled as an exception with the reason. Services owned in Russia, Belarus or China are never listed.
+  fr: Nous inscrivons les services de propriété canadienne, à code source ouvert ou de propriété européenne, classés dans cet ordre. C'est la propriété qui compte, pas le siège. Une entreprise établie à Toronto mais détenue à l'étranger n'est pas considérée comme canadienne. Tout ce qui sort de ces critères est indiqué comme exception, avec la raison. Les services détenus en Russie, en Biélorussie ou en Chine ne sont jamais inscrits.
+about_evidence_heading:
+  en: Evidence
+  fr: Preuves
+about_evidence:
+  en: Every claim about headquarters, ownership or open source links to a source that supports it. If something is wrong, open an issue or a pull request with a better source.
+  fr: Chaque affirmation sur le siège, la propriété ou le code source ouvert renvoie à une source qui l'appuie. Si une information est inexacte, ouvrez un ticket ou une demande de fusion avec une meilleure source.
+about_site_heading:
+  en: How this site is built
+  fr: Comment ce site est construit
+about_site:
+  en: No trackers, no cookies, no third-party scripts and no web fonts. Pages are static HTML.
+  fr: Aucun traceur, aucun témoin, aucun script tiers et aucune police Web. Les pages sont en HTML statique.
+footer_contribute:
+  en: Contribute on GitHub
+  fr: Contribuer sur GitHub
+footer_license:
+  en: Code under the MIT licence. Content under CC BY-SA 4.0.
+  fr: Code sous licence MIT. Contenu sous licence CC BY-SA 4.0.
+countries:
+  CA:
+    en: Canada
+    fr: Canada
+  US:
+    en: United States
+    fr: États-Unis
+  JP:
+    en: Japan
+    fr: Japon
+  CH:
+    en: Switzerland
+    fr: Suisse
+  DE:
+    en: Germany
+    fr: Allemagne
+  UA:
+    en: Ukraine
+    fr: Ukraine
+  CN:
+    en: China
+    fr: Chine
+# Punctuation: French puts a non-breaking space before a colon.
+colon:
+  en: ":"
+  fr: "\u00a0:"
+listed_because:
+  en: Listed because
+  fr: Motif d'inscription
+reason_canadian:
+  en: Canadian owned
+  fr: propriété canadienne
+reason_open_source:
+  en: open source
+  fr: code source ouvert
+reason_european:
+  en: European owned
+  fr: propriété européenne
+exception:
+  en: Exception
+  fr: Exception
+translation_pending:
+  en: Translation not yet reviewed.
+  fr: Traduction pas encore révisée.
+interface_pending:
+  en: Some interface text has not yet been reviewed in French.
+  fr: Certains textes de l'interface n'ont pas encore été révisés.
+last_reviewed:
+  en: Last reviewed
+  fr: Dernière vérification
+review_overdue:
+  en: Review overdue. This information may be out of date.
+  fr: Vérification en retard. Ces renseignements ne sont peut-être plus à jour.
+report_problem:
+  en: Report a problem with
+  fr: Signaler un problème concernant
+report_mastodon_lead:
+  en: Out of date or wrong? Mention
+  fr: Information périmée ou inexacte? Mentionnez
+report_mastodon_tail:
+  en: on Mastodon and name the entry.
+  fr: sur Mastodon en nommant l'entrée.
+report_github:
+  en: on GitHub
+  fr: sur GitHub
+report_or:
+  en: Or
+  fr: Ou
+report_intro:
+  en: Anyone can tell us when something is out of date or wrong. You do not need to be sure.
+  fr: Tout le monde peut nous signaler une information périmée ou inexacte. Pas besoin d'en être certain.
+# Monthly reminder posts. {url} is replaced with the site address.
+# French: non-breaking space (\u00a0) before a colon.
+reminder_post:
+  en: "Today is First Sunday. Move one service away from Big Tech: pick a switch recipe, cancel one subscription, and tell someone what you did.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+  fr: "C'est le premier dimanche. Quittez un service des géants du numérique\u00a0: choisissez une recette, annulez un abonnement et parlez-en à quelqu'un.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+public_reports_notice:
+  en: If you mention our Mastodon account in a public post, a copy of that post and your handle goes into a public issue on GitHub so we can track it. Other posts and direct messages are never copied.
+  fr: Si vous mentionnez notre compte Mastodon dans une publication publique, une copie de cette publication et votre identifiant sont versés dans un ticket public sur GitHub pour en assurer le suivi. Les autres publications et les messages privés ne sont jamais copiés.

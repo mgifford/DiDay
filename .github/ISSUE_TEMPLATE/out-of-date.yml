@@ -1,0 +1,37 @@
+name: Out of date or wrong / Périmé ou inexact
+description: Tell us an entry is out of date, wrong or broken. / Signalez une entrée périmée, inexacte ou brisée.
+title: "Out of date: "
+labels:
+  - out-of-date
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. You do not need to be sure; tell us what you noticed.
+        Merci. Vous n'avez pas besoin d'en être certain; dites-nous ce que vous avez remarqué.
+  - type: input
+    id: entry
+    attributes:
+      label: Entry / Entrée
+      description: Filled in automatically when you use the link on the site. / Rempli automatiquement si vous utilisez le lien du site.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+    validations:
+      required: false
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or out of date? / Qu'est-ce qui est inexact ou périmé?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source (optional) / Source (facultatif)
+      description: A link that shows the correct information. / Un lien qui montre la bonne information.
+    validations:
+      required: false

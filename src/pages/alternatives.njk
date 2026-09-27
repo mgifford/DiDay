@@ -1,0 +1,26 @@
+---
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+permalink: "/{{ lang }}/alternatives/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'nav_alternatives' | t(lang) }}"
+---
+<h1>{{ "nav_alternatives" | t(lang) }}</h1>
+<p>{{ "alternatives_intro" | t(lang) }}</p>
+{% for cat in catalog.categories %}
+  {% set alts = catalog.alternatives | where("category", cat.id) | ranked %}
+  {% if alts.length %}
+  <section>
+    <h2>{{ cat.name | loc(lang) }}</h2>
+    {% for alt in alts %}
+    <div id="{{ alt.id }}">
+      {% set level = 3 %}
+      {% include "alternative.njk" %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+{% endfor %}

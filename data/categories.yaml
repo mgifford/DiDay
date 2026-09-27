@@ -1,0 +1,20 @@
+- id: ebooks
+  name:
+    en: E-books
+    fr: Livres numériques
+- id: email
+  name:
+    en: Email
+    fr: Courriel
+- id: storage
+  name:
+    en: Cloud storage
+    fr: Stockage infonuagique
+- id: music
+  name:
+    en: Music streaming
+    fr: Musique en continu
+- id: social
+  name:
+    en: Social media
+    fr: Réseaux sociaux

@@ -1,0 +1,76 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Weekly rebuild keeps the "next first Sunday" date current.
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - id: pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - run: npm ci
+      - name: Check content and build
+        run: npm run build
+        env:
+          # "/repo-name/" for project pages, "/" for a custom domain.
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
+      - name: Validate HTML
+        run: npm run lint:html
+      - name: Check links between pages
+        run: npm run check:internal-links
+      - name: Install Firefox for accessibility testing
+        run: npx playwright install --with-deps firefox
+      # Chromium runs weekly instead, in checks.yml.
+      - name: Accessibility check (axe-core, Firefox)
+        run: npm run check:a11y
+      - name: Add accessibility report to the run summary
+        if: always()
+        run: test -f reports/a11y.md && cat reports/a11y.md >> "$GITHUB_STEP_SUMMARY" || true
+      # French that needs review is a warning, not a failure, so contributors
+      # without French can still change English text.
+      - name: French review status
+        id: french
+        run: npm run french
+        continue-on-error: true
+      - name: Report French review status
+        if: steps.french.outcome == 'failure'
+        run: |
+          echo "::warning title=French review needed::Some French text has not been reviewed against the current English. See the run summary."
+          cat reports/french.md >> "$GITHUB_STEP_SUMMARY"
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

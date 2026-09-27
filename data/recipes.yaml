@@ -1,0 +1,45 @@
+# difficulty: easy | average | hard
+# Steps are a real sequence, so they render as an ordered list.
+- id: ebooks-without-amazon
+  title:
+    en: Reading e-books without Amazon
+    fr: Lire des livres numériques sans Amazon
+  minutes: 30
+  difficulty: easy
+  replaces: [kindle-unlimited]
+  alternatives: [kobo, public-library]
+  steps:
+    en:
+      - List the books you have on Kindle. Books bought from Amazon usually stay tied to Kindle apps and devices.
+      - Get a card from your public library and ask which e-book apps it supports.
+      - Buy new books from Kobo or another store that sells EPUB files.
+      - Cancel Kindle Unlimited once you have returned your current borrowed books.
+    fr:
+      - Faites la liste de vos livres Kindle. Les livres achetés chez Amazon restent en général liés aux applications et appareils Kindle.
+      - Procurez-vous une carte de votre bibliothèque publique et demandez quelles applications de livres numériques elle prend en charge.
+      - Achetez vos nouveaux livres chez Kobo ou dans une autre librairie qui vend des fichiers EPUB.
+      - Annulez Kindle Unlimited une fois vos emprunts en cours rendus.
+  verified: false
+
+- id: email-without-google
+  title:
+    en: Email without Gmail
+    fr: Le courriel sans Gmail
+  minutes: 60
+  difficulty: average
+  replaces: []
+  alternatives: [hushmail, proton-mail]
+  steps:
+    en:
+      - Open an account with the new provider.
+      - Turn on forwarding in Gmail so new mail reaches the new address.
+      - Export your Gmail contacts and import them into the new service.
+      - Update your email address with your bank, government services and other important accounts.
+      - Keep the Gmail account open for a few months to catch anything you missed.
+    fr:
+      - Ouvrez un compte chez le nouveau fournisseur.
+      - Activez le transfert dans Gmail pour que les nouveaux messages arrivent à la nouvelle adresse.
+      - Exportez vos contacts Gmail et importez-les dans le nouveau service.
+      - Mettez à jour votre adresse auprès de votre banque, des services gouvernementaux et de vos autres comptes importants.
+      - Gardez le compte Gmail ouvert quelques mois pour ne rien manquer.
+  verified: false

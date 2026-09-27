@@ -1,0 +1,23 @@
+{#- Expects: alt, lang, level (heading level number) -#}
+{%- set why = alt | reasons -%}
+<article class="alt{% if not why.length %} alt-exception{% endif %}">
+  <h{{ level }}>{% if alt.url %}<a href="{{ alt.url }}">{{ alt.name | loc(lang) }}</a>{% else %}{{ alt.name | loc(lang) }}{% endif %}</h{{ level }}>
+  {% if why.length %}
+  <p class="why">{{ "listed_because" | t(lang) }}{{ "colon" | t(lang) }} {% for r in why %}{{ ("reason_" + r) | t(lang) }}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  {% else %}
+  <p class="why exception"><strong>{{ "exception" | t(lang) }}{{ "colon" | t(lang) }}</strong> {{ alt.exception | loc(lang) }}</p>
+  {% endif %}
+  {% if not alt.verified %}<p class="flag">{{ "unverified" | t(lang) }}</p>{% endif %}
+  {% if lang == "fr" and (catalog.frPending | frPending("alternatives." + alt.id)) %}<p class="flag">{{ "translation_pending" | t(lang) }}</p>{% endif %}
+  <dl class="facts">
+    <div><dt>{{ "headquarters" | t(lang) }}</dt><dd>{{ alt.headquarters | country(lang) }}</dd></div>
+    <div><dt>{{ "ownership" | t(lang) }}</dt><dd>{{ alt.ownership | country(lang) }}</dd></div>
+    <div><dt>{{ "open_source" | t(lang) }}</dt><dd>{{ ("yes" if alt.open_source else "no") | t(lang) }}</dd></div>
+  </dl>
+  <p>{{ alt.notes | loc(lang) }}</p>
+  {% set item = alt %}{% set kind = "alternatives" %}{% include "reviewed.njk" %}
+  {% set name = alt.name | loc(lang) %}{% include "report.njk" %}
+  <p class="sources">{{ "sources" | t(lang) }}{{ "colon" | t(lang) }}
+    {% for s in alt.sources %}<a href="{{ s.url }}">{{ s.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+  </p>
+</article>

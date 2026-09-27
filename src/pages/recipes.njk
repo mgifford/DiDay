@@ -1,0 +1,20 @@
+---
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+permalink: "/{{ lang }}/recipes/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'nav_recipes' | t(lang) }}"
+---
+<h1>{{ "nav_recipes" | t(lang) }}</h1>
+<p>{{ "recipes_intro" | t(lang) }}</p>
+<ul class="plain recipe-list">
+  {% for r in catalog.recipes %}
+  <li>
+    <h2><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ r.title | loc(lang) }}</a></h2>
+    <p>{{ "time" | t(lang) }}{{ "colon" | t(lang) }} {{ r.minutes }} {{ "minutes" | t(lang) }}. {{ "difficulty" | t(lang) }}{{ "colon" | t(lang) }} {{ ("difficulty_" + r.difficulty) | t(lang) }}.</p>
+  </li>
+  {% endfor %}
+</ul>

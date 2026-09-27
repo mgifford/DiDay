@@ -1,0 +1,8 @@
+# How long a review stays current, in months, by type of entry.
+# Cancellation pages move more often than ownership changes.
+max_age_months:
+  alternatives: 12
+  cancel: 6
+  recipes: 12
+# Start warning this many days before a review expires.
+due_soon_days: 30

@@ -1,0 +1,27 @@
+---
+permalink: /
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ catalog.site.name.en }} | {{ catalog.site.name.fr }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="wrap splash">
+    <div>
+      <h1>{{ catalog.site.name.en }}</h1>
+      <p>{{ catalog.site.tagline.en }}</p>
+      <p><a class="button" href="/en/">English</a></p>
+    </div>
+    <div lang="fr-CA">
+      <h1>{{ catalog.site.name.fr }}</h1>
+      <p>{{ catalog.site.tagline.fr }}</p>
+      <p><a class="button" href="/fr/">Français</a></p>
+    </div>
+  </main>
+</body>
+</html>

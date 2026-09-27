@@ -1,0 +1,30 @@
+name: Monthly review check
+
+on:
+  schedule:
+    # First day of each month, so maintainers can review before the first Sunday.
+    - cron: "0 13 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: check
+        run: npm run check:reviews
+        continue-on-error: true
+      - name: Open or update an issue
+        if: steps.check.outcome == 'failure'
+        run: scripts/report-issue.sh "Content due for review" reports/reviews.md
+        env:
+          GH_TOKEN: ${{ github.token }}

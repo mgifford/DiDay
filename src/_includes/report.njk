@@ -1,0 +1,10 @@
+{#- Expects: name (entry name), lang. Always shown, whatever the review state.
+    Mastodon comes first when an account is set; GitHub is the fallback. -#}
+<p class="report">
+{%- if catalog.site.mastodon %}
+  {{ "report_mastodon_lead" | t(lang) }} <a href="{{ catalog.site.mastodon | mastodonUrl }}">{{ catalog.site.mastodon }}</a> {{ "report_mastodon_tail" | t(lang) }}<br>
+  {{ "report_or" | t(lang) }} <a href="{{ name | reportUrl(page.url) }}">{{ ("report_problem" | t(lang)) | lower }} {{ name }} {{ "report_github" | t(lang) }}</a>.
+{%- else %}
+  <a href="{{ name | reportUrl(page.url) }}">{{ "report_problem" | t(lang) }} {{ name }}</a>
+{%- endif %}
+</p>

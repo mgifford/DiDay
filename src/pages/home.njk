@@ -1,0 +1,44 @@
+---
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+permalink: "/{{ lang }}/"
+layout: base.njk
+---
+<section class="hero">
+  <h1>{{ catalog.site.tagline | loc(lang) }}</h1>
+  <p class="next-label">{{ "next_date" | t(lang) }}</p>
+  <p class="next-date"><time datetime="{{ dates.next | isoDate }}">{{ dates.next | longDate(lang) }}</time></p>
+  <p><a href="/calendar.ics">{{ "add_calendar" | t(lang) }}</a></p>
+</section>
+
+<section>
+  <h2>{{ "how_heading" | t(lang) }}</h2>
+  <ol class="steps">
+    {% for step in "how_steps" | t(lang) %}<li>{{ step }}</li>{% endfor %}
+  </ol>
+  <p>{{ "how_pace" | t(lang) }}</p>
+</section>
+
+<section>
+  <h2><a href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a></h2>
+  <p>{{ "recipes_intro" | t(lang) }}</p>
+  <ul class="plain">
+    {% for r in catalog.recipes %}
+    <li><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ r.title | loc(lang) }}</a> ({{ r.minutes }} {{ "minutes" | t(lang) }})</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2><a href="/{{ lang }}/cancel/">{{ "nav_cancel" | t(lang) }}</a></h2>
+  <p>{{ "cancel_intro" | t(lang) }}</p>
+</section>
+
+<section>
+  <h2>{{ "upcoming" | t(lang) }}</h2>
+  <ul class="plain dates">
+    {% for d in dates.upcoming %}<li><time datetime="{{ d | isoDate }}">{{ d | longDate(lang) }}</time></li>{% endfor %}
+  </ul>
+</section>

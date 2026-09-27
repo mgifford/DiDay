@@ -1,0 +1,4 @@
+# URLs the link checker should skip. Each entry is a plain substring match.
+ignore:
+  # Placeholder repository. Remove this line once site.yaml has the real URL.
+  - github.com/OWNER/REPO
