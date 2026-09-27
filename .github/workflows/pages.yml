@@ -51,7 +51,7 @@ jobs:
       - name: Accessibility check (axe-core, Firefox)
         run: npm run check:a11y
         env:
-          DEBUG_A11Y: "1"
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
       - name: Add accessibility report to the run summary
         if: always()
         run: test -f reports/a11y.md && cat reports/a11y.md >> "$GITHUB_STEP_SUMMARY" || true
