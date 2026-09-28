@@ -33,11 +33,26 @@ next_date:
   en: Next first Sunday
   fr: Prochain premier dimanche
 add_calendar:
-  en: Add all dates to your calendar (.ics file)
-  fr: Ajouter toutes les dates à votre calendrier (fichier .ics)
+  en: Add to your calendar
+  fr: Ajouter à votre calendrier
 upcoming:
   en: Upcoming dates
   fr: Dates à venir
+calendar_download:
+  en: Download the calendar (.ics file)
+  fr: Télécharger le calendrier (fichier .ics)
+calendar_subscribe_heading:
+  en: Keep it updated automatically
+  fr: Le garder à jour automatiquement
+calendar_subscribe_intro:
+  en: Subscribing, instead of downloading, means new dates appear on their own.
+  fr: S'abonner, plutôt que de télécharger, permet aux nouvelles dates d'apparaître automatiquement.
+calendar_subscribe_google:
+  en: In Google Calendar, go to Other calendars, Add, From URL, and paste the calendar link above.
+  fr: Dans Google Agenda, allez à Autres agendas, Ajouter, À partir d'une adresse URL, puis collez le lien du calendrier ci-dessus.
+calendar_subscribe_outlook:
+  en: In Outlook, go to Add calendar, Subscribe from web, and paste the calendar link above.
+  fr: Dans Outlook, allez à Ajouter un calendrier, S'abonner à partir du web, puis collez le lien du calendrier ci-dessus.
 how_heading:
   en: How it works
   fr: Comment ça marche

@@ -36,9 +36,18 @@ layout: base.njk
   <p>{{ "cancel_intro" | t(lang) }}</p>
 </section>
 
-<section>
+<section id="calendar">
   <h2>{{ "upcoming" | t(lang) }}</h2>
   <ul class="plain dates">
-    {% for d in dates.upcoming %}<li><time datetime="{{ d | isoDate }}">{{ d | longDate(lang) }}</time></li>{% endfor %}
+    {% for d in dates.visible %}<li><time datetime="{{ d | isoDate }}">{{ d | longDate(lang) }}</time></li>{% endfor %}
   </ul>
+  <p><a href="/calendar.ics">{{ "calendar_download" | t(lang) }}</a></p>
+  <details>
+    <summary>{{ "calendar_subscribe_heading" | t(lang) }}</summary>
+    <p>{{ "calendar_subscribe_intro" | t(lang) }}</p>
+    <ul>
+      <li><strong>Google Calendar:</strong> {{ "calendar_subscribe_google" | t(lang) }}</li>
+      <li><strong>Outlook:</strong> {{ "calendar_subscribe_outlook" | t(lang) }}</li>
+    </ul>
+  </details>
 </section>
