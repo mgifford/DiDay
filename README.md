@@ -182,4 +182,8 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 
 ## Licence
 
-Code: MIT (see `LICENSE`). Content in `data/`: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Code: [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html) or later (see `LICENSE`). Content in `data/`: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+AGPL, rather than MIT, so that anyone who runs a modified version of this
+site as a public service - not just anyone who redistributes the code -
+must also offer its source. A fork stays open the same way the original is.

@@ -168,8 +168,8 @@ footer_contribute:
   en: Contribute on GitHub
   fr: Contribuer sur GitHub
 footer_license:
-  en: Code under the MIT licence. Content under CC BY-SA 4.0.
-  fr: Code sous licence MIT. Contenu sous licence CC BY-SA 4.0.
+  en: Code under the GNU AGPL v3 licence. Content under CC BY-SA 4.0.
+  fr: Code sous licence GNU AGPL v3. Contenu sous licence CC BY-SA 4.0.
 countries:
   CA:
     en: Canada

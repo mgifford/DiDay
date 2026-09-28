@@ -8,7 +8,7 @@ automation that has only been tested in a sandbox.
 - [ ] Choose the site name in English and French (currently "First Sunday / Premier dimanche").
 - [ ] Choose the address: a GitHub Pages address or a custom domain.
 - [ ] Name at least two maintainers, at least one fluent in French.
-- [ ] Confirm the licences: MIT for code, CC BY-SA 4.0 for content.
+- [ ] Confirm the licences: GNU AGPL v3 for code, CC BY-SA 4.0 for content.
 
 ## 2. Repository
 
