@@ -23,8 +23,9 @@ eleventyComputed:
   {% for camp in catalog.campaigns %}
   <li>
     <a href="{{ camp.url }}">{{ camp.name | loc(lang) }}</a>
-    {% if not camp.verified %}<span class="flag">{{ "unverified" | t(lang) }}</span>{% endif %}
+    {% if not camp.verified %}<span class="flag">{{ "campaign_unverified" | t(lang) }}</span>{% endif %}
     <p>{{ camp.description | loc(lang) }}</p>
+    {% set item = camp %}{% set kind = "campaigns" %}{% include "reviewed.njk" %}
   </li>
   {% endfor %}
 </ul>

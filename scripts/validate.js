@@ -150,7 +150,7 @@ for (const r of c.recipes) {
 }
 
 // Review dates
-for (const kind of ["alternatives", "cancel", "recipes"]) {
+for (const kind of ["alternatives", "cancel", "recipes", "campaigns"]) {
   if (!c.review?.max_age_months?.[kind]) errors.push(`review.yaml: missing max_age_months.${kind}`);
   for (const item of c[kind]) {
     const where = `${kind}.${item.id}`;

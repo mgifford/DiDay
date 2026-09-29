@@ -12,7 +12,8 @@
   sources:
     - title: Digital Independence Day (di.day)
       url: https://di.day/en
-  verified: false
+  verified: true
+  last_reviewed: 2026-09-29
 
 - id: doeidag
   name: Doeidag
@@ -24,7 +25,8 @@
   sources:
     - title: Doeidag
       url: https://doeidag.nl/
-  verified: false
+  verified: true
+  last_reviewed: 2026-09-29
 
 - id: resist-and-unsubscribe
   name: Resist and Unsubscribe
@@ -38,7 +40,8 @@
       url: https://www.profgalloway.com/resist-and-unsubscribe/
     - title: "Big Tech Boycott February 2026 (IBTimes UK)"
       url: https://www.ibtimes.co.uk/big-tech-boycott-february-2026-scott-galloways-resist-unsubscribe-campaign-targets-amazon-1776233
-  verified: false
+  verified: true
+  last_reviewed: 2026-09-29
 
 - id: openmedia
   name: OpenMedia
@@ -50,16 +53,20 @@
   sources:
     - title: "Defending Our 'Digital Selves' (OpenMedia)"
       url: https://openmedia.org/article/item/defending-our-digital-selves-a-guide-for-canadians-to-reclaim-digital-autonomy-from-foreign-tech-giants
-  verified: false
+  verified: true
+  last_reviewed: 2026-09-29
 
 - id: c4ds
   name: Canadians for Digital Sovereignty
-  url: https://www.mcconnellfoundation.ca/funding-database/canadians-for-digital-sovereignty/
+  url: https://c4ds.ca/
   country: CA
   description:
-    en: A Montreal-based non-profit coalition pushing for Canada's digital services and infrastructure to be democratically governed, rather than dependent on foreign Big Tech.
-    fr: Une coalition à but non lucratif basée à Montréal qui milite pour que les services et infrastructures numériques du Canada soient gouvernés démocratiquement plutôt que dépendants des géants du numérique étrangers.
+    en: A coalition of Canadian organizations and individuals, including OpenMedia, calling on the federal government to reset its digital policy agenda and strengthen Canada's digital sovereignty.
+    fr: Une coalition d'organismes et de personnes canadiennes, dont OpenMedia, qui demande au gouvernement fédéral de revoir sa politique numérique et de renforcer la souveraineté numérique du Canada.
   sources:
+    - title: "C4DS – Canadians for Digital Sovereignty"
+      url: https://c4ds.ca/
     - title: "Canadians for Digital Sovereignty (McConnell Foundation funding database)"
       url: https://www.mcconnellfoundation.ca/funding-database/canadians-for-digital-sovereignty/
-  verified: false
+  verified: true
+  last_reviewed: 2026-09-29

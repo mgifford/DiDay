@@ -143,6 +143,9 @@ website:
 unverified:
   en: Sample entry, not yet reviewed.
   fr: Exemple, pas encore vérifié.
+campaign_unverified:
+  en: Not yet reviewed by a maintainer.
+  fr: Pas encore vérifié par une personne responsable.
 about_intro:
   en: A volunteer, open source project. Anyone can propose a change on GitHub.
   fr: Un projet bénévole à code source ouvert. Tout le monde peut proposer une modification sur GitHub.
