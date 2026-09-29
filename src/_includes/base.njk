@@ -8,6 +8,7 @@
        page paints. No cookies or third-party script: same-origin, inline. -->
   <script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ catalog.site.name | loc(lang) }}</title>
   <meta name="description" content="{{ catalog.site.tagline | loc(lang) }}">
   <link rel="alternate" hreflang="{{ other }}-CA" href="{{ otherUrl }}">
