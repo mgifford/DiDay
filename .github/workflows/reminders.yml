@@ -28,7 +28,7 @@ jobs:
       - name: Post or clean up
         run: node scripts/reminders.js ${{ (github.event_name == 'schedule' || inputs.live) && '--post' || '' }}
         env:
-          MASTODON_POSTING_TOKEN: ${{ secrets.MASTODON_POSTING_TOKEN }}
+          MASTODON_POSTING_TOKEN: ${{ secrets.MSTDN }}
           MASTODON_APP_NAME: DI.DAY Canada reminders
       - name: Add the text to the run summary (for posting on Gander)
         if: always()

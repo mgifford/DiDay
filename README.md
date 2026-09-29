@@ -125,9 +125,9 @@ Try it without opening issues: `MASTODON_TOKEN=... npm run mastodon`, then read 
 
 ### Monthly reminders
 
-`.github/workflows/reminders.yml` runs daily. On the first Sunday it posts one reminder in English and one in French, each tagged with its language so screen readers and filters handle it correctly. Every day it deletes reminders older than 30 days. It only deletes posts made by the "First Sunday reminders" application and never deletes pinned posts, so anything a person posts from the account is left alone.
+`.github/workflows/reminders.yml` runs daily. On the first Sunday it posts one reminder in English and one in French, each tagged with its language so screen readers and filters handle it correctly. Every day it deletes reminders older than 30 days. It only deletes posts made by the "DI.DAY Canada reminders" application and never deletes pinned posts, so anything a person posts from the account is left alone.
 
-It needs `url` set in `data/site.yaml` and a repository secret `MASTODON_POSTING_TOKEN` with only the `read:statuses` and `write:statuses` scopes. The text is in `data/strings.yaml` under `reminder_post`. Hashtags use CamelCase so screen readers read them as words.
+It needs `url` set in `data/site.yaml` and a repository secret named `MSTDN`, holding a token with only the `read:statuses` and `write:statuses` scopes, which the workflow passes to `scripts/reminders.js` as `MASTODON_POSTING_TOKEN`. The text is in `data/strings.yaml` under `reminder_post`, with several variants so the wording isn't identical every month. Hashtags use CamelCase so screen readers read them as words.
 
 Gander has no public posting interface, so the run summary includes the text for a person to post there by hand.
 

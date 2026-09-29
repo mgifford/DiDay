@@ -1,6 +1,6 @@
 name: Test Mastodon post (temporary)
 
-# One-off check that MASTODON_POSTING_TOKEN works. Posts a single plain
+# One-off check that the MSTDN secret works. Posts a single plain
 # status to confirm the token and account are set up correctly. Delete
 # this workflow file once the check has run.
 
@@ -16,14 +16,14 @@ jobs:
     steps:
       - name: Post a test status
         env:
-          MASTODON_POSTING_TOKEN: ${{ secrets.MASTODON_POSTING_TOKEN }}
+          MSTDN: ${{ secrets.MSTDN }}
         run: |
-          if [ -z "$MASTODON_POSTING_TOKEN" ]; then
-            echo "::error::MASTODON_POSTING_TOKEN is not set"
+          if [ -z "$MSTDN" ]; then
+            echo "::error::MSTDN is not set"
             exit 1
           fi
           response=$(curl -sS -w "\n%{http_code}" -X POST https://mstdn.ca/api/v1/statuses \
-            -H "Authorization: Bearer $MASTODON_POSTING_TOKEN" \
+            -H "Authorization: Bearer $MSTDN" \
             --data-urlencode "status=Hello Canada! (test post from First Sunday's GitHub Actions setup, safe to ignore or delete)" \
             --data-urlencode "visibility=public")
           body=$(echo "$response" | head -n -1)
