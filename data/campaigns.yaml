@@ -1,0 +1,65 @@
+# Related campaigns and voices that inspired this project, shown on the About page.
+#
+# Evidence: every entry needs at least one source. Country uses ISO 3166-1
+# alpha-2 codes, or null if not established by a source.
+- id: diday
+  name: DI.DAY (Digital Independence Day)
+  url: https://di.day/en
+  country: DE
+  description:
+    en: The project this site follows most closely. A German-led campaign asking people to switch to alternative digital tools on the first Sunday of every month.
+    fr: Le projet dont ce site s'inspire le plus directement. Une campagne dirigée depuis l'Allemagne qui invite à changer d'outil numérique le premier dimanche de chaque mois.
+  sources:
+    - title: Digital Independence Day (di.day)
+      url: https://di.day/en
+  verified: false
+
+- id: doeidag
+  name: Doeidag
+  url: https://doeidag.nl/
+  country: NL
+  description:
+    en: The Dutch sibling campaign, also built around the first Sunday of the month, with its own switch recipes for leaving Big Tech services.
+    fr: La campagne sœur néerlandaise, elle aussi organisée autour du premier dimanche du mois, avec ses propres recettes pour quitter les services des géants du numérique.
+  sources:
+    - title: Doeidag
+      url: https://doeidag.nl/
+  verified: false
+
+- id: resist-and-unsubscribe
+  name: Resist and Unsubscribe
+  url: https://www.resistandunsubscribe.com/
+  country: US
+  description:
+    en: "Scott Galloway's 2026 call for a one-month economic strike against Big Tech subscriptions. This site's cancel links follow its lead."
+    fr: "L'appel lancé en 2026 par Scott Galloway à une grève économique d'un mois contre les abonnements aux géants du numérique. Les liens d'annulation de ce site s'en inspirent."
+  sources:
+    - title: "Resist and Unsubscribe (No Mercy / No Malice)"
+      url: https://www.profgalloway.com/resist-and-unsubscribe/
+    - title: "Big Tech Boycott February 2026 (IBTimes UK)"
+      url: https://www.ibtimes.co.uk/big-tech-boycott-february-2026-scott-galloways-resist-unsubscribe-campaign-targets-amazon-1776233
+  verified: false
+
+- id: openmedia
+  name: OpenMedia
+  url: https://openmedia.org/
+  country: CA
+  description:
+    en: A Canadian digital rights non-profit whose guide to reclaiming digital autonomy from Big Tech overlaps closely with this project's approach, alongside its policy advocacy work.
+    fr: Un organisme canadien de défense des droits numériques dont le guide pour reprendre son autonomie numérique face aux géants du numérique recoupe largement la démarche de ce projet, en plus de son travail de représentation politique.
+  sources:
+    - title: "Defending Our 'Digital Selves' (OpenMedia)"
+      url: https://openmedia.org/article/item/defending-our-digital-selves-a-guide-for-canadians-to-reclaim-digital-autonomy-from-foreign-tech-giants
+  verified: false
+
+- id: c4ds
+  name: Canadians for Digital Sovereignty
+  url: https://www.mcconnellfoundation.ca/funding-database/canadians-for-digital-sovereignty/
+  country: CA
+  description:
+    en: A Montreal-based non-profit coalition pushing for Canada's digital services and infrastructure to be democratically governed, rather than dependent on foreign Big Tech.
+    fr: Une coalition à but non lucratif basée à Montréal qui milite pour que les services et infrastructures numériques du Canada soient gouvernés démocratiquement plutôt que dépendants des géants du numérique étrangers.
+  sources:
+    - title: "Canadians for Digital Sovereignty (McConnell Foundation funding database)"
+      url: https://www.mcconnellfoundation.ca/funding-database/canadians-for-digital-sovereignty/
+  verified: false

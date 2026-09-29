@@ -164,6 +164,12 @@ about_site_heading:
 about_site:
   en: No trackers, no cookies, no third-party scripts and no web fonts. Pages are static HTML.
   fr: Aucun traceur, aucun témoin, aucun script tiers et aucune police Web. Les pages sont en HTML statique.
+about_campaigns_heading:
+  en: Related campaigns
+  fr: Campagnes semblables
+about_campaigns_intro:
+  en: This project is not alone. Other campaigns and organizations are working on the same problem, in Canada and elsewhere.
+  fr: Ce projet n'est pas seul. D'autres campagnes et organismes travaillent sur le même enjeu, au Canada et ailleurs.
 footer_contribute:
   en: Contribute on GitHub
   fr: Contribuer sur GitHub
@@ -186,6 +192,9 @@ countries:
   DE:
     en: Germany
     fr: Allemagne
+  NL:
+    en: Netherlands
+    fr: Pays-Bas
   UA:
     en: Ukraine
     fr: Ukraine
