@@ -43,3 +43,26 @@
       - Mettez à jour votre adresse auprès de votre banque, des services gouvernementaux et de vos autres comptes importants.
       - Gardez le compte Gmail ouvert quelques mois pour ne rien manquer.
   verified: false
+
+- id: calls-without-zoom
+  title:
+    en: Video calls without Zoom or Teams
+    fr: Appels vidéo sans Zoom ni Teams
+  minutes: 15
+  difficulty: easy
+  replaces: []
+  alternatives: [bigbluebutton, jitsi-meet, element]
+  steps:
+    en:
+      - For a one-off call, go to meet.jit.si, start a meeting and send the link. No account needed.
+      - For classes or structured group sessions, look into BigBlueButton, a Canadian open-source tool built for teaching.
+      - For calls with the same people regularly, create a free Element account instead, so you have a permanent room to invite people back to.
+      - Send the new link or invite instead of a Zoom or Teams link next time you schedule a call.
+      - Tell the other participants a week ahead, since a new tool can catch people off guard.
+    fr:
+      - Pour un appel ponctuel, allez sur meet.jit.si, démarrez une réunion et envoyez le lien. Aucun compte requis.
+      - Pour des cours ou des séances de groupe structurées, envisagez BigBlueButton, un outil canadien à code source ouvert conçu pour l'enseignement.
+      - Pour des appels réguliers avec les mêmes personnes, créez plutôt un compte Element gratuit, pour avoir un salon permanent où les réinviter.
+      - Envoyez le nouveau lien ou la nouvelle invitation à la place d'un lien Zoom ou Teams la prochaine fois que vous planifiez un appel.
+      - Prévenez les autres participants une semaine à l'avance, car un nouvel outil peut en dérouter certains.
+  verified: false

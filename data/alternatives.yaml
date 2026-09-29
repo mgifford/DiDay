@@ -130,3 +130,60 @@
       url: https://joinmastodon.org/
       supports: [open_source]
   verified: false
+
+- id: bigbluebutton
+  name: BigBlueButton
+  url: https://bigbluebutton.org/
+  category: calls
+  headquarters: CA
+  ownership: CA
+  open_source: true
+  notes:
+    en: Open-source video conferencing built for online classes, started at Carleton University in 2007. Developed and hosted by Blindside Networks, a privately held Ottawa company.
+    fr: Vidéoconférence à code source ouvert conçue pour les cours en ligne, lancée à l'Université Carleton en 2007. Développée et hébergée par Blindside Networks, une entreprise privée d'Ottawa.
+  sources:
+    - title: BigBlueButton (Wikipedia)
+      url: https://en.wikipedia.org/wiki/BigBlueButton
+      supports: [open_source]
+    - title: Contact Us (Blindside Networks)
+      url: https://blindsidenetworks.com/contact-us/
+      supports: [headquarters]
+    - title: Blindside Networks (LinkedIn)
+      url: https://ca.linkedin.com/company/blindside-networks
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: element
+  name: Element
+  url: https://element.io/
+  category: calls
+  headquarters: GB
+  ownership: GB
+  open_source: true
+  notes:
+    en: Video calls, voice calls and chat on the open Matrix protocol. The free tier works for one-to-one and small group calls; a paid plan is needed for larger managed video conferencing.
+    fr: Appels vidéo, appels vocaux et clavardage sur le protocole ouvert Matrix. Le forfait gratuit convient aux appels individuels et aux petits groupes; un forfait payant est nécessaire pour la vidéoconférence gérée à plus grande échelle.
+  sources:
+    - title: Element (software) (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Element_(software)
+      supports: [headquarters, ownership, open_source]
+  verified: false
+
+- id: jitsi-meet
+  name: Jitsi Meet
+  url: https://meet.jit.si/
+  category: calls
+  headquarters: US
+  ownership: US
+  open_source: true
+  notes:
+    en: Owned by 8x8, Inc. of California, but the software itself is open source. Free video calls with no account needed at meet.jit.si, or self-host it on your own server for full control.
+    fr: Propriété de 8x8, Inc. (Californie), mais le logiciel lui-même est à code source ouvert. Appels vidéo gratuits et sans compte requis sur meet.jit.si, ou à héberger soi-même pour un contrôle complet.
+  sources:
+    - title: jitsi/jitsi-meet (GitHub)
+      url: https://github.com/jitsi/jitsi-meet
+      supports: [open_source]
+    - title: 8x8, Inc. (Wikipedia)
+      url: https://en.wikipedia.org/wiki/8x8
+      supports: [headquarters, ownership]
+  verified: false

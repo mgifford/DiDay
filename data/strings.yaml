@@ -207,6 +207,9 @@ countries:
   NL:
     en: Netherlands
     fr: Pays-Bas
+  GB:
+    en: United Kingdom
+    fr: Royaume-Uni
   UA:
     en: Ukraine
     fr: Ukraine

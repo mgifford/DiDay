@@ -18,3 +18,7 @@
   name:
     en: Social media
     fr: Réseaux sociaux
+- id: calls
+  name:
+    en: Video calls
+    fr: Appels vidéo
