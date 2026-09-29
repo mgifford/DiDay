@@ -185,6 +185,16 @@ details li { margin-bottom: 0.5rem; }
 
 .site-footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-block: 1rem; color: var(--muted); font-size: 0.95rem; }
 
+.social-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 0.45rem;
+  margin-block: -0.45rem;
+}
+.social-link svg { width: 1.2em; height: 1.2em; flex: none; color: var(--ink); }
+
 @media (forced-colors: active) {
   .flag, .alt { border-color: CanvasText; }
 }
