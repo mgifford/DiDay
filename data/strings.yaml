@@ -176,6 +176,12 @@ about_campaigns_intro:
 footer_contribute:
   en: Contribute on GitHub
   fr: Contribuer sur GitHub
+mastodon_link:
+  en: Mastodon
+  fr: Mastodon
+gander_link:
+  en: Gander
+  fr: Gander
 footer_license:
   en: Code under the GNU AGPL v3 licence. Content under CC BY-SA 4.0.
   fr: Code sous licence GNU AGPL v3. Contenu sous licence CC BY-SA 4.0.
@@ -256,8 +262,34 @@ report_intro:
 # Monthly reminder posts. {url} is replaced with the site address.
 # French: non-breaking space (\u00a0) before a colon.
 reminder_post:
-  en: "Today is First Sunday. Move one service away from Big Tech: pick a switch recipe, cancel one subscription, and tell someone what you did.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
-  fr: "C'est le premier dimanche. Quittez un service des géants du numérique\u00a0: choisissez une recette, annulez un abonnement et parlez-en à quelqu'un.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+  en:
+    - "Today is First Sunday. Move one service away from Big Tech: pick a switch recipe, cancel one subscription, and tell someone what you did.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+    - "It's First Sunday! One subscription, one switch, one less reason for Big Tech to have your data.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+    - "First Sunday is here. Pick one U.S. service, follow a switch recipe, and cancel it today.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+    - "Today's the day: First Sunday. Small step, real difference. Switch one service, cancel it, tell a friend.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+  fr:
+    - "C'est le premier dimanche. Quittez un service des géants du numérique\u00a0: choisissez une recette, annulez un abonnement et parlez-en à quelqu'un.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+    - "C'est le premier dimanche\u00a0! Un abonnement, un changement, une raison de moins pour les géants du numérique d'avoir vos données.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+    - "Le premier dimanche est arrivé. Choisissez un service américain, suivez une recette et annulez-le aujourd'hui.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+    - "Aujourd'hui, c'est le premier dimanche. Petit geste, vraie différence. Changez un service, annulez-le, parlez-en.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+teaser_post:
+  en:
+    - "First Sunday is this weekend. Pick the one U.S. service you'll switch away from, so you're ready Sunday.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "Heads up: First Sunday is Sunday. Have a look at the switch recipes and choose your target.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "This Sunday is First Sunday. Two days to pick a service to leave behind.\n\n{url}/en/recipes/\n\n#FirstSunday"
+  fr:
+    - "Le premier dimanche, c'est ce week-end. Choisissez dès maintenant le service américain que vous quitterez dimanche.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "Rappel\u00a0: le premier dimanche approche. Jetez un œil aux recettes et choisissez votre cible.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "Ce dimanche, c'est le premier dimanche. Deux jours pour choisir un service à quitter.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+followup_post:
+  en:
+    - "How did First Sunday go? Reply and tell us what you switched, or what got in the way.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "Did you switch something yesterday? Share what worked (or what did not) so others can learn from it.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "First Sunday was yesterday. What did you move away from? Tell us how it went.\n\n{url}/en/recipes/\n\n#FirstSunday"
+  fr:
+    - "Comment s'est passé le premier dimanche\u00a0? Dites-nous ce que vous avez changé, ou ce qui vous en a empêché.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "Avez-vous changé quelque chose hier\u00a0? Partagez ce qui a fonctionné (ou non) pour aider les autres.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "Le premier dimanche, c'était hier. Qu'avez-vous quitté\u00a0? Racontez-nous comment ça s'est passé.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
 public_reports_notice:
   en: If you mention our Mastodon account in a public post, a copy of that post and your handle goes into a public issue on GitHub so we can track it. Other posts and direct messages are never copied.
   fr: Si vous mentionnez notre compte Mastodon dans une publication publique, une copie de cette publication et votre identifiant sont versés dans un ticket public sur GitHub pour en assurer le suivi. Les autres publications et les messages privés ne sont jamais copiés.

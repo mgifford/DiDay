@@ -32,9 +32,9 @@ automation that has only been tested in a sandbox.
 
 ## 4. Gander
 
-- [ ] Create a Gander account for the project.
+- [x] Create a Gander account for the project: `diday.gander.social`.
 - [ ] On each first Sunday, copy the text from the "Monthly reminder" run summary and post it by hand. Delete it after 30 days.
-- [ ] Revisit automation when Gander offers a posting interface or connects to other networks.
+- [ ] Revisit automation when Gander offers a public posting API or full AT Protocol interoperability. As of 2026-09-29: the handle resolves on the AT Protocol (confirmed via Bluesky's own `resolveHandle` endpoint), but is not yet visible through Bluesky's app or API, and gandersocial.ca has no public developer API or self-serve app tokens (see README.md's Gander section for the sources).
 
 ## 5. Content
 

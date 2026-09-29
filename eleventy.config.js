@@ -62,6 +62,9 @@ export default function (eleventyConfig) {
     return `https://${m[2]}/@${m[1]}`;
   });
 
+  // AT Protocol handle (e.g. "diday.gander.social") to its Gander profile page.
+  eleventyConfig.addFilter("ganderUrl", (handle) => `https://gander.social/profile/${handle}`);
+
   eleventyConfig.addFilter("where", (list, key, value) =>
     list.filter((item) => item[key] === value)
   );

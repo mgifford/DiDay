@@ -19,6 +19,8 @@
     <div class="wrap">
       <p class="site-name"><a href="/{{ lang }}/">{{ catalog.site.name | loc(lang) }}</a></p>
       <div class="header-controls">
+        {% if catalog.site.mastodon %}<a rel="me" href="{{ catalog.site.mastodon | mastodonUrl }}">{{ "mastodon_link" | t(lang) }}</a>{% endif %}
+        {% if catalog.site.gander %}<a rel="me" href="{{ catalog.site.gander | ganderUrl }}">{{ "gander_link" | t(lang) }}</a>{% endif %}
         <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA" data-lang="{{ other }}">{{ "lang_switch" | t(lang) }}</a>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false"
           data-label-dark="{{ 'theme_to_dark' | t(lang) }}" data-label-light="{{ 'theme_to_light' | t(lang) }}">

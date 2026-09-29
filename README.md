@@ -137,6 +137,8 @@ Try it: `npm run reminders` (dry run, writes `reports/reminder.md`).
 
 Gander is listed as an alternative. It cannot yet be a reporting channel, because it does not connect to Mastodon and does not offer the same kind of access. Revisit once Gander connects to other networks.
 
+The project's handle, `diday.gander.social`, resolves on the AT Protocol (the open standard Bluesky also uses): `https://public.api.bsky.app/xrpc/com.atproto.identity.resolveHandle?handle=diday.gander.social` returns a `did:plc:` identity. It is not yet visible through Bluesky's own app or API (`app.bsky.actor.getProfile` returns "Profile not found" as of 2026-09-29), matching Gander's FAQ: "Today, Gander gives users the option to view content from Bluesky," with full interoperability (posting that reaches Bluesky, and a public developer API) listed as a future goal, not a current feature. There is no public API sign-up; the only integration route mentioned on gandersocial.ca is a partnership inquiry ("Talk to us" on the Why Gander page).
+
 ## Reviewing an entry
 
 1. Check each source still supports the claims listed under `supports`.

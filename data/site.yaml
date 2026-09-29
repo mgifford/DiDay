@@ -14,6 +14,11 @@ repo: https://github.com/mgifford/DiDay
 # Written as "@name@mstdn.ca". Leave null until the account exists; this hides
 # the Mastodon option on the site and turns off the Mastodon inbox job.
 mastodon: "@DIDay@mstdn.ca"
+# Project handle on Gander (gandersocial.ca), an AT Protocol app. Leave null
+# until the account exists; this hides the Gander link on the site. No public
+# posting API exists yet (see README.md's Gander section), so this is a
+# profile link only, not a reporting or automation channel.
+gander: diday.gander.social
 # Where the "report a problem" links open. Uses the issue form in
 # .github/ISSUE_TEMPLATE/out-of-date.yml. Change this if the project moves host.
 report_url: https://github.com/mgifford/DiDay/issues/new?template=out-of-date.yml
