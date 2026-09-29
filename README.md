@@ -49,7 +49,8 @@ npm run check:reviews   # lists entries by review date
 | `data/cancel.yaml` | U.S. subscriptions and cancellation links |
 | `data/recipes.yaml` | Step-by-step switch recipes |
 | `scripts/validate.js` | Content checks run before every build |
-| `src/` | Templates and CSS |
+| `src/` | Templates, CSS and JS |
+| `src/js/theme.js` | Light/dark theme toggle, overriding the OS setting |
 | `data/review.yaml` | How long a review stays current |
 | `lib/reviews.js`, `scripts/check-reviews.js` | Review date tracking |
 | `data/link-check.yaml` | URLs the link checker skips |
@@ -165,7 +166,7 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 
 - Cancellation URLs are the U.S. pages listed by Resist and Unsubscribe. Canadian (.ca, en-ca, fr-ca) pages still need to be found.
 - Wikipedia sources are placeholders. Primary sources are preferred.
-- French text needs review by a fluent francophone. All 79 French texts are currently marked as not reviewed.
+- French text needs review by a fluent francophone. All French texts are currently marked as not reviewed (run `npm run french` for the current count).
 - URL slugs are English in both languages.
 - Siteimprove Alfa is deferred. axe-core is in CI.
 - The Firefox accessibility run has not yet been tested; it was built in an environment where only Chromium was available. Playwright's Firefox is a patched build, not the release version.
@@ -181,4 +182,8 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 
 ## Licence
 
-Code: MIT (see `LICENSE`). Content in `data/`: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Code: [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html) or later (see `LICENSE`). Content in `data/`: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+AGPL, rather than MIT, so that anyone who runs a modified version of this
+site as a public service - not just anyone who redistributes the code -
+must also offer its source. A fork stays open the same way the original is.

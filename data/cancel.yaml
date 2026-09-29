@@ -40,3 +40,113 @@
   recipe: null
   source: https://www.resistandunsubscribe.com/
   verified: false
+
+- id: audible
+  company: Amazon
+  service: Audible
+  ownership: US
+  cancel_url: https://help.audible.com/s/article/cancel-membership?language=en_US
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: amazon-music
+  company: Amazon
+  service: Amazon Music
+  ownership: US
+  cancel_url: https://www.amazon.com/gp/help/customer/display.html?nodeId=GCRZL3F2UZMNP3T3
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: prime-video
+  company: Amazon
+  service: Prime Video
+  ownership: US
+  cancel_url: https://www.primevideo.com/help?nodeId=GWGDSNXVPJ93UW5V
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: amazon-grocery
+  company: Amazon
+  service: Amazon Grocery
+  ownership: US
+  cancel_url: https://www.amazon.com/gp/help/customer/display.html?nodeId=T0o47frAQPUyjKryun
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: apple-tv
+  company: Apple
+  service: Apple TV+
+  ownership: US
+  cancel_url: https://support.apple.com/en-us/118398
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: apple-one
+  company: Apple
+  service: "Apple One (also covers Apple News+, Fitness+ and Arcade)"
+  ownership: US
+  cancel_url: https://support.apple.com/en-us/118428?device-type=mac
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: youtube-premium
+  company: Google
+  service: YouTube Premium
+  ownership: US
+  cancel_url: https://www.youtube.com/paid_memberships
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: youtube-music
+  company: Google
+  service: YouTube Music
+  ownership: US
+  cancel_url: https://support.google.com/youtube/answer/6308278
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: microsoft-office
+  company: Microsoft
+  service: Microsoft 365 (Office)
+  ownership: US
+  cancel_url: https://support.microsoft.com/en-us/account-billing/cancel-your-microsoft-subscription-c2c6b0e3-cab3-cb98-d83e-c9ad54620530
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: chatgpt-plus
+  company: OpenAI
+  service: ChatGPT Plus / Team
+  ownership: US
+  cancel_url: https://help.openai.com/en/articles/7232927-how-do-i-cancel-my-chatgpt-subscription
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false
+
+- id: paramount-plus
+  company: Paramount
+  service: Paramount+
+  ownership: US
+  cancel_url: https://support.paramountplus.com/s/article/PI-How-do-I-cancel-my-subscription?language=da
+  alternatives: []
+  recipe: null
+  source: https://www.resistandunsubscribe.com/
+  verified: false

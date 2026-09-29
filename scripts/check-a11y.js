@@ -51,7 +51,10 @@ const walk = (dir) => {
 walk(siteDir);
 pages.sort();
 
-const server = await serve(siteDir);
+// Must match the prefix baked into the built site's hrefs (including the
+// stylesheet link), or every asset 404s and pages render unstyled.
+const pathPrefix = process.env.PATH_PREFIX || "/";
+const server = await serve(siteDir, { pathPrefix });
 const findings = { violation: new Map(), bestPractice: new Map(), review: new Map() };
 const record = (bucket, result, where) => {
   const key = result.id;
@@ -68,7 +71,8 @@ try {
         const context = await browser.newContext({ colorScheme: setting.colorScheme, viewport: setting.viewport });
         const page = await context.newPage();
         for (const p of pages) {
-          await page.goto(server.url + p);
+          const url = pathPrefix === "/" ? p : pathPrefix.replace(/\/$/, "") + p;
+          await page.goto(server.url + url);
           const results = await new AxeBuilder({ page }).withTags([...WCAG_TAGS, "best-practice"]).analyze();
           const where = `${p} (${name}, ${setting.name})`;
           for (const v of results.violations) {

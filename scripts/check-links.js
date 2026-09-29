@@ -24,7 +24,7 @@ if (!fs.existsSync(siteDir)) {
   console.error("No _site folder. Run `npm run build` first.");
   process.exit(2);
 }
-const internal = checkInternal(siteDir);
+const internal = checkInternal(siteDir, { pathPrefix: process.env.PATH_PREFIX || "/" });
 lines.push(`## Links between pages`, ``, `Checked ${internal.pages} pages.`, ``);
 if (internal.problems.length) {
   failed = true;

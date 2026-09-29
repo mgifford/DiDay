@@ -17,5 +17,16 @@ eleventyComputed:
 <p>{{ "report_intro" | t(lang) }}</p>
 {% set name = catalog.site.name | loc(lang) %}{% include "report.njk" %}
 {% if catalog.site.mastodon %}<p>{{ "public_reports_notice" | t(lang) }}</p>{% endif %}
+<h2>{{ "about_campaigns_heading" | t(lang) }}</h2>
+<p>{{ "about_campaigns_intro" | t(lang) }}</p>
+<ul class="plain">
+  {% for camp in catalog.campaigns %}
+  <li>
+    <a href="{{ camp.url }}">{{ camp.name | loc(lang) }}</a>
+    {% if not camp.verified %}<span class="flag">{{ "unverified" | t(lang) }}</span>{% endif %}
+    <p>{{ camp.description | loc(lang) }}</p>
+  </li>
+  {% endfor %}
+</ul>
 <h2>{{ "about_site_heading" | t(lang) }}</h2>
 <p>{{ "about_site" | t(lang) }}</p>

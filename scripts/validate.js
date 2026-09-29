@@ -51,6 +51,7 @@ unique(c.categories, "categories");
 unique(c.alternatives, "alternatives");
 unique(c.cancel, "cancel");
 unique(c.recipes, "recipes");
+unique(c.campaigns, "campaigns");
 
 for (const cat of c.categories) bilingual(cat.name, `categories.${cat.id}.name`);
 
@@ -95,6 +96,19 @@ for (const a of c.alternatives) {
     errors.push(`${where}: qualifies as ${why.join(", ")}, so it should not have an exception`);
   }
   if (a.exception) bilingual(a.exception, `${where}.exception`);
+}
+
+for (const camp of c.campaigns) {
+  const where = `campaigns.${camp.id}`;
+  bilingual(camp.description, `${where}.description`);
+  country(camp.country, `${where}.country`);
+  if (!Array.isArray(camp.sources) || camp.sources.length === 0) {
+    errors.push(`${where}: needs at least one source`);
+    continue;
+  }
+  camp.sources.forEach((s, i) => {
+    if (!s.url || !s.title) errors.push(`${where}.sources[${i}]: needs title and url`);
+  });
 }
 
 const published = new Set(c.alternatives.filter((a) => !a.draft).map((a) => a.id));

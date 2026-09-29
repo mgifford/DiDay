@@ -23,15 +23,36 @@ nav_about:
 lang_switch:
   en: Français
   fr: English
+theme_to_dark:
+  en: Dark theme
+  fr: Thème sombre
+theme_to_light:
+  en: Light theme
+  fr: Thème clair
 next_date:
   en: Next first Sunday
   fr: Prochain premier dimanche
 add_calendar:
-  en: Add all dates to your calendar (.ics file)
-  fr: Ajouter toutes les dates à votre calendrier (fichier .ics)
+  en: Add to your calendar
+  fr: Ajouter à votre calendrier
 upcoming:
   en: Upcoming dates
   fr: Dates à venir
+calendar_download:
+  en: Download the calendar (.ics file)
+  fr: Télécharger le calendrier (fichier .ics)
+calendar_subscribe_heading:
+  en: Keep it updated automatically
+  fr: Le garder à jour automatiquement
+calendar_subscribe_intro:
+  en: Subscribing, instead of downloading, means new dates appear on their own.
+  fr: S'abonner, plutôt que de télécharger, permet aux nouvelles dates d'apparaître automatiquement.
+calendar_subscribe_google:
+  en: In Google Calendar, go to Other calendars, Add, From URL, and paste the calendar link above.
+  fr: Dans Google Agenda, allez à Autres agendas, Ajouter, À partir d'une adresse URL, puis collez le lien du calendrier ci-dessus.
+calendar_subscribe_outlook:
+  en: In Outlook, go to Add calendar, Subscribe from web, and paste the calendar link above.
+  fr: Dans Outlook, allez à Ajouter un calendrier, S'abonner à partir du web, puis collez le lien du calendrier ci-dessus.
 how_heading:
   en: How it works
   fr: Comment ça marche
@@ -143,12 +164,18 @@ about_site_heading:
 about_site:
   en: No trackers, no cookies, no third-party scripts and no web fonts. Pages are static HTML.
   fr: Aucun traceur, aucun témoin, aucun script tiers et aucune police Web. Les pages sont en HTML statique.
+about_campaigns_heading:
+  en: Related campaigns
+  fr: Campagnes semblables
+about_campaigns_intro:
+  en: This project is not alone. Other campaigns and organizations are working on the same problem, in Canada and elsewhere.
+  fr: Ce projet n'est pas seul. D'autres campagnes et organismes travaillent sur le même enjeu, au Canada et ailleurs.
 footer_contribute:
   en: Contribute on GitHub
   fr: Contribuer sur GitHub
 footer_license:
-  en: Code under the MIT licence. Content under CC BY-SA 4.0.
-  fr: Code sous licence MIT. Contenu sous licence CC BY-SA 4.0.
+  en: Code under the GNU AGPL v3 licence. Content under CC BY-SA 4.0.
+  fr: Code sous licence GNU AGPL v3. Contenu sous licence CC BY-SA 4.0.
 countries:
   CA:
     en: Canada
@@ -165,6 +192,9 @@ countries:
   DE:
     en: Germany
     fr: Allemagne
+  NL:
+    en: Netherlands
+    fr: Pays-Bas
   UA:
     en: Ukraine
     fr: Ukraine
