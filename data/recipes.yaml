@@ -66,3 +66,26 @@
       - Envoyez le nouveau lien ou la nouvelle invitation à la place d'un lien Zoom ou Teams la prochaine fois que vous planifiez un appel.
       - Prévenez les autres participants une semaine à l'avance, car un nouvel outil peut en dérouter certains.
   verified: false
+
+- id: social-without-facebook
+  title:
+    en: Social media without Facebook or X
+    fr: Réseaux sociaux sans Facebook ni X
+  minutes: 45
+  difficulty: average
+  replaces: []
+  alternatives: [gander, mstdn-ca]
+  steps:
+    en:
+      - Pick a new platform. Gander suits general posting and following friends; a Mastodon server such as mstdn.ca suits following people and topics across many other servers, not just one company's app.
+      - Create your account there and post a link to it from your old accounts, so people can find you.
+      - Follow the same people or organizations again. There is no automatic way to copy followers between unrelated platforms, so this part takes time.
+      - Post on both the old and new account for a few weeks, so your existing followers have time to notice and move with you.
+      - Once most of your regular contacts have moved, stop posting on the old account and update its bio to point to the new one.
+    fr:
+      - Choisissez une nouvelle plateforme. Gander convient pour publier et suivre ses amis en général; un serveur Mastodon comme mstdn.ca convient pour suivre des personnes et des sujets à travers de nombreux autres serveurs, pas seulement l'application d'une seule entreprise.
+      - Créez-y votre compte et publiez un lien vers celui-ci depuis vos anciens comptes, pour que les gens puissent vous y retrouver.
+      - Suivez à nouveau les mêmes personnes ou organismes. Il n'existe aucun moyen automatique de copier des abonnés entre des plateformes sans lien entre elles, alors cette étape prend du temps.
+      - Publiez à la fois sur l'ancien et le nouveau compte pendant quelques semaines, pour laisser à vos abonnés actuels le temps de le remarquer et de vous suivre.
+      - Une fois que la plupart de vos contacts habituels ont migré, cessez de publier sur l'ancien compte et mettez à jour sa biographie pour pointer vers le nouveau.
+  verified: false

@@ -114,21 +114,21 @@
   name: mstdn.ca
   url: https://mstdn.ca/
   category: social
-  # Headquarters and ownership are unresearched: a Mastodon server is
-  # community-run, and who specifically administers this one has not been
-  # confirmed against a primary source. Leave both null until it is.
-  headquarters: null
+  headquarters: CA
+  # Run by volunteers, not a registered company, so there is no ownership
+  # in the usual corporate sense to confirm. Left null rather than guessed.
   ownership: null
   open_source: true
-  # Not published until headquarters and ownership are researched.
-  draft: true
   notes:
-    en: A general-purpose Mastodon server for people in Canada, including this project's own account. Mastodon is federated, open-source software, so an account here can also follow and be followed from any other Mastodon server. Who administers this specific server has not yet been researched.
-    fr: Serveur Mastodon généraliste pour les personnes au Canada, où se trouve aussi le compte de ce projet. Mastodon étant un logiciel fédéré à code source ouvert, un compte ici peut donc suivre et être suivi depuis n'importe quel autre serveur Mastodon. L'administration de ce serveur en particulier n'a pas encore été vérifiée.
+    en: A general-purpose Mastodon server for people in Canada, including this project's own account. Run by volunteers and administered and hosted in Canada. Mastodon is federated, open-source software, so an account here can also follow and be followed from any other Mastodon server.
+    fr: Serveur Mastodon généraliste pour les personnes au Canada, où se trouve aussi le compte de ce projet. Géré par des bénévoles, administré et hébergé au Canada. Mastodon étant un logiciel fédéré à code source ouvert, un compte ici peut donc suivre et être suivi depuis n'importe quel autre serveur Mastodon.
   sources:
     - title: Mastodon (official site)
       url: https://joinmastodon.org/
       supports: [open_source]
+    - title: About mstdn.ca (mstdn.ca)
+      url: https://mstdn.ca/about
+      supports: [headquarters]
   verified: false
 
 - id: bigbluebutton
