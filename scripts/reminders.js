@@ -1,5 +1,7 @@
-// Posts the monthly reminder to Mastodon on the first Sunday, and deletes
-// reminders older than 30 days. Runs daily; does nothing on other days
+// Posts to Mastodon around the first Sunday of the month - a teaser on
+// the Friday before, the reminder on the first Sunday itself, and a
+// check-in on the Monday after - and deletes reminders older than 30
+// days. Runs daily; does nothing on days that are none of the three,
 // except the clean-up.
 //
 //   node scripts/reminders.js            dry run: writes reports/reminder.md
@@ -13,7 +15,7 @@
 import fs from "node:fs";
 import { loadCatalog } from "../lib/catalog.js";
 import { parseHandle } from "../lib/mastodon.js";
-import { isFirstSunday, reminderPosts, postedToday, expiredReminders, RETENTION_DAYS } from "../lib/reminders.js";
+import { occasionFor, postsForOccasion, postedToday, expiredReminders, RETENTION_DAYS } from "../lib/reminders.js";
 
 const catalog = loadCatalog();
 const live = process.argv.includes("--post");
@@ -21,8 +23,9 @@ const now = new Date(process.env.REMINDER_NOW || Date.now());
 const appName = process.env.MASTODON_APP_NAME || "DI.DAY Canada reminders";
 const account = parseHandle(catalog.site.mastodon);
 const token = process.env.MASTODON_POSTING_TOKEN;
-const posts = reminderPosts(catalog, now);
-const report = ["# Monthly reminder", "", `Run: ${now.toISOString()}`, ""];
+const occasion = occasionFor(now);
+const posts = postsForOccasion(occasion, catalog, now);
+const report = ["# Reminder posts", "", `Run: ${now.toISOString()}`, `Occasion: ${occasion || "none"}`, ""];
 const finish = (code = 0) => {
   fs.mkdirSync("reports", { recursive: true });
   fs.writeFileSync("reports/reminder.md", report.join("\n"));
@@ -30,10 +33,12 @@ const finish = (code = 0) => {
   process.exit(code);
 };
 
-if (!posts.length) { report.push("No site url set in data/site.yaml. Nothing to post."); finish(); }
+if (occasion && !posts.length) { report.push("No site url set in data/site.yaml. Nothing to post."); finish(); }
 
-report.push("## Text", "", "Also post this on Gander by hand on the first Sunday.", "");
-for (const p of posts) report.push(`### ${p.language}`, "", "```", p.status, "```", "");
+if (posts.length) {
+  report.push("## Text", "", "Also post this on Gander by hand.", "");
+  for (const p of posts) report.push(`### ${p.language}`, "", "```", p.status, "```", "");
+}
 
 if (!account || !token) { report.push("No Mastodon account or MASTODON_POSTING_TOKEN. Nothing sent."); finish(); }
 
@@ -43,7 +48,7 @@ const api = async (method, path, body) => {
     headers: {
       authorization: `Bearer ${token}`,
       "content-type": "application/json",
-      "user-agent": `FirstSundayReminders/0.1 (+${catalog.site.repo})`,
+      "user-agent": `DIDayCanadaReminders/0.1 (+${catalog.site.repo})`,
     },
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -63,9 +68,9 @@ for (const s of expired) {
 }
 report.push("");
 
-// Posting only on the first Sunday, and only once.
+// Posting only on a teaser, reminder or check-in day, and only once.
 report.push("## Posting", "");
-if (!isFirstSunday(now)) report.push("Not the first Sunday. Nothing posted.");
+if (!occasion) report.push("Not a teaser, reminder or check-in day. Nothing posted.");
 else if (postedToday(own, appName, now)) report.push("Already posted today. Nothing posted.");
 else {
   for (const p of posts) {

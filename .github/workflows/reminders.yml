@@ -1,9 +1,11 @@
-name: Monthly reminder
+name: Reminder posts
 
 on:
   schedule:
-    # Daily at 13:00 UTC (morning across Canada). Posts only on the first
-    # Sunday; the other days delete reminders older than 30 days.
+    # Daily at 13:00 UTC (morning across Canada). Posts a teaser on the
+    # Friday before the first Sunday, the reminder on the first Sunday
+    # itself, and a check-in the Monday after; every other day only
+    # deletes reminders older than 30 days.
     - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
