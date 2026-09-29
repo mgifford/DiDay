@@ -3,9 +3,33 @@ permalink: /
 eleventyExcludeFromCollections: true
 ---
 <!doctype html>
-<html lang="en-CA">
+<html lang="en-CA" data-base="{{ '/' | htmlBaseUrl }}">
 <head>
   <meta charset="utf-8">
+  <!-- Redirects to a stored or browser-matched language before paint, so
+       returning visitors and visitors with en/fr browsers skip this page.
+       No cookies: same-origin, inline, localStorage only (see js/lang.js
+       for the click-time save). Visitors with no en/fr match, or with JS
+       off, see the choice below instead. data-base carries the built
+       path prefix (e.g. "/DiDay/"), the same one HtmlBasePlugin applies
+       to every href on the site, since a runtime redirect target can't
+       be rewritten by that build-time HTML transform. -->
+  <script>(function(){
+    "use strict";
+    var v;
+    try { v = localStorage.getItem("lang"); } catch (e) {}
+    if (v !== "en" && v !== "fr") {
+      var langs = navigator.languages || [navigator.language || ""];
+      for (var i = 0; i < langs.length; i++) {
+        var p = String(langs[i]).slice(0, 2).toLowerCase();
+        if (p === "en" || p === "fr") { v = p; break; }
+      }
+    }
+    if (v === "en" || v === "fr") {
+      var base = document.documentElement.getAttribute("data-base") || "/";
+      location.replace(base + v + "/");
+    }
+  })();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ catalog.site.name.en }} | {{ catalog.site.name.fr }}</title>
   <link rel="stylesheet" href="/css/style.css">
@@ -15,13 +39,14 @@ eleventyExcludeFromCollections: true
     <div>
       <h1>{{ catalog.site.name.en }}</h1>
       <p>{{ catalog.site.tagline.en }}</p>
-      <p><a class="button" href="/en/">English</a></p>
+      <p><a class="button" href="/en/" data-lang="en">English</a></p>
     </div>
     <div lang="fr-CA">
       <h1>{{ catalog.site.name.fr }}</h1>
       <p>{{ catalog.site.tagline.fr }}</p>
-      <p><a class="button" href="/fr/">Français</a></p>
+      <p><a class="button" href="/fr/" data-lang="fr">Français</a></p>
     </div>
   </main>
+  <script src="/js/lang.js" defer></script>
 </body>
 </html>
