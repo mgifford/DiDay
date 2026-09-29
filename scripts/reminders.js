@@ -6,7 +6,7 @@
 //   node scripts/reminders.js --post     posts and deletes for real
 //
 // Needs MASTODON_POSTING_TOKEN: a token for an application named by
-// MASTODON_APP_NAME (default "First Sunday reminders") with only the
+// MASTODON_APP_NAME (default "DI.DAY Canada reminders") with only the
 // read:statuses and write:statuses scopes.
 // Gander has no public posting interface, so reports/reminder.md also holds the
 // text for a person to post there by hand.
@@ -18,10 +18,10 @@ import { isFirstSunday, reminderPosts, postedToday, expiredReminders, RETENTION_
 const catalog = loadCatalog();
 const live = process.argv.includes("--post");
 const now = new Date(process.env.REMINDER_NOW || Date.now());
-const appName = process.env.MASTODON_APP_NAME || "First Sunday reminders";
+const appName = process.env.MASTODON_APP_NAME || "DI.DAY Canada reminders";
 const account = parseHandle(catalog.site.mastodon);
 const token = process.env.MASTODON_POSTING_TOKEN;
-const posts = reminderPosts(catalog);
+const posts = reminderPosts(catalog, now);
 const report = ["# Monthly reminder", "", `Run: ${now.toISOString()}`, ""];
 const finish = (code = 0) => {
   fs.mkdirSync("reports", { recursive: true });

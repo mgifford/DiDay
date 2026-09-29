@@ -9,7 +9,7 @@ export function render({ dates, catalog }) {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//First Sunday Canada//EN",
+    "PRODID:-//DI.DAY Canada//EN",
     "CALSCALE:GREGORIAN",
     ...dates.upcoming.flatMap((d) => [
       "BEGIN:VEVENT",

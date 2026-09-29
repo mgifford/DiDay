@@ -146,6 +146,9 @@ unverified:
 campaign_unverified:
   en: Not yet reviewed by a maintainer.
   fr: Pas encore vérifié par une personne responsable.
+about_name_explainer:
+  en: "DI.DAY stands for Digital Independence Day: an international campaign, started in Germany, to move away from Big Tech on the first Sunday of every month. This site is its Canadian chapter."
+  fr: "DI.DAY signifie Digital Independence Day (jour de l'indépendance numérique) : une campagne internationale, lancée en Allemagne, pour se détourner des géants du numérique le premier dimanche de chaque mois. Ce site en est le volet canadien."
 about_intro:
   en: A volunteer, open source project. Anyone can propose a change on GitHub.
   fr: Un projet bénévole à code source ouvert. Tout le monde peut proposer une modification sur GitHub.
@@ -263,33 +266,33 @@ report_intro:
 # French: non-breaking space (\u00a0) before a colon.
 reminder_post:
   en:
-    - "Today is First Sunday. Move one service away from Big Tech: pick a switch recipe, cancel one subscription, and tell someone what you did.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
-    - "It's First Sunday! One subscription, one switch, one less reason for Big Tech to have your data.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
-    - "First Sunday is here. Pick one U.S. service, follow a switch recipe, and cancel it today.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
-    - "Today's the day: First Sunday. Small step, real difference. Switch one service, cancel it, tell a friend.\n\n{url}/en/recipes/\n\n#FirstSunday #DIDit"
+    - "Today is DI.DAY. Move one service away from Big Tech: pick a switch recipe, cancel one subscription, and tell someone what you did.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "It's DI.DAY! One subscription, one switch, one less reason for Big Tech to have your data.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "DI.DAY is here. Pick one U.S. service, follow a switch recipe, and cancel it today.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "Today's the day: DI.DAY. Small step, real difference. Switch one service, cancel it, tell a friend.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
   fr:
-    - "C'est le premier dimanche. Quittez un service des géants du numérique\u00a0: choisissez une recette, annulez un abonnement et parlez-en à quelqu'un.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
-    - "C'est le premier dimanche\u00a0! Un abonnement, un changement, une raison de moins pour les géants du numérique d'avoir vos données.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
-    - "Le premier dimanche est arrivé. Choisissez un service américain, suivez une recette et annulez-le aujourd'hui.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
-    - "Aujourd'hui, c'est le premier dimanche. Petit geste, vraie différence. Changez un service, annulez-le, parlez-en.\n\n{url}/fr/recipes/\n\n#PremierDimanche #DIDit"
+    - "C'est DI.DAY. Quittez un service des géants du numérique\u00a0: choisissez une recette, annulez un abonnement et parlez-en à quelqu'un.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "C'est DI.DAY\u00a0! Un abonnement, un changement, une raison de moins pour les géants du numérique d'avoir vos données.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "DI.DAY est arrivé. Choisissez un service américain, suivez une recette et annulez-le aujourd'hui.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "Aujourd'hui, c'est DI.DAY. Petit geste, vraie différence. Changez un service, annulez-le, parlez-en.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
 teaser_post:
   en:
-    - "First Sunday is this weekend. Pick the one U.S. service you'll switch away from, so you're ready Sunday.\n\n{url}/en/recipes/\n\n#FirstSunday"
-    - "Heads up: First Sunday is Sunday. Have a look at the switch recipes and choose your target.\n\n{url}/en/recipes/\n\n#FirstSunday"
-    - "This Sunday is First Sunday. Two days to pick a service to leave behind.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "DI.DAY is this weekend (first Sunday of the month). Pick the one U.S. service you'll switch away from, so you're ready Sunday.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "Heads up: DI.DAY is Sunday. Have a look at the switch recipes and choose your target.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "This Sunday is DI.DAY. Two days to pick a service to leave behind.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
   fr:
-    - "Le premier dimanche, c'est ce week-end. Choisissez dès maintenant le service américain que vous quitterez dimanche.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
-    - "Rappel\u00a0: le premier dimanche approche. Jetez un œil aux recettes et choisissez votre cible.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
-    - "Ce dimanche, c'est le premier dimanche. Deux jours pour choisir un service à quitter.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "DI.DAY, c'est ce week-end (le premier dimanche du mois). Choisissez dès maintenant le service américain que vous quitterez dimanche.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "Rappel\u00a0: DI.DAY approche. Jetez un œil aux recettes et choisissez votre cible.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "Ce dimanche, c'est DI.DAY. Deux jours pour choisir un service à quitter.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
 followup_post:
   en:
-    - "How did First Sunday go? Reply and tell us what you switched, or what got in the way.\n\n{url}/en/recipes/\n\n#FirstSunday"
-    - "Did you switch something yesterday? Share what worked (or what did not) so others can learn from it.\n\n{url}/en/recipes/\n\n#FirstSunday"
-    - "First Sunday was yesterday. What did you move away from? Tell us how it went.\n\n{url}/en/recipes/\n\n#FirstSunday"
+    - "How did DI.DAY go? Reply and tell us what you switched, or what got in the way.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "Did you switch something yesterday? Share what worked (or what did not) so others can learn from it.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
+    - "DI.DAY was yesterday. What did you move away from? Tell us how it went.\n\n{url}/en/recipes/\n\n#DiDay #DiDayCA"
   fr:
-    - "Comment s'est passé le premier dimanche\u00a0? Dites-nous ce que vous avez changé, ou ce qui vous en a empêché.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
-    - "Avez-vous changé quelque chose hier\u00a0? Partagez ce qui a fonctionné (ou non) pour aider les autres.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
-    - "Le premier dimanche, c'était hier. Qu'avez-vous quitté\u00a0? Racontez-nous comment ça s'est passé.\n\n{url}/fr/recipes/\n\n#PremierDimanche"
+    - "Comment s'est passé DI.DAY\u00a0? Dites-nous ce que vous avez changé, ou ce qui vous en a empêché.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "Avez-vous changé quelque chose hier\u00a0? Partagez ce qui a fonctionné (ou non) pour aider les autres.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
+    - "DI.DAY, c'était hier. Qu'avez-vous quitté\u00a0? Racontez-nous comment ça s'est passé.\n\n{url}/fr/recipes/\n\n#DiDay #DiDayCA"
 public_reports_notice:
   en: If you mention our Mastodon account in a public post, a copy of that post and your handle goes into a public issue on GitHub so we can track it. Other posts and direct messages are never copied.
   fr: Si vous mentionnez notre compte Mastodon dans une publication publique, une copie de cette publication et votre identifiant sont versés dans un ticket public sur GitHub pour en assurer le suivi. Les autres publications et les messages privés ne sont jamais copiés.
