@@ -1,0 +1,38 @@
+name: Test Mastodon post (temporary)
+
+# One-off check that MASTODON_POSTING_TOKEN works. Posts a single plain
+# status to confirm the token and account are set up correctly. Delete
+# this workflow file once the check has run.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post a test status
+        env:
+          MASTODON_POSTING_TOKEN: ${{ secrets.MASTODON_POSTING_TOKEN }}
+        run: |
+          if [ -z "$MASTODON_POSTING_TOKEN" ]; then
+            echo "::error::MASTODON_POSTING_TOKEN is not set"
+            exit 1
+          fi
+          response=$(curl -sS -w "\n%{http_code}" -X POST https://mstdn.ca/api/v1/statuses \
+            -H "Authorization: Bearer $MASTODON_POSTING_TOKEN" \
+            --data-urlencode "status=Hello Canada! (test post from First Sunday's GitHub Actions setup, safe to ignore or delete)" \
+            --data-urlencode "visibility=public")
+          body=$(echo "$response" | head -n -1)
+          code=$(echo "$response" | tail -n1)
+          echo "HTTP status: $code"
+          echo "$body"
+          if [ "$code" != "200" ]; then
+            echo "::error::Post failed with HTTP $code"
+            exit 1
+          fi
+          url=$(echo "$body" | node -pe 'JSON.parse(require("fs").readFileSync(0,"utf8")).url')
+          echo "Posted: $url" >> "$GITHUB_STEP_SUMMARY"
