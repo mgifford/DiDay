@@ -9,7 +9,7 @@ export default function (eleventyConfig) {
   // Rewrites absolute links for GitHub project pages (/repo-name/).
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/js": "js" });
+  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/js": "js", "src/CNAME": "CNAME" });
   eleventyConfig.addWatchTarget("data/");
 
   // Interface string: {{ "nav_home" | t(lang) }}

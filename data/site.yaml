@@ -7,16 +7,16 @@ tagline:
   fr: Le premier dimanche de chaque mois, quittez un service des géants du numérique.
 # Public address of the site, without a trailing slash. Used in reminder posts.
 # Leave null until the site is live; reminders are not posted without it.
-url: null
+url: https://diday.ca
 # Replace with the real repository URL.
-repo: https://github.com/OWNER/REPO
+repo: https://github.com/mgifford/DiDay
 # Project account on mstdn.ca for reports from people without a GitHub account.
 # Written as "@name@mstdn.ca". Leave null until the account exists; this hides
 # the Mastodon option on the site and turns off the Mastodon inbox job.
 mastodon: "@DIDay@mstdn.ca"
 # Where the "report a problem" links open. Uses the issue form in
 # .github/ISSUE_TEMPLATE/out-of-date.yml. Change this if the project moves host.
-report_url: https://github.com/OWNER/REPO/issues/new?template=out-of-date.yml
+report_url: https://github.com/mgifford/DiDay/issues/new?template=out-of-date.yml
 languages:
   - en
   - fr
