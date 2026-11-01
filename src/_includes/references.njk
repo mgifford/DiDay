@@ -1,0 +1,38 @@
+{# External references, at the foot of every page. The intro says that every
+   link leaves the site. Where the destination is not in the page language,
+   the language is named in curly brackets. A headline in another language
+   keeps its own lang attribute (WCAG 3.1.2) and is followed by a translation
+   in brackets. #}
+<section>
+  <h2>{{ "refs_heading" | t(lang) }}</h2>
+  <p>{{ "refs_intro" | t(lang) }}</p>
+  <ul class="plain">
+    <li>
+      <a href="https://di.day/en" hreflang="en">{{ "refs_global" | t(lang) }}</a>{% if lang != "en" %} { {{- "language_en" | t(lang) -}} }{% endif %}
+    </li>
+    <li>
+      <a href="https://diday.org/{{ lang }}/how/" hreflang="{{ lang }}">{{ "refs_how" | t(lang) }}</a>
+    </li>
+    <li>
+      <a href="https://diday.org/{{ lang }}/" hreflang="{{ lang }}">{{ "refs_movement" | t(lang) }}</a>
+    </li>
+    <li>
+      <a href="https://itsfoss.com/news/di-day-celebration/" hreflang="en">{% if lang == "fr" %}<span lang="en">It's FOSS: DI.DAY is a Movement to Encourage People to Ditch Big Tech</span> ({{ "refs_itsfoss" | t(lang) }}){% else %}{{ "refs_itsfoss" | t(lang) }}{% endif %}</a>{% if lang != "en" %} { {{- "language_en" | t(lang) -}} }{% endif %}
+    </li>
+    <li>
+      <a href="https://de.wikipedia.org/wiki/Digital_Independence_Day" hreflang="de">{{ "refs_wikipedia" | t(lang) }}{% if lang == "fr" %} ({{ "refs_wikipedia_translation" | t(lang) }}){% endif %}</a> { {{- "language_de" | t(lang) -}} }
+    </li>
+    <li>
+      <a href="https://www.techedubyte.com/di-day-digital-independence-day-starts-a-movement-to-encourages-people-to-ditch-big-tech-services/" hreflang="en">{% if lang == "fr" %}<span lang="en">TechEduByte: DI.DAY (Digital Independence Day) Starts a Movement to Encourages People to Ditch Big Tech</span> ({{ "refs_techedubyte" | t(lang) }}){% else %}{{ "refs_techedubyte" | t(lang) }}{% endif %}</a>{% if lang != "en" %} { {{- "language_en" | t(lang) -}} }{% endif %}
+    </li>
+    <li>
+      <a href="{% if lang == 'fr' %}https://www.schoepflin-stiftung.de/digitale-freiheit-durch-den-digital-independence-day/{% else %}https://www.schoepflin-stiftung.de/en/digitale-freiheit-durch-den-digital-independence-day/{% endif %}" hreflang="{% if lang == 'fr' %}de{% else %}en{% endif %}">{% if lang == "fr" %}<span lang="de">Digitale Freiheit durch den Digital Independence Day</span> ({{ "refs_schoepflin" | t(lang) }}){% else %}{{ "refs_schoepflin" | t(lang) }}{% endif %}</a>{% if lang == "fr" %} { {{- "language_de" | t(lang) -}} }{% endif %}
+    </li>
+    <li>
+      <a href="https://digitalindependence.nl/" hreflang="en">{{ "refs_netherlands" | t(lang) }}</a>{% if lang != "en" %} { {{- "language_en" | t(lang) -}} }{% endif %}
+    </li>
+    <li>
+      <a href="https://github.com/mgifford/DiDay">{{ "refs_github" | t(lang) }}</a>
+    </li>
+  </ul>
+</section>

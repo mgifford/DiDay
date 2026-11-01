@@ -7,6 +7,7 @@ permalink: "/{{ lang }}/"
 layout: base.njk
 ---
 <section class="hero">
+  <p>{% include "brand.njk" %}</p>
   <h1>{{ catalog.site.tagline | loc(lang) }}</h1>
   <p class="next-label">{{ "next_date" | t(lang) }}</p>
   <p class="next-date"><time datetime="{{ dates.next | isoDate }}">{{ dates.next | longDate(lang) }}</time></p>

@@ -1,0 +1,25 @@
+{# Brand mark for the home pages. The title names the image; the description
+   follows it. Both come from data/strings.yaml so each language gets its own
+   pair. There is one instance per page, so the ids can stay fixed. #}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="128" height="128"
+  role="img" aria-labelledby="diday-title" aria-describedby="diday-desc" focusable="false">
+  <title id="diday-title">{{ "brand_title" | t(lang) }}</title>
+  <desc id="diday-desc">{{ "brand_desc" | t(lang) }}</desc>
+
+  <rect x="25" y="10" width="50" height="70" rx="8" fill="var(--bg, transparent)" stroke="currentColor" stroke-width="4"/>
+
+  <rect x="33" y="18" width="34" height="48" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+
+  <line x1="44" y1="14" x2="56" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+  <path d="M50 56 C50 56 38 56 42 42 C44 35 50 32 50 32 C50 32 56 35 58 42 C62 56 50 56 50 56 Z" fill="currentColor" opacity="0.8"/>
+  <path d="M50 56 Q50 62 46 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+  <line x1="50" y1="80" x2="50" y2="87" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M48 94 C45 97 30 92 15 96" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+
+  <line x1="41" y1="86" x2="33" y2="82" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <line x1="59" y1="88" x2="68" y2="92" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <line x1="56" y1="82" x2="62" y2="76" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
