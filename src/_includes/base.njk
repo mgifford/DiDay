@@ -43,9 +43,10 @@
   <a class="skip" href="#main">{{ "skip" | t(lang) }}</a>
   <header class="site-header">
     <div class="wrap">
-      <p class="site-name"><a href="/{{ lang }}/">{{ catalog.site.name | loc(lang) }}</a></p>
+      <p class="site-name"><a href="/{{ lang }}/"{% if page.url == "/" + lang + "/" %} aria-current="page"{% endif %}>{{ catalog.site.name | loc(lang) }}</a></p>
       <div class="header-controls">
-        <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA" data-lang="{{ other }}">{{ "lang_switch" | t(lang) }}</a>
+        <a class="lang-switch" href="{{ otherUrl }}" lang="{{ other }}-CA" hreflang="{{ other }}-CA" data-lang="{{ other }}"
+          aria-label="{{ 'lang_switch_label' | t(other) }}">{{ "lang_switch" | t(lang) }}</a>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false"
           data-label-dark="{{ 'theme_to_dark' | t(lang) }}" data-label-light="{{ 'theme_to_light' | t(lang) }}">
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -69,7 +70,7 @@
       </ul>
     </nav>
   </header>
-  <main id="main" class="wrap">
+  <main id="main" class="wrap" tabindex="-1">
     {{ content | safe }}
   </main>
   <footer class="site-footer">
