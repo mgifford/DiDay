@@ -33,6 +33,24 @@ eleventyExcludeFromCollections: true
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>{{ catalog.site.name.en }} | {{ catalog.site.name.fr }}</title>
+  <meta name="description" content="{{ catalog.site.tagline.en }} {{ catalog.site.tagline.fr }}">
+  <!-- Both languages sit on this page, and each language has its own page:
+       the alternates point there. Open Graph and rel="me" match the rest of
+       the site (see _includes/base.njk). -->
+  <link rel="canonical" href="{{ catalog.site.url }}/">
+  <link rel="alternate" hreflang="en-CA" href="{{ catalog.site.url }}/en/">
+  <link rel="alternate" hreflang="fr-CA" href="{{ catalog.site.url }}/fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ catalog.site.name.en }}">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta property="og:url" content="{{ catalog.site.url }}/">
+  <meta property="og:title" content="{{ catalog.site.name.en }}">
+  <meta property="og:description" content="{{ catalog.site.tagline.en }} {{ catalog.site.tagline.fr }}">
+  {% if catalog.site.mastodon %}<meta name="fediverse:creator" content="{{ catalog.site.mastodon }}">{% endif %}
+  {% if catalog.site.mastodon %}<link rel="me" href="{{ catalog.site.mastodon | mastodonUrl }}">{% endif %}
+  {% if catalog.site.gander %}<link rel="me" href="{{ catalog.site.gander | ganderUrl }}">{% endif %}
+  {% if catalog.site.gander_group %}<link rel="me" href="{{ catalog.site.gander_group }}">{% endif %}
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>

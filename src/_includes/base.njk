@@ -1,5 +1,8 @@
 {%- set other = "fr" if lang == "en" else "en" -%}
 {%- set otherUrl = page.url | replace("/" + lang + "/", "/" + other + "/") -%}
+{%- set siteName = catalog.site.name | loc(lang) -%}
+{%- set pageUrl = catalog.site.url + page.url -%}
+{%- set otherPageUrl = catalog.site.url + otherUrl -%}
 <!doctype html>
 <html lang="{{ lang }}-CA">
 <head>
@@ -9,9 +12,31 @@
   <script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ catalog.site.name | loc(lang) }}</title>
+  <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ siteName }}</title>
   <meta name="description" content="{{ catalog.site.tagline | loc(lang) }}">
-  <link rel="alternate" hreflang="{{ other }}-CA" href="{{ otherUrl }}">
+  <!-- This page, and the same page in the other language. Alternate links
+       take absolute URLs; a relative one is ambiguous for a page that is
+       served under more than one host. -->
+  <link rel="canonical" href="{{ pageUrl }}">
+  <link rel="alternate" hreflang="{{ lang }}-CA" href="{{ pageUrl }}">
+  <link rel="alternate" hreflang="{{ other }}-CA" href="{{ otherPageUrl }}">
+  <!-- Open Graph is what Mastodon, Slack, Discord and iMessage read. The
+       locale takes language_TERRITORY, never a hyphen. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ siteName }}">
+  <meta property="og:locale" content="{{ lang }}_CA">
+  <meta property="og:locale:alternate" content="{{ other }}_CA">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }}{% else %}{{ siteName }}{% endif %}">
+  <meta property="og:description" content="{{ catalog.site.tagline | loc(lang) }}">
+  <!-- Author attribution in Mastodon link previews. Mastodon shows it only
+       if the account lists diday.ca under "Author attribution". -->
+  {% if catalog.site.mastodon %}<meta name="fediverse:creator" content="{{ catalog.site.mastodon }}">{% endif %}
+  <!-- rel="me" lets the fediverse profiles verify this site. The profile is
+       the canonical Gander alias, the group is the campaign alias. -->
+  {% if catalog.site.mastodon %}<link rel="me" href="{{ catalog.site.mastodon | mastodonUrl }}">{% endif %}
+  {% if catalog.site.gander %}<link rel="me" href="{{ catalog.site.gander | ganderUrl }}">{% endif %}
+  {% if catalog.site.gander_group %}<link rel="me" href="{{ catalog.site.gander_group }}">{% endif %}
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>

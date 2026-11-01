@@ -26,6 +26,7 @@ automation that has only been tested in a sandbox.
 - [x] Set `mastodon: "@DIDay@mstdn.ca"` in `data/site.yaml`. This shows the Mastodon option on the site and the notice on the About page that public mentions are copied to GitHub.
 - [ ] Confirm with mstdn.ca moderators (or their published rules) whether an account posting one automated reminder a month should be marked as automated. Their rules require bot accounts to delete posts within a month; the reminders are deleted after 30 days.
 - [ ] Write the profile in English and French, and link the site (add `https://diday.ca` as a profile link so its `rel="me"` link on the site can be verified).
+- [ ] Settings > Profile > Verification > Author attribution: add `diday.ca`. Without it Mastodon ignores the site's `fediverse:creator` tag, and link previews show no author.
 - [ ] Development > New application "DI.DAY Canada inbox", scope `read:notifications` only. Save its token as the repository secret `MASTODON_TOKEN`.
 - [ ] Development > New application "DI.DAY Canada reminders", scopes `read:statuses` and `write:statuses` only. Save its token as the repository secret `MSTDN`. The application name must match `MASTODON_APP_NAME` in `.github/workflows/reminders.yml` ("DI.DAY Canada reminders"), because clean-up only deletes posts made by this application.
 - [ ] Watch: run "Mastodon inbox" by hand, mention the account from a personal account with a public post, and check one issue appears. Send a direct message and check nothing appears.
