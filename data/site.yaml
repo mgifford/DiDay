@@ -18,6 +18,9 @@ mastodon: "@DIDay@mstdn.ca"
 # posting API exists yet (see README.md's Gander section), so this is a
 # profile link only, not a reporting or automation channel.
 gander: diday.gander.social
+# Campaign group on Gander. The handle above is the canonical alias; the group
+# is a second alias. The head advertises both with rel="me".
+gander_group: https://gander.social/group/diday.gandersocial.group
 # Where the "report a problem" links open. Uses the issue form in
 # .github/ISSUE_TEMPLATE/out-of-date.yml. Change this if the project moves host.
 report_url: https://github.com/mgifford/DiDay/issues/new?template=out-of-date.yml
