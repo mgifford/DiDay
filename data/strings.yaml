@@ -23,6 +23,13 @@ nav_about:
 lang_switch:
   en: Français
   fr: English
+# Names the destination of the language link in that destination's language.
+# The template reads t(other), so the English page says the French phrase and
+# the French page says the English one. Each label contains the visible word,
+# so voice control can still match the link text (WCAG 2.5.3).
+lang_switch_label:
+  en: Switch to English
+  fr: Passer au français
 theme_to_dark:
   en: Dark theme
   fr: Thème sombre
