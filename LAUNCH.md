@@ -50,6 +50,8 @@ automation that has only been tested in a sandbox.
 
 ## 6. Accessibility and sustainability
 
+- [ ] Publish `ACCESSIBILITY.md` at the repository root, following the framework at https://mgifford.github.io/ACCESSIBILITY.md/: conformance target (WCAG 2.2 AA), the automated checks that already run, assistive technology coverage, known gaps, and a definition of done. Link it from `README.md`.
+- [ ] Watch: the "build" job on a pull request. It runs axe-core on every built page in light and dark, through both the system preference and the theme toggle, at desktop and phone widths. `reports/a11y.md` is attached to the run and copied into its summary.
 - [ ] Keyboard-only walk through every page type.
 - [ ] Screen reader test: NVDA with Firefox, VoiceOver with Safari on iOS, TalkBack on Android. Check the language switch is announced in the right language.
 - [ ] Zoom to 400% and check reflow; check Windows high contrast mode.
