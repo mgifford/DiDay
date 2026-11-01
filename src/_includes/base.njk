@@ -29,6 +29,13 @@
   <meta property="og:url" content="{{ pageUrl }}">
   <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }}{% else %}{{ siteName }}{% endif %}">
   <meta property="og:description" content="{{ catalog.site.tagline | loc(lang) }}">
+  <!-- 1200x633 share card, one per language. The alt text describes the card,
+       not the page, and lives in strings.yaml so both languages have one. -->
+  <meta property="og:image" content="{{ catalog.site.url }}/img/diday-{{ lang }}.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="633">
+  <meta property="og:image:alt" content="{{ 'og_image_alt' | t(lang) }}">
   <!-- Author attribution in Mastodon link previews. Mastodon shows it only
        if the account lists diday.ca under "Author attribution". -->
   {% if catalog.site.mastodon %}<meta name="fediverse:creator" content="{{ catalog.site.mastodon }}">{% endif %}
