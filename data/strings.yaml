@@ -30,6 +30,11 @@ lang_switch:
 lang_switch_label:
   en: Switch to English
   fr: Passer au français
+# Alt text for the 1200x633 share card used in Open Graph previews. It
+# describes the card itself, so it does not repeat the page title.
+og_image_alt:
+  en: Canadian Digital Independence Day banner with a happy smartphone looking into a green future with trees and mountains.
+  fr: Bannière de la Journée canadienne de l'indépendance numérique avec un téléphone intelligent joyeux tourné vers un avenir vert, des arbres et des montagnes.
 theme_to_dark:
   en: Dark theme
   fr: Thème sombre
