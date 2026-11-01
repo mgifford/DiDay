@@ -306,3 +306,62 @@ followup_post:
 public_reports_notice:
   en: If you mention our Mastodon account in a public post, a copy of that post and your handle goes into a public issue on GitHub so we can track it. Other posts and direct messages are never copied.
   fr: Si vous mentionnez notre compte Mastodon dans une publication publique, une copie de cette publication et votre identifiant sont versés dans un ticket public sur GitHub pour en assurer le suivi. Les autres publications et les messages privés ne sont jamais copiés.
+
+# Brand mark, used on the two home pages. The title names the image and the
+# description is read after it, so both must describe the drawing, not repeat
+# the page heading.
+brand_title:
+  en: Digital Independence Day
+  fr: Journée de l'indépendance numérique
+brand_desc:
+  en: A stylized smartphone breaking free from a severed cable, displaying a sprouting leaf on its screen to symbolize digital growth, nature, and freedom.
+  fr: Un téléphone stylisé se libérant d'un câble sectionné, avec une feuille qui germe sur son écran pour symboliser la croissance numérique, la nature et la liberté.
+
+# References & Updates, at the foot of every page. The intro explains the
+# {language} marker used after a link whose destination is in another language.
+refs_heading:
+  en: References & Updates
+  fr: Références et mises à jour
+refs_intro:
+  en: Every link below leaves this site. Where a page is not in English, its language is given in curly brackets, and a translation follows in brackets when the title is in another language.
+  fr: Tous les liens ci-dessous mènent à un autre site. Lorsqu'une page n'est pas en français, sa langue est indiquée entre accolades, et une traduction suit entre parenthèses lorsque le titre est dans une autre langue.
+refs_global:
+  en: DI.DAY global site
+  fr: Site mondial DI.DAY
+refs_how:
+  en: How DI.DAY works
+  fr: Comment ça marche
+refs_movement:
+  en: The movement, at diday.org
+  fr: Le mouvement, sur diday.org
+refs_itsfoss:
+  en: "It's FOSS: DI.DAY is a movement to encourage people to ditch Big Tech"
+  fr: "DI.DAY, un mouvement pour quitter les géants du numérique"
+refs_wikipedia:
+  en: "Wikipedia: Digital Independence Day"
+  fr: "Wikipédia : Digital Independence Day"
+# Only rendered on the French page, where the article title is in English.
+refs_wikipedia_translation:
+  en: "Journée de l'indépendance numérique"
+  fr: "Journée de l'indépendance numérique"
+refs_techedubyte:
+  en: "TechEduByte: DI.DAY starts a movement"
+  fr: "DI.DAY lance un mouvement pour quitter les géants du numérique"
+refs_schoepflin:
+  en: "Schöpflin Stiftung: digital freedom through DI.DAY"
+  fr: "La liberté numérique grâce à la Journée de l'indépendance numérique"
+refs_netherlands:
+  en: "Digital Independence (Netherlands)"
+  fr: "Indépendance numérique (Pays-Bas)"
+refs_github:
+  en: "DiDay source code on GitHub"
+  fr: "Code source de DiDay sur GitHub"
+language_en:
+  en: English
+  fr: anglais
+language_fr:
+  en: French
+  fr: français
+language_de:
+  en: German
+  fr: allemand
