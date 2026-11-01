@@ -1,5 +1,7 @@
 // Runs axe-core on every built page, in light and dark colour schemes and at
-// desktop and phone widths.
+// desktop and phone widths. Also runs the two states the theme toggle writes
+// (data-theme overrides prefer-color-scheme, which is a separate block in the
+// stylesheet), because that block can drift from the system-preference one.
 //
 // Browsers: Firefox by default (open source engine from a non-profit).
 //   node scripts/check-a11y.js --browsers=firefox,chromium
@@ -38,6 +40,10 @@ const SETTINGS = [
   { name: "dark, desktop", colorScheme: "dark", viewport: { width: 1280, height: 800 } },
   { name: "light, phone", colorScheme: "light", viewport: { width: 375, height: 740 } },
   { name: "dark, phone", colorScheme: "dark", viewport: { width: 375, height: 740 } },
+  { name: "light, theme toggle over dark system", colorScheme: "dark", storedTheme: "light",
+    viewport: { width: 1280, height: 800 } },
+  { name: "dark, theme toggle over light system", colorScheme: "light", storedTheme: "dark",
+    viewport: { width: 1280, height: 800 } },
 ];
 
 const pages = [];
@@ -69,10 +75,25 @@ try {
     try {
       for (const setting of SETTINGS) {
         const context = await browser.newContext({ colorScheme: setting.colorScheme, viewport: setting.viewport });
+        // The toggle saves a choice that the inline head script turns into
+        // data-theme on <html>. Seed it before any page script runs.
+        if (setting.storedTheme) {
+          await context.addInitScript((theme) => {
+            try { localStorage.setItem("theme", theme); } catch (e) { /* storage blocked */ }
+          }, setting.storedTheme);
+        }
         const page = await context.newPage();
         for (const p of pages) {
           const url = pathPrefix === "/" ? p : pathPrefix.replace(/\/$/, "") + p;
           await page.goto(server.url + url);
+          // If the head script ever stops applying the saved choice, this pass
+          // would quietly re-test the system scheme instead of the override.
+          if (setting.storedTheme) {
+            const applied = await page.evaluate(() => document.documentElement.dataset.theme || null);
+            if (applied !== setting.storedTheme) {
+              throw new Error(`${p} (${setting.name}): data-theme is "${applied}", expected "${setting.storedTheme}"`);
+            }
+          }
           const results = await new AxeBuilder({ page }).withTags([...WCAG_TAGS, "best-practice"]).analyze();
           const where = `${p} (${name}, ${setting.name})`;
           for (const v of results.violations) {

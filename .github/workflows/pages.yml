@@ -47,11 +47,20 @@ jobs:
           PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
       - name: Install Firefox for accessibility testing
         run: npx playwright install --with-deps firefox
-      # Chromium runs weekly instead, in checks.yml.
-      - name: Accessibility check (axe-core, Firefox)
+      # Light and dark, each through prefers-color-scheme and through the
+      # theme toggle's saved choice, at desktop and phone widths. Chromium runs
+      # weekly instead, in checks.yml.
+      - name: Accessibility check (axe-core, light and dark)
         run: npm run check:a11y
         env:
           PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
+      - name: Attach the accessibility report to the run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-report
+          path: reports/a11y.md
+          if-no-files-found: ignore
       - name: Add accessibility report to the run summary
         if: always()
         run: test -f reports/a11y.md && cat reports/a11y.md >> "$GITHUB_STEP_SUMMARY" || true
