@@ -1,4 +1,6 @@
-# First Sunday / Premier dimanche (working title)
+# Digital Independence Day / Journée de l'indépendance numérique
+
+## First Sunday / Premier dimanche (working title)
 
 A bilingual Canadian site that combines two models:
 
