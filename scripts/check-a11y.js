@@ -74,7 +74,14 @@ try {
     const browser = await ENGINES[name].launch();
     try {
       for (const setting of SETTINGS) {
-        const context = await browser.newContext({ colorScheme: setting.colorScheme, viewport: setting.viewport });
+        const context = await browser.newContext({
+          colorScheme: setting.colorScheme,
+          viewport: setting.viewport,
+          // The splash page redirects to /en/ or /fr/ when the browser reports
+          // one of those languages. A German locale leaves the redirect off, so
+          // the page we asked for is the page that gets scanned.
+          locale: "de-DE",
+        });
         // The toggle saves a choice that the inline head script turns into
         // data-theme on <html>. Seed it before any page script runs.
         if (setting.storedTheme) {
@@ -86,9 +93,17 @@ try {
         for (const p of pages) {
           const url = pathPrefix === "/" ? p : pathPrefix.replace(/\/$/, "") + p;
           await page.goto(server.url + url);
+          // A redirect would silently test a different page. The splash page
+          // redirects on language, so guard against that coming back.
+          const landed = new URL(page.url()).pathname;
+          if (landed !== url) {
+            throw new Error(`${p} (${setting.name}): landed on "${landed}", expected "${url}"`);
+          }
           // If the head script ever stops applying the saved choice, this pass
           // would quietly re-test the system scheme instead of the override.
-          if (setting.storedTheme) {
+          // The splash page has no toggle and does not restore a saved choice,
+          // so there is no override to verify there.
+          if (setting.storedTheme && (await page.locator("#theme-toggle").count()) > 0) {
             const applied = await page.evaluate(() => document.documentElement.dataset.theme || null);
             if (applied !== setting.storedTheme) {
               throw new Error(`${p} (${setting.name}): data-theme is "${applied}", expected "${setting.storedTheme}"`);
