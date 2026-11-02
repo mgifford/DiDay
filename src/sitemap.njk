@@ -1,0 +1,25 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- The language chooser, which is left out of collections.all. -->
+  <url>
+    <loc>{{ catalog.site.url }}/</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="{{ catalog.site.url }}/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="{{ catalog.site.url }}/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ catalog.site.url }}/"/>
+  </url>
+  {%- for item in collections.all | sort(false, false, "url") %}
+  {%- set lang = "en" if "/en/" in item.url else "fr" %}
+  {%- set other = "fr" if lang == "en" else "en" %}
+  {%- set otherUrl = item.url | replace("/" + lang + "/", "/" + other + "/") %}
+  <url>
+    <loc>{{ catalog.site.url }}{{ item.url }}</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="{{ catalog.site.url }}{{ item.url if lang == "en" else otherUrl }}"/>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="{{ catalog.site.url }}{{ item.url if lang == "fr" else otherUrl }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ catalog.site.url }}/"/>
+  </url>
+  {%- endfor %}
+</urlset>

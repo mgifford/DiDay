@@ -4,6 +4,9 @@
   title:
     en: Reading e-books without Amazon
     fr: Lire des livres numériques sans Amazon
+  summary:
+    en: Move your e-books off Kindle, borrow from a public library, and buy EPUB files you keep.
+    fr: Transférez vos livres numériques hors de Kindle, empruntez à la bibliothèque publique et achetez des fichiers EPUB que vous conservez.
   minutes: 30
   difficulty: easy
   replaces: [kindle-unlimited]
@@ -25,6 +28,9 @@
   title:
     en: Email without Gmail
     fr: Le courriel sans Gmail
+  summary:
+    en: Move your email and contacts from Gmail to a provider you choose, without losing messages.
+    fr: Transférez vos courriels et vos contacts de Gmail vers un fournisseur de votre choix, sans perdre de messages.
   minutes: 60
   difficulty: average
   replaces: []
@@ -48,6 +54,9 @@
   title:
     en: Video calls without Zoom or Teams
     fr: Appels vidéo sans Zoom ni Teams
+  summary:
+    en: Run one-off or regular video calls on Jitsi, BigBlueButton or Element instead of Zoom or Teams.
+    fr: Faites vos appels vidéo ponctuels ou réguliers sur Jitsi, BigBlueButton ou Element au lieu de Zoom ou Teams.
   minutes: 15
   difficulty: easy
   replaces: []
@@ -71,6 +80,9 @@
   title:
     en: Social media without Facebook or X
     fr: Réseaux sociaux sans Facebook ni X
+  summary:
+    en: Set up an account on Gander or Mastodon and bring your followers with you from Facebook or X.
+    fr: Ouvrez un compte sur Gander ou Mastodon et amenez vos abonnés avec vous depuis Facebook ou X.
   minutes: 45
   difficulty: average
   replaces: []

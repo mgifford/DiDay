@@ -3,11 +3,13 @@ pagination:
   data: catalog.recipePages
   size: 1
   alias: p
+  addAllPagesToCollections: true
 permalink: "/{{ p.lang }}/recipes/{{ p.recipe.id }}/"
 layout: base.njk
 eleventyComputed:
   lang: "{{ p.lang }}"
   pageTitle: "{{ p.recipe.title | loc(p.lang) }}"
+  description: "{{ p.recipe.summary | loc(p.lang) | safe }}"
 ---
 {%- set r = p.recipe -%}
 <h1>{{ r.title | loc(lang) }}</h1>
