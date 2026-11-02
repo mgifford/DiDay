@@ -72,7 +72,7 @@
       <ul>
         {%- for item in [["", "nav_home"], ["recipes/", "nav_recipes"], ["cancel/", "nav_cancel"], ["alternatives/", "nav_alternatives"], ["about/", "nav_about"]] %}
         {%- set href = "/" + lang + "/" + item[0] %}
-        <li><a href="{{ href }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ item[1] | t(lang) }}</a></li>
+        <li><a href="{{ href }}"{% if page.url == href %} aria-current="page"{% elseif item[0] != "" and href in page.url %} aria-current="true"{% endif %}>{{ item[1] | t(lang) }}</a></li>
         {%- endfor %}
       </ul>
     </nav>

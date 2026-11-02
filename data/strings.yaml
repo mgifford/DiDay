@@ -344,7 +344,7 @@ refs_itsfoss:
   fr: "DI.DAY, un mouvement pour quitter les géants du numérique"
 refs_wikipedia:
   en: "Wikipedia: Digital Independence Day"
-  fr: "Wikipédia : Digital Independence Day"
+  fr: "Wikipédia\u00a0: Digital Independence Day"
 # Only rendered on the French page, where the article title is in English.
 refs_wikipedia_translation:
   en: "Journée de l'indépendance numérique"
