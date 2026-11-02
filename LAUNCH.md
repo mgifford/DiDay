@@ -5,7 +5,7 @@ automation that has only been tested in a sandbox.
 
 ## 1. Decisions
 
-- [ ] Choose the site name in English and French (currently "First Sunday / Premier dimanche").
+- [x] Choose the site name in English and French: DI.DAY Canada, the same in both languages, set in `data/site.yaml`.
 - [ ] Choose the address: a GitHub Pages address or a custom domain.
 - [ ] Name at least two maintainers, at least one fluent in French.
 - [ ] Confirm the licences: GNU AGPL v3 for code, CC BY-SA 4.0 for content.
@@ -50,7 +50,7 @@ automation that has only been tested in a sandbox.
 
 ## 6. Accessibility and sustainability
 
-- [ ] Publish `ACCESSIBILITY.md` at the repository root, following the framework at https://mgifford.github.io/ACCESSIBILITY.md/: conformance target (WCAG 2.2 AA), the automated checks that already run, assistive technology coverage, known gaps, and a definition of done. Link it from `README.md`.
+- [x] Publish `ACCESSIBILITY.md` at the repository root, following the framework at https://mgifford.github.io/ACCESSIBILITY.md/: conformance target (WCAG 2.2 AA), the automated checks that already run, assistive technology coverage, known gaps, and a definition of done. Link it from `README.md`.
 - [ ] Watch: the "build" job on a pull request. It runs axe-core on every built page in light and dark, through both the system preference and the theme toggle, at desktop and phone widths. `reports/a11y.md` is attached to the run and copied into its summary.
 - [ ] Keyboard-only walk through every page type.
 - [ ] Screen reader test: NVDA with Firefox, VoiceOver with Safari on iOS, TalkBack on Android. Check the language switch is announced in the right language.

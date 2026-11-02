@@ -45,3 +45,5 @@ npm test
 ```
 
 The content check lists every problem with its location, for example `alternatives.example-service: needs at least one source`.
+
+For changes that affect HTML, CSS or JavaScript, also run `npm run check:a11y` and follow the definition of done in [ACCESSIBILITY.md](ACCESSIBILITY.md).
