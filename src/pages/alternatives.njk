@@ -3,10 +3,12 @@ pagination:
   data: catalog.site.languages
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "/{{ lang }}/alternatives/"
 layout: base.njk
 eleventyComputed:
   pageTitle: "{{ 'nav_alternatives' | t(lang) }}"
+  description: "{{ 'alternatives_intro' | t(lang) | safe }}"
 ---
 <h1>{{ "nav_alternatives" | t(lang) }}</h1>
 <p>{{ "alternatives_intro" | t(lang) }}</p>

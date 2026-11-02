@@ -3,10 +3,12 @@ pagination:
   data: catalog.site.languages
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "/{{ lang }}/cancel/"
 layout: base.njk
 eleventyComputed:
   pageTitle: "{{ 'nav_cancel' | t(lang) }}"
+  description: "{{ 'cancel_intro' | t(lang) | safe }}"
 ---
 <h1>{{ "nav_cancel" | t(lang) }}</h1>
 <p>{{ "cancel_intro" | t(lang) }}</p>

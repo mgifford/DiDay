@@ -3,10 +3,12 @@ pagination:
   data: catalog.site.languages
   size: 1
   alias: lang
+  addAllPagesToCollections: true
 permalink: "/{{ lang }}/recipes/"
 layout: base.njk
 eleventyComputed:
   pageTitle: "{{ 'nav_recipes' | t(lang) }}"
+  description: "{{ 'recipes_intro' | t(lang) | safe }}"
 ---
 <h1>{{ "nav_recipes" | t(lang) }}</h1>
 <p>{{ "recipes_intro" | t(lang) }}</p>
