@@ -181,6 +181,7 @@ details li { margin-bottom: 0.5rem; }
 }
 
 .splash { display: grid; gap: 2rem; padding-block: 3rem; }
+.splash > h1 { grid-column: 1 / -1; }
 @media (min-width: 40rem) { .splash { grid-template-columns: 1fr 1fr; max-width: 56rem; } }
 
 .site-footer { border-top: 1px solid var(--rule); margin-top: 3rem; padding-block: 1rem; color: var(--muted); font-size: 0.95rem; }

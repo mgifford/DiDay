@@ -32,7 +32,7 @@ eleventyExcludeFromCollections: true
   })();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <title>{{ catalog.site.name.en }} | {{ catalog.site.name.fr }}</title>
+  <title>{{ catalog.site.name.en }} | English / Français</title>
   <meta name="description" content="{{ catalog.site.tagline.en }} {{ catalog.site.tagline.fr }}">
   <!-- Both languages sit on this page, and each language has its own page:
        the alternates point there. Open Graph and rel="me" match the rest of
@@ -60,13 +60,14 @@ eleventyExcludeFromCollections: true
 </head>
 <body>
   <main class="wrap splash">
+    <!-- The site name is the same in both languages, so it is one heading for
+         the page rather than one per language column. -->
+    <h1>{{ catalog.site.name.en }}</h1>
     <div>
-      <h1>{{ catalog.site.name.en }}</h1>
       <p>{{ catalog.site.tagline.en }}</p>
       <p><a class="button" href="/en/" data-lang="en">English</a></p>
     </div>
     <div lang="fr-CA">
-      <h1>{{ catalog.site.name.fr }}</h1>
       <p>{{ catalog.site.tagline.fr }}</p>
       <p><a class="button" href="/fr/" data-lang="fr">Français</a></p>
     </div>
