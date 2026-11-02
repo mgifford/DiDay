@@ -9,7 +9,7 @@ A bilingual Canadian site that combines two models:
 
 Status: scaffold with sample data. Every entry is marked `verified: false` and shows a "sample entry" notice until reviewed.
 
-See `LAUNCH.md` for the launch checklist.
+See `LAUNCH.md` for the launch checklist and `ACCESSIBILITY.md` for the accessibility target, automated checks, manual testing status and known gaps.
 
 ## Principles
 
@@ -68,6 +68,7 @@ npm run check:reviews   # lists entries by review date
 | `.github/workflows/reminders.yml` | Daily: monthly reminder posts and 30-day clean-up |
 | `lib/reminders.js`, `scripts/reminders.js` | Reminder posting and deletion |
 | `LAUNCH.md` | Launch checklist |
+| `ACCESSIBILITY.md` | Accessibility target, checks, manual testing status and known gaps |
 | `.github/workflows/mastodon.yml` | Daily Mastodon inbox |
 | `lib/mastodon.js`, `scripts/mastodon-inbox.js` | Turns public Mastodon mentions into issues |
 | `.github/ISSUE_TEMPLATE/out-of-date.yml` | Bilingual form for reporting a problem |
@@ -173,15 +174,13 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 - French text needs review by a fluent francophone. All French texts are currently marked as not reviewed (run `npm run french` for the current count).
 - URL slugs are English in both languages.
 - Siteimprove Alfa is deferred. axe-core is in CI.
-- The Firefox accessibility run has not yet been tested; it was built in an environment where only Chromium was available. Playwright's Firefox is a patched build, not the release version.
-- The external link and Wikidata checks have unit tests but have not yet run against the live sites.
+- The Firefox check uses Playwright's Firefox, a patched build rather than the release build. Manual keyboard, screen reader, zoom and forced-colours testing are still outstanding; see `ACCESSIBILITY.md`.
+- The external link check and the Wikidata ownership check run weekly in CI; the most recent run passed on 26 October 2026.
 - Hushmail has no Wikidata item.
-- No Mastodon account is set, so the Mastodon option is hidden and the daily inbox does nothing.
 - The Mastodon inbox and reminders have been tested against a simulated server, not mstdn.ca.
 - Gander reminders are posted by hand.
 - Issue search can lag behind new issues, so a duplicate is possible if the inbox runs twice within minutes.
 - The issue form applies the label `out-of-date`. Create that label in the repository, or GitHub will not apply it.
-- `report_url` in `data/site.yaml` is a placeholder until the repository exists.
 - The date is computed in UTC at build time.
 
 ## Licence
