@@ -6,19 +6,19 @@ automation that has only been tested in a sandbox.
 ## 1. Decisions
 
 - [x] Choose the site name in English and French: DI.DAY Canada, the same in both languages, set in `data/site.yaml`.
-- [ ] Choose the address: a GitHub Pages address or a custom domain.
+- [x] Choose the address: the custom domain `diday.ca`, with HTTPS enforced. The repository still answers on its GitHub Pages address.
 - [ ] Name at least two maintainers, at least one fluent in French.
-- [ ] Confirm the licences: GNU AGPL v3 for code, CC BY-SA 4.0 for content.
+- [x] Confirm the licences: GNU AGPL v3 for code, CC BY-SA 4.0 for content. Stated in `README.md`, with the AGPL text in `LICENSE`.
 
 ## 2. Repository
 
-- [ ] Create the repository and push with `main` as the default branch.
-- [ ] Settings > Pages: set Source to "GitHub Actions".
-- [ ] Settings > Actions > General: allow workflows to create issues (workflow permissions).
-- [ ] Create the label `out-of-date` (used by the issue form).
-- [ ] In `data/site.yaml`, set `repo`, `report_url` and `url`.
-- [ ] Remove the `github.com/OWNER/REPO` line from `data/link-check.yaml`.
-- [ ] Watch: the first build and deploy, including the Firefox accessibility check.
+- [x] Create the repository and push with `main` as the default branch.
+- [x] Settings > Pages: set Source to "GitHub Actions".
+- [x] Allow workflows to create issues. `checks.yml` declares `issues: write` itself, so the repository's read-only default does not block the weekly reports.
+- [x] Create the label `out-of-date` (used by the issue form).
+- [x] In `data/site.yaml`, set `repo`, `report_url` and `url`.
+- [x] Remove the `github.com/OWNER/REPO` line from `data/link-check.yaml`.
+- [x] Watch: the first build and deploy, including the Firefox accessibility check. The deploy has succeeded repeatedly since, including the axe run.
 
 ## 3. Mastodon account on mstdn.ca
 
@@ -55,7 +55,7 @@ automation that has only been tested in a sandbox.
 - [ ] Keyboard-only walk through every page type. A one-off Playwright Firefox script tabbed through all 19 pages on 2026-11-03 and found the skip link first, a visible 3px outline on every stop, and working skip, theme-toggle and language-switch keys. A person has not done this yet.
 - [ ] Screen reader test: NVDA with Firefox, VoiceOver with Safari on iOS, TalkBack on Android. Check the language switch is announced in the right language.
 - [ ] Zoom to 400% and check reflow; check Windows high contrast mode. A scripted check at a 320 CSS pixel viewport passed on 2026-11-03, with no horizontal scroll or overflowing element at 320px or with WCAG 1.4.12 text-spacing overrides. Forced colours were only emulated in Firefox.
-- [ ] Record page weight and requests for the home page and one recipe page as a baseline.
+- [x] Record page weight and requests for the home page and one recipe page as a baseline.
 
 ## 7. First month of automation
 
