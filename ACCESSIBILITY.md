@@ -22,8 +22,8 @@ claim, or a substitute for testing with disabled people.
 | Public statement | This file, not a formal conformance statement |
 | Target standard | WCAG 2.2 Level AA |
 | Additional requirements | None documented for this project |
-| Last reviewed | 2026-11-02 |
-| Next review due | 2027-05-02, or at launch if earlier |
+| Last reviewed | 2026-11-03 |
+| Next review due | 2027-05-03, or at launch if earlier |
 
 ## 2. Conformance status
 
@@ -34,8 +34,10 @@ best-practice findings across 19 pages in six settings in both Firefox and
 Chromium. That is evidence about automated rules, not proof that the site
 conforms.
 
-The manual checks in section 6 have not been completed. Until they are, the
-site targets WCAG 2.2 AA but must not be described as conforming.
+The manual checks in section 6 have not been completed. The scripted browser
+checks recorded there are not a substitute for testing with people and
+assistive technology. Until both are done, the site targets WCAG 2.2 AA but
+must not be described as conforming.
 
 ## 3. Scope
 
@@ -108,15 +110,20 @@ only part of WCAG.
 
 | Check | Status | Evidence or note |
 | --- | --- | --- |
-| Keyboard-only walk through every page type, including the theme toggle | Not done | Listed in `LAUNCH.md` section 6 |
+| Keyboard operation, every page type | Scripted check passed on 2026-11-03; not tested by a person | A one-off Playwright Firefox script tabbed through all 19 pages. The first stop was the skip link, every focused element had the 3px outline, the skip link moved focus to `main`, the theme toggle switched and saved the theme, and the language switch reached the other language home |
 | NVDA with Firefox | Not done | Listed in `LAUNCH.md` section 6 |
 | VoiceOver with Safari on iOS | Not done | Listed in `LAUNCH.md` section 6 |
 | TalkBack on Android | Not done | Listed in `LAUNCH.md` section 6 |
-| 400% zoom and reflow | Not done | Listed in `LAUNCH.md` section 6 |
-| Text spacing overrides | Not done | Not yet recorded |
-| Windows forced-colors mode | Not done | A `forced-colors` block exists, but it has not been manually verified |
+| 400% zoom and reflow | Scripted check passed on 2026-11-03; not tested by a person | At a 320 CSS pixel viewport, equivalent to 1280 at 400%, no page had horizontal scrolling or an element that overflowed the viewport |
+| Text spacing overrides | Scripted check passed on 2026-11-03; not tested by a person | With the WCAG 1.4.12 overrides injected, no text was clipped and no page scrolled horizontally |
+| Windows forced-colors mode | Emulated in Firefox on 2026-11-03; not tested in Windows | The `forced-colors` media query applied the system palette and underlined links. No person reviewed the screenshots |
 | Light and dark visual review | Not recorded by a person | Automated runs exercise both schemes and the toggle |
 | French language quality review | In progress | 140 texts need a fluent reviewer; see `npm run french` |
+
+The scripted checks are not part of `npm test`. They ran in Playwright's Firefox
+only, at one viewport per check, and they measure a few properties rather than
+looking at the page. Chromium, Safari and assistive technology were not
+exercised. Re-run them before launch and record the date.
 
 No assistive technology and browser combination has been evaluated yet. This
 table will be replaced with dated combinations and results as testing happens.
@@ -164,10 +171,11 @@ issue is accepted, deferred, or closed.
 
 | Barrier | Scope | User impact | Workaround | Tracking | Owner | Target |
 | --- | --- | --- | --- | --- | --- | --- |
-| No manual keyboard walkthrough | All pages | Unknown keyboard barriers may exist | None documented | `LAUNCH.md` section 6 | Maintainers | Before launch |
+| Keyboard checks are scripted only | All pages | Barriers that need a person or assistive technology may remain | Walk the site by hand before launch | `LAUNCH.md` section 6 | Maintainers | Before launch |
 | No screen reader testing | All pages | Screen reader users have not been verified | None documented | `LAUNCH.md` section 6 | Maintainers | Before launch |
-| No 400% zoom or text-spacing check | All pages | Reflow problems may be undiscovered | None documented | `LAUNCH.md` section 6 | Maintainers | Before launch |
-| Forced-colours mode not verified | All pages | High-contrast users have not been verified | None documented | This file | Maintainers | Before launch |
+| Reflow and text spacing checked by script only | All pages | Visual problems at 400% zoom may remain | Check by hand before launch | `LAUNCH.md` section 6 | Maintainers | Before launch |
+| Forced-colours mode emulated only | All pages | Windows high-contrast users have not been verified | None documented | This file | Maintainers | Before launch |
+| Scripted keyboard, reflow and text-spacing checks ran in Firefox only | Those checks | Other engines may behave differently | Chromium runs axe weekly | This file | Maintainers | Before launch |
 | French text awaiting review | French pages | Translation errors may confuse readers | English pages are available | `npm run french` | Maintainers | Before launch |
 | No formal accessibility evaluation | Whole site | No conformance claim can be made | None | This file | Maintainers | Before any claim |
 | Linked sites and profiles are not controlled | External destinations | Barriers may exist after leaving this site | Contact the destination owner | Not applicable | Destination owners | Not scheduled |
@@ -223,6 +231,7 @@ Review this file:
 | Date | Change | Evidence | Reviewer |
 | --- | --- | --- | --- |
 | 2026-11-02 | First version | Repository review and the automated runs recorded above | Project maintainers |
+| 2026-11-03 | Record the scripted keyboard, reflow, text-spacing and forced-colours checks | One-off Playwright Firefox run across 19 pages | Project maintainers |
 
 ## 13. References
 
