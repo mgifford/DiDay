@@ -20,7 +20,9 @@
     "check:a11y:chromium": "node scripts/check-a11y.js --browsers=chromium",
     "check:reviews": "node scripts/check-reviews.js",
     "mastodon": "node scripts/mastodon-inbox.js",
-    "reminders": "node scripts/reminders.js"
+    "reminders": "node scripts/reminders.js",
+    "check:a11y:behaviour": "node scripts/check-a11y-behaviour.js",
+    "check:a11y:behaviour:all": "node scripts/check-a11y-behaviour.js --browsers=firefox,chromium"
   },
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
