@@ -52,9 +52,9 @@ automation that has only been tested in a sandbox.
 
 - [x] Publish `ACCESSIBILITY.md` at the repository root, following the framework at https://mgifford.github.io/ACCESSIBILITY.md/: conformance target (WCAG 2.2 AA), the automated checks that already run, assistive technology coverage, known gaps, and a definition of done. Link it from `README.md`.
 - [ ] Watch: the "build" job on a pull request. It runs axe-core on every built page in light and dark, through both the system preference and the theme toggle, at desktop and phone widths. `reports/a11y.md` is attached to the run and copied into its summary.
-- [ ] Keyboard-only walk through every page type. A one-off Playwright Firefox script tabbed through all 19 pages on 2026-11-03 and found the skip link first, a visible 3px outline on every stop, and working skip, theme-toggle and language-switch keys. A person has not done this yet.
+- [ ] Keyboard-only walk through every page type. `npm run check:a11y:behaviour:all` tabbed through all 19 pages in Firefox and Chromium on 2026-11-04 and found the skip link first where there is one, a visible 3px outline on every stop, and working skip, theme-toggle and language-switch keys. A person has not done this yet.
 - [ ] Screen reader test: NVDA with Firefox, VoiceOver with Safari on iOS, TalkBack on Android. Check the language switch is announced in the right language.
-- [ ] Zoom to 400% and check reflow; check Windows high contrast mode. A scripted check at a 320 CSS pixel viewport passed on 2026-11-03, with no horizontal scroll or overflowing element at 320px or with WCAG 1.4.12 text-spacing overrides. Forced colours were only emulated in Firefox.
+- [ ] Zoom to 400% and check reflow; check Windows high contrast mode. A scripted check passes in Firefox and Chromium at a 320 CSS pixel viewport, with no horizontal scroll or overflowing element at 320px or with WCAG 1.4.12 text-spacing overrides. Forced colours are only emulated.
 - [x] Record page weight and requests for the home page and one recipe page as a baseline.
 
 ## 7. First month of automation

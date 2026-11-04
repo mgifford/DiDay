@@ -47,3 +47,5 @@ npm test
 The content check lists every problem with its location, for example `alternatives.example-service: needs at least one source`.
 
 For changes that affect HTML, CSS or JavaScript, also run `npm run check:a11y` and follow the definition of done in [ACCESSIBILITY.md](ACCESSIBILITY.md).
+
+For changes to layout or interaction, run `npm run check:a11y:behaviour:all`. It checks focus visibility, the skip link, the theme toggle, the language switch, reflow at 320 CSS pixels, text spacing and forced colours in Firefox and Chromium.
