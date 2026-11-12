@@ -7,7 +7,12 @@ A bilingual Canadian site that combines two models:
 - **Switch recipes**, after [DI.DAY](https://di.day/en) and [Doeidag](https://doeidag.nl/): move one service away from Big Tech on the first Sunday of every month.
 - **Cancel links**, after [Resist and Unsubscribe](https://www.resistandunsubscribe.com/): direct instructions for cancelling U.S. subscriptions, each paired with alternatives.
 
-Status: scaffold with sample data. Every entry is marked `verified: false` and shows a "sample entry" notice until reviewed.
+It now also carries a participation-focused homepage, twelve recurring monthly
+themes, an international movement page, and a design system.
+
+Content review status: most catalogue entries are still `verified: false` and
+say so on the page. The design system, themes and structure are built; the
+editorial verification is not finished.
 
 See `LAUNCH.md` for the launch checklist and `ACCESSIBILITY.md` for the accessibility target, automated checks, manual testing status and known gaps.
 
@@ -67,6 +72,10 @@ npm run check:reviews   # lists entries by review date
 | `src/_includes/css/components.css` | Every reusable component |
 | `docs/DESIGN-SYSTEM.md` | Design system: goals, tokens, tested contrast, component rules |
 | `docs/INFORMATION-ARCHITECTURE.md` | Navigation structure, why the disclosure pattern, what ships when |
+| `docs/ECOSYSTEM-RESEARCH.md` | Canadian ecosystem research inventory and its sources (phase 5, research only) |
+| `docs/ECOSYSTEM-EDITORIAL-POLICY.md` | Inclusion, evidence, featured and correction rules for the ecosystem directory |
+| `docs/ECOSYSTEM-SCHEMA.md` | Record format for `data/initiatives.yaml`, and why projects are deferred |
+| `lib/initiatives.js`, `test/initiatives.test.js` | Validator for ecosystem records and its tests |
 | `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
 | `src/pages/world.njk` | The international page at `/world/` |
 | `data/review.yaml` | How long a review stays current |
