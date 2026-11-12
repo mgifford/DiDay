@@ -70,14 +70,7 @@
         </button>
       </div>
     </div>
-    <nav class="wrap" aria-label="{{ 'nav_label' | t(lang) }}">
-      <ul>
-        {%- for item in [["", "nav_home"], ["recipes/", "nav_recipes"], ["cancel/", "nav_cancel"], ["alternatives/", "nav_alternatives"], ["about/", "nav_about"]] %}
-        {%- set href = "/" + lang + "/" + item[0] %}
-        <li><a href="{{ href }}"{% if page.url == href %} aria-current="page"{% elseif item[0] != "" and href in page.url %} aria-current="true"{% endif %}>{{ item[1] | t(lang) }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
+    {% include "nav.njk" %}
   </header>
   <main id="main" class="wrap" tabindex="-1">
     {{ content | safe }}
@@ -113,6 +106,7 @@
       {% if lang == "fr" and (catalog.frPending | frPending("strings")) %}<p>{{ "interface_pending" | t(lang) }}</p>{% endif %}
     </div>
   </footer>
+  <script src="/js/nav.js" defer></script>
   <script src="/js/theme.js" defer></script>
   <script src="/js/lang.js" defer></script>
 </body>

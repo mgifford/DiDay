@@ -7,38 +7,115 @@ pagination:
 permalink: "/{{ lang }}/"
 layout: base.njk
 ---
+{%- set theme = catalog.themes | monthTheme(dates.next) -%}
+
 <section class="hero">
-  <p>{% include "brand.njk" %}</p>
-  <h1>{{ catalog.site.tagline | loc(lang) }}</h1>
-  <p class="next-label">{{ "next_date" | t(lang) }}</p>
-  <p class="next-date"><time datetime="{{ dates.next | isoDate }}">{{ dates.next | longDate(lang) }}</time></p>
-  <p><a href="/calendar.ics">{{ "add_calendar" | t(lang) }}</a></p>
+  <p class="hero__mark">{% include "brand.njk" %}</p>
+  <p class="hero__eyebrow">{{ "hero_eyebrow" | t(lang) }}</p>
+  <h1>{{ "hero_headline" | t(lang) }}</h1>
+  <p class="hero__lead">{{ "hero_lead" | t(lang) }}</p>
+  <p class="hero__actions">
+    <a class="button button--primary" href="/{{ lang }}/recipes/">{{ "hero_cta_primary" | t(lang) }}</a>
+    <a class="button" href="#participate">{{ "hero_cta_secondary" | t(lang) }}</a>
+  </p>
+  <div class="hero__date">
+    <p class="next-label">{{ "next_date" | t(lang) }}</p>
+    <p class="next-date"><time datetime="{{ dates.next | isoDate }}">{{ dates.next | longDate(lang) }}</time></p>
+    <p><a href="/calendar.ics">{{ "add_calendar" | t(lang) }}</a></p>
+  </div>
 </section>
 
-<section>
-  <h2>{{ "how_heading" | t(lang) }}</h2>
-  <ol class="steps">
-    {% for step in "how_steps" | t(lang) %}<li>{{ step }}</li>{% endfor %}
-  </ol>
-  <p>{{ "how_pace" | t(lang) }}</p>
-</section>
-
-<section>
-  <h2><a href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a></h2>
-  <p>{{ "recipes_intro" | t(lang) }}</p>
+{% if theme %}
+<section class="section spotlight" id="this-month" aria-labelledby="this-month-heading">
+  <p class="hero__eyebrow">{{ "this_month_eyebrow" | t(lang) }}</p>
+  <h2 id="this-month-heading">{{ theme.title | loc(lang) }}</h2>
+  <p>{{ theme.summary | loc(lang) }}</p>
+  <p><strong>{{ "this_month_action_label" | t(lang) }}{{ "colon" | t(lang) }}</strong> {{ theme.action | loc(lang) }}</p>
+  {% if theme.minutes %}
+  <p class="card__meta">{{ "time" | t(lang) }}{{ "colon" | t(lang) }} {{ theme.minutes }} {{ "minutes" | t(lang) }}</p>
+  {% endif %}
+  {% if theme.recipes.length %}
   <ul class="plain">
-    {% for r in catalog.recipes %}
+    {% for r in catalog.recipes | byIds(theme.recipes) %}
     <li><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ r.title | loc(lang) }}</a> ({{ r.minutes }} {{ "minutes" | t(lang) }})</li>
     {% endfor %}
   </ul>
+  {% endif %}
+  <p><a href="/{{ lang }}/recipes/">{{ "this_month_more" | t(lang) }}</a></p>
+</section>
+{% endif %}
+
+<section class="section" id="participate">
+  <h2>{{ "participate_heading" | t(lang) }}</h2>
+  <p>{{ "participate_intro" | t(lang) }}</p>
+  <ol class="steps">
+    {% for step in "participate_steps" | t(lang) %}<li>{{ step }}</li>{% endfor %}
+  </ol>
+  <p class="card__meta">{{ "participate_note" | t(lang) }}</p>
 </section>
 
-<section>
-  <h2><a href="/{{ lang }}/cancel/">{{ "nav_cancel" | t(lang) }}</a></h2>
-  <p>{{ "cancel_intro" | t(lang) }}</p>
+<section class="section">
+  <h2>{{ "world_heading" | t(lang) }}</h2>
+  <p>{{ "world_intro" | t(lang) }}</p>
+  <ul class="link-list">
+    <li>
+      <a href="https://diday.org/en/">{{ "world_diday" | t(lang) }}</a>
+      <span>{{ "world_diday_note" | t(lang) }}</span>
+    </li>
+    <li>
+      <a href="https://events.diday.org/">{{ "world_events" | t(lang) }}</a>
+      <span>{{ "world_events_note" | t(lang) }}</span>
+    </li>
+    <li>
+      <a href="https://doeidag.nl/">{{ "world_netherlands" | t(lang) }}</a>
+      <span>{{ "world_netherlands_note" | t(lang) }}</span>
+    </li>
+  </ul>
+  <p class="card__meta">{{ "world_note" | t(lang) }}</p>
 </section>
 
-<section id="calendar">
+<section class="section">
+  <h2>{{ "canada_heading" | t(lang) }}</h2>
+  <p>{{ "canada_intro" | t(lang) }}</p>
+  <ul class="plain">
+    <li>{{ "canada_library" | t(lang) }}</li>
+    <li>{{ "canada_group" | t(lang) }}</li>
+    <li>{{ "canada_orgs" | t(lang) }} <a href="/{{ lang }}/about/">{{ "canada_orgs_link" | t(lang) }}</a>.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>{{ "resources_heading" | t(lang) }}</h2>
+  <p>{{ "resources_intro" | t(lang) }}</p>
+  <ul class="card-grid">
+    <li>
+      <article class="card">
+        <h3 class="card__title"><a href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a></h3>
+        <p class="card__body">{{ "recipes_intro" | t(lang) }}</p>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <h3 class="card__title"><a href="/{{ lang }}/cancel/">{{ "nav_cancel" | t(lang) }}</a></h3>
+        <p class="card__body">{{ "cancel_intro" | t(lang) }}</p>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <h3 class="card__title"><a href="/{{ lang }}/alternatives/">{{ "nav_alternatives" | t(lang) }}</a></h3>
+        <p class="card__body">{{ "alternatives_intro" | t(lang) }}</p>
+      </article>
+    </li>
+    <li>
+      <article class="card">
+        <h3 class="card__title"><a href="#calendar">{{ "calendar_card_title" | t(lang) }}</a></h3>
+        <p class="card__body">{{ "calendar_card_body" | t(lang) }}</p>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section class="section" id="calendar">
   <h2>{{ "upcoming" | t(lang) }}</h2>
   <ul class="plain dates">
     {% for d in dates.visible %}<li><time datetime="{{ d | isoDate }}">{{ d | longDate(lang) }}</time></li>{% endfor %}

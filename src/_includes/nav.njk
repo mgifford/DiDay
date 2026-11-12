@@ -1,0 +1,34 @@
+{#- Site navigation, driven by data/nav.yaml.
+    A group is a <details> disclosure, so it opens and closes without
+    JavaScript. The summary is a button, not a link; the group's destinations
+    are the links inside it. src/js/nav.js adds Escape and close-on-outside
+    as an enhancement only.
+    Expects: lang. -#}
+<nav class="wrap nav" aria-label="{{ 'nav_label' | t(lang) }}">
+  <ul class="nav__list">
+    {%- for item in catalog.nav.items %}
+    <li class="nav__item">
+      {%- if item.children %}
+      {%- set groupCurrent = item.children | navGroupCurrent(page.url, lang) %}
+      <details class="nav__group">
+        <summary class="nav__summary"{% if groupCurrent %} aria-current="true"{% endif %}>
+          <span>{{ item.label | loc(lang) }}</span>
+          <svg class="nav__chevron" viewBox="0 0 12 8" aria-hidden="true" focusable="false">
+            <path d="M1 1.5 6 6.5l5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </summary>
+        <ul class="nav__panel">
+          {%- for child in item.children %}
+          {%- set href = "/" + lang + child.url %}
+          <li><a href="{{ href }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ child.label | loc(lang) }}</a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+      {%- else %}
+      {%- set href = "/" + lang + item.url %}
+      <a href="{{ href }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ item.label | loc(lang) }}</a>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</nav>

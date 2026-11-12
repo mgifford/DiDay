@@ -2,6 +2,7 @@
 import { loadCatalog } from "../lib/catalog.js";
 import { reasons, EXCLUDED } from "../lib/qualify.js";
 import { toDate } from "../lib/reviews.js";
+import { monthsWithoutTheme } from "../lib/themes.js";
 
 const c = loadCatalog();
 const langs = c.site.languages;
@@ -52,6 +53,7 @@ unique(c.alternatives, "alternatives");
 unique(c.cancel, "cancel");
 unique(c.recipes, "recipes");
 unique(c.campaigns, "campaigns");
+unique(c.themes, "themes");
 
 for (const cat of c.categories) bilingual(cat.name, `categories.${cat.id}.name`);
 
@@ -146,6 +148,56 @@ for (const r of c.recipes) {
   }
   if (r.steps?.en?.length !== r.steps?.fr?.length) {
     errors.push(`${where}: English and French have a different number of steps`);
+  }
+}
+
+// Monthly themes: one per month number, both languages, real references.
+for (const theme of c.themes) {
+  const where = `themes.${theme.id}`;
+  bilingual(theme.title, `${where}.title`);
+  bilingual(theme.summary, `${where}.summary`);
+  bilingual(theme.action, `${where}.action`);
+  if (!Number.isInteger(theme.month) || theme.month < 1 || theme.month > 12) {
+    errors.push(`${where}: month must be a whole number from 1 to 12`);
+  }
+  const sameMonth = c.themes.filter((t) => t.month === theme.month);
+  if (sameMonth.length > 1) {
+    errors.push(`${where}: month ${theme.month} already has a theme (${sameMonth.map((t) => t.id).join(", ")})`);
+  }
+  for (const id of theme.recipes || []) {
+    if (!recipeIds.has(id)) errors.push(`${where}: unknown recipe "${id}"`);
+  }
+  for (const id of theme.alternatives || []) {
+    if (!alternativeIds.has(id)) errors.push(`${where}: unknown alternative "${id}"`);
+    else if (!published.has(id)) warnings.push(`${where}: "${id}" is a draft and will not be shown`);
+  }
+  if (theme.minutes !== undefined && (!Number.isInteger(theme.minutes) || theme.minutes <= 0)) {
+    errors.push(`${where}: minutes must be a positive whole number`);
+  }
+}
+
+// The homepage hides this section when the month has no theme, so a gap is a
+// warning rather than a failure. Phase 3 fills the remaining months.
+const missingThemes = monthsWithoutTheme(c.themes);
+if (missingThemes.length) {
+  warnings.push(`themes: no theme for month(s) ${missingThemes.join(", ")}; the homepage will hide the "this month" section in those months`);
+}
+
+// Navigation: every item is a link or a group, labelled in both languages.
+const navItems = c.nav?.items || [];
+if (!navItems.length) errors.push("nav.items: the site needs at least one navigation item");
+unique(navItems.flatMap((item) => [item, ...(item.children || [])]), "nav");
+for (const item of navItems) {
+  const where = `nav.${item.id}`;
+  bilingual(item.label, `${where}.label`);
+  if (item.children) {
+    if (item.url) errors.push(`${where}: a group cannot also have a url`);
+    if (!item.children.length) errors.push(`${where}: a group needs at least one child`);
+    for (const child of item.children) {
+      if (!child.url?.startsWith("/")) errors.push(`nav.${child.id}: url must start with "/"`);
+    }
+  } else if (!item.url?.startsWith("/")) {
+    errors.push(`${where}: url must start with "/"`);
   }
 }
 

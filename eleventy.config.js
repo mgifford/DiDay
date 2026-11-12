@@ -3,6 +3,7 @@ import { loadCatalog } from "./lib/catalog.js";
 import { ranked, reasons } from "./lib/qualify.js";
 import { reviewStatus } from "./lib/reviews.js";
 import { stripComments } from "./lib/css.js";
+import { themeForDate } from "./lib/themes.js";
 
 export default function (eleventyConfig) {
   const { strings, review, site } = loadCatalog();
@@ -79,6 +80,18 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("where", (list, key, value) =>
     list.filter((item) => item[key] === value)
+  );
+
+  // True when the current page sits under one of a nav group's children, so
+  // the group can be marked as the current section.
+  eleventyConfig.addFilter("navGroupCurrent", (children, pageUrl, lang) =>
+    (children || []).some((child) => pageUrl.startsWith(`/${lang}${child.url}`))
+  );
+
+  // The theme for the month of the next first Sunday. Null when that month
+  // has no theme yet; the template then hides the section.
+  eleventyConfig.addFilter("monthTheme", (themes, nextFirstSunday) =>
+    themeForDate(themes, nextFirstSunday)
   );
 
   // Dates are stored as UTC midnight, so format them in UTC.

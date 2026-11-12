@@ -1,0 +1,40 @@
+# The monthly theme. Exactly one entry per month number, 1 to 12.
+#
+# Only the months the site currently needs are defined. Phase 3 adds the other
+# ten and the theme index pages; the shape is already the one Phase 3 uses, so
+# adding a month is a data change, not a template change.
+#
+# A theme is editorial suggestion, not a factual claim about a company, so it
+# needs no sources. It does need both languages: the build fails otherwise.
+#
+# `recipes` and `alternatives` are references to data/recipes.yaml and
+# data/alternatives.yaml. The text is never copied here.
+- id: own-your-email
+  month: 1
+  title:
+    en: Own your email
+    fr: Reprenez votre courriel
+  summary:
+    en: Your email address is the key to almost every other account you have. Moving it is the step that makes the others easier.
+    fr: Votre adresse de courriel est la clé de presque tous vos autres comptes. La déplacer est l'étape qui facilite toutes les autres.
+  action:
+    en: Open an account with a provider you choose, and forward your mail to it while you decide.
+    fr: Ouvrez un compte chez un fournisseur de votre choix et faites-y suivre votre courrier pendant que vous décidez.
+  minutes: 20
+  recipes: [email-without-google]
+  alternatives: [proton-mail]
+
+- id: share-digital-independence
+  month: 12
+  title:
+    en: Share digital independence
+    fr: Partagez l'indépendance numérique
+  summary:
+    en: Switching is easier with someone beside you. This month is for helping one other person take a step, and for noticing what you have already changed.
+    fr: Changer est plus facile quand on n'est pas seul. Ce mois-ci sert à aider une autre personne à faire une étape, et à remarquer ce que vous avez déjà changé.
+  action:
+    en: Think of one person who has asked you about this, and go through one recipe together.
+    fr: Pensez à une personne qui vous a posé la question, et suivez une recette avec elle.
+  minutes: 30
+  recipes: [storage-without-google, music-without-streaming]
+  alternatives: [public-library]

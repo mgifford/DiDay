@@ -55,12 +55,17 @@ npm run check:reviews   # lists entries by review date
 | `scripts/validate.js` | Content checks run before every build |
 | `src/` | Templates, CSS and JS |
 | `src/js/theme.js` | Light/dark theme toggle, overriding the OS setting |
+| `src/js/nav.js` | Navigation groups: Escape, close on outside click, one open at a time |
+| `data/nav.yaml` | The site's navigation structure |
+| `data/themes.yaml` | The monthly theme, one entry per month number |
+| `src/_includes/nav.njk` | Renders the navigation from `data/nav.yaml` |
 | `src/css/style.njk` | The stylesheet template: concatenates the partials below into `/css/style.css` |
 | `src/_includes/css/tokens.css` | Design tokens: palette, semantic colours, type scale, spacing |
 | `src/_includes/css/base.css` | Reset, typography, links, focus, forced colours, reduced motion |
 | `src/_includes/css/layout.css` | Page width, vertical rhythm, grids |
 | `src/_includes/css/components.css` | Every reusable component |
 | `docs/DESIGN-SYSTEM.md` | Design system: goals, tokens, tested contrast, component rules |
+| `docs/INFORMATION-ARCHITECTURE.md` | Navigation structure, why the disclosure pattern, what ships when |
 | `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
 | `data/review.yaml` | How long a review stays current |
 | `lib/reviews.js`, `scripts/check-reviews.js` | Review date tracking |
@@ -71,6 +76,7 @@ npm run check:reviews   # lists entries by review date
 | `lib/serve.js`, `scripts/check-a11y.js` | Accessibility check (axe-core) |
 | `scripts/check-a11y-behaviour.js` | Keyboard, focus, nav groups, reflow, text spacing, forced colours, reduced motion, assets |
 | `scripts/report-issue.sh` | Opens or updates an issue with a report (GitHub only) |
+| `lib/themes.js`, `test/themes.test.js` | Which monthly theme the homepage shows |
 | `test/` | Unit tests, run without network access |
 | `.github/workflows/pages.yml` | Build, validate and deploy to GitHub Pages |
 | `.github/workflows/checks.yml` | Weekly link, ownership and Chromium accessibility checks |

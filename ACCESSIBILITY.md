@@ -100,7 +100,6 @@ required step fails for a user, the task is not accessible.
 | Behaviour check (`scripts/check-a11y-behaviour.js`) | 25 pages × keyboard order, visible focus, skip link, navigation groups, 320 px reflow, text spacing overrides, forced colours, reduced motion, failed asset requests, plus one scripting-disabled pass | Every pull request and deploy | Stops the build |
 | French review warning | Every bilingual text pair | Every pull request and deploy | Warns; does not stop the build |
 | External link check | Every URL in the data files | Weekly | Opens or updates a "Broken links" issue |
-| `npm run check:a11y:behaviour` (Firefox) and `npm run check:a11y:behaviour:all` (both engines) | 19 pages: keyboard traversal and focus, skip link, theme toggle, language switch, 320 CSS pixel reflow, text-spacing overrides, forced-colours emulation | By hand before launch and after layout or interaction changes | Exits 1 and writes `reports/a11y-behaviour.md` |
 
 Tool versions are pinned in `package.json` and `package-lock.json`; the axe
 rule tags are `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` and `wcag22aa`.
@@ -240,7 +239,8 @@ Review this file:
 | 2026-11-02 | First version | Repository review and the automated runs recorded above | Project maintainers |
 | 2026-11-03 | Record the scripted keyboard, reflow, text-spacing and forced-colours checks | One-off Playwright Firefox run across 19 pages | Project maintainers |
 | 2026-11-04 | Make those checks repeatable in Firefox and Chromium | `npm run check:a11y:behaviour:all`: no failures across 19 pages | Project maintainers |
-| 2026-11-12 | Design system: semantic colour tokens, a new palette, split stylesheet partials, a rendered styleguide, a contrast unit test, and reduced-motion, navigation-group, scripting-disabled and failed-asset checks added to the behaviour script | axe-core in Chromium, 25 pages in six settings, no findings. Behaviour check: all pass. Token contrast tests: 10 pass. Firefox not run in the environment this was written in; CI ran it on the pull request and passed. No manual or assistive technology testing was done. | AI-assisted draft, for maintainer review |
+| 2026-11-12 | Design system: semantic colour tokens, a new palette, split stylesheet partials, a rendered styleguide, a contrast unit test, and reduced-motion, navigation-group, scripting-disabled and failed-asset checks added to the behaviour script | axe-core in Chromium, 25 pages in six settings, no findings. Behaviour check: all pass. Token contrast tests: 10 pass. CI ran both in Firefox and passed. No manual or assistive technology testing was done. | AI-assisted draft, for maintainer review |
+| 2026-11-12 | Phase 2: new homepage, navigation groups and monthly themes | axe-core in Chromium, 25 pages in six settings, no findings. Behaviour check: all pass, including opening and closing a navigation group by keyboard and the scripting-disabled pass. No manual or assistive technology testing was done. | AI-assisted draft, for maintainer review |
 
 ## 13. References
 
