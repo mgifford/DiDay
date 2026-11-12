@@ -410,9 +410,9 @@ hero_cta_primary:
 hero_cta_secondary:
   en: How people take part
   fr: Comment les gens participent
-this_month_eyebrow:
-  en: This month
-  fr: Ce mois-ci
+theme_eyebrow:
+  en: Next DI.DAY
+  fr: Prochain DI.DAY
 this_month_action_label:
   en: Suggested action
   fr: Geste suggéré
@@ -498,3 +498,35 @@ calendar_card_title:
 calendar_card_body:
   en: Subscribe once and the dates arrive on their own, every month.
   fr: Abonnez-vous une fois et les dates arrivent d'elles-mêmes, chaque mois.
+
+# --- Phase 3: monthly themes ----------------------------------------------
+nav_themes:
+  en: Monthly themes
+  fr: Thèmes mensuels
+themes_intro:
+  en: One theme for each month, repeating every year. It is a suggestion for where to start, not a requirement.
+  fr: Un thème par mois, qui revient chaque année. C'est une suggestion pour savoir par où commencer, pas une obligation.
+themes_current:
+  en: Current
+  fr: En cours
+themes_note:
+  en: The theme for the month of the next first Sunday is the one marked Current.
+  fr: Le thème du mois du prochain premier dimanche est celui marqué En cours.
+theme_action_heading:
+  en: Suggested action
+  fr: Geste suggéré
+theme_recipes_heading:
+  en: Recipes for this theme
+  fr: Recettes pour ce thème
+theme_alternatives_heading:
+  en: Alternatives for this theme
+  fr: Solutions de rechange pour ce thème
+theme_more_heading:
+  en: Other things you can do
+  fr: D'autres gestes possibles
+theme_next:
+  en: Next month
+  fr: Le mois prochain
+breadcrumbs_label:
+  en: Breadcrumb
+  fr: Fil d'Ariane

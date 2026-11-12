@@ -613,7 +613,6 @@ content that does not exist is untestable and drifts:
 | Organization card | Phase 5 (`data/initiatives.yaml`) | `.card` plus contribution category badges |
 | International story card | Phase 4 (`data/global-stories.yaml`) | `.card` plus country label |
 | Pagination and filtering | Content volume that needs it | Server-rendered first; no client-side filter until a page needs one |
-| Theme cards, breadcrumb trails on theme pages | Phase 3 | The `.card` and `.breadcrumbs` components exist; Phase 3 supplies the pages |
 | Poster and social templates | Phase 6 toolkit | SVG, generated from the same tokens |
 
 Adding one of these means adding a modifier to `.card`, not a new layout.

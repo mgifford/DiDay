@@ -1,14 +1,20 @@
 # The monthly theme. Exactly one entry per month number, 1 to 12.
 #
-# Only the months the site currently needs are defined. Phase 3 adds the other
-# ten and the theme index pages; the shape is already the one Phase 3 uses, so
-# adding a month is a data change, not a template change.
+# The homepage shows the theme for the month of the *next* first Sunday, so a
+# theme becomes current the day after the previous DI.DAY. Themes repeat every
+# year; the resources attached to a theme can change without moving it.
 #
-# A theme is editorial suggestion, not a factual claim about a company, so it
-# needs no sources. It does need both languages: the build fails otherwise.
+# A theme is an editorial suggestion, not a factual claim about a company, so
+# it needs no sources. It does need both languages: the build fails otherwise.
 #
-# `recipes` and `alternatives` are references to data/recipes.yaml and
-# data/alternatives.yaml. The text is never copied here.
+# `recipes`, `alternatives` and `cancel` are references by id to data/recipes.yaml,
+# data/alternatives.yaml and data/cancel.yaml. Text is never copied here.
+#
+# Two of the twelve themes proposed in the roadmap are not here yet:
+# "Choose an open browser", because no browser is listed yet, and a messaging
+# theme, because the site covers calls but not chat. Both need content first.
+# March is a subscription review instead, which the cancel list already supports.
+
 - id: own-your-email
   month: 1
   title:
@@ -23,6 +29,156 @@
   minutes: 20
   recipes: [email-without-google]
   alternatives: [proton-mail]
+
+- id: protect-your-privacy
+  month: 2
+  title:
+    en: Protect your privacy
+    fr: Protégez votre vie privée
+  summary:
+    en: Every app you install asks for something. Most of what it collects is not needed for the thing you want it to do.
+    fr: Chaque application installée demande quelque chose. La plupart de ce qu'elle recueille n'est pas nécessaire au service rendu.
+  action:
+    en: Open the settings of the app you use most, and turn off the permissions it does not need.
+    fr: Ouvrez les réglages de l'application que vous utilisez le plus et désactivez les autorisations dont elle n'a pas besoin.
+  minutes: 15
+  recipes: []
+  alternatives: [proton-drive, proton-mail]
+
+- id: review-your-subscriptions
+  month: 3
+  title:
+    en: Review the subscriptions you forgot
+    fr: Revoyez les abonnements que vous avez oubliés
+  summary:
+    en: Most people pay for one or two services they stopped using. Finding them takes twenty minutes, and cancelling is usually a few clicks.
+    fr: La plupart des gens paient pour un ou deux services qu'ils n'utilisent plus. Les repérer prend vingt minutes, et l'annulation se fait en quelques clics.
+  action:
+    en: Read your bank statement for the last three months and write down every subscription you find.
+    fr: Parcourez vos relevés bancaires des trois derniers mois et notez chaque abonnement que vous y trouvez.
+  minutes: 20
+  recipes: []
+  alternatives: []
+
+- id: take-control-of-your-files
+  month: 4
+  title:
+    en: Take control of your files
+    fr: Reprenez la main sur vos fichiers
+  summary:
+    en: Photos and documents are the hardest thing to move and the most personal thing you store. Moving them is a weekend, not a lifetime.
+    fr: Les photos et les documents sont ce qu'il y a de plus difficile à déplacer, et de plus personnel à conserver. C'est l'affaire d'un week-end, pas d'une vie.
+  action:
+    en: Check how much space your photos use, then choose a provider that does not scan them.
+    fr: Vérifiez l'espace qu'occupent vos photos, puis choisissez un fournisseur qui ne les analyse pas.
+  minutes: 60
+  recipes: [storage-without-google]
+  alternatives: [sync-com, nextcloud, proton-drive]
+
+- id: free-your-conversations
+  month: 5
+  title:
+    en: Free your conversations
+    fr: Libérez vos conversations
+  summary:
+    en: Calls and meetings are where plans get made. They do not have to happen inside an app that also reads them.
+    fr: Les appels et les réunions sont là où se prennent les décisions. Ils n'ont pas besoin de se dérouler dans une application qui les lit aussi.
+  action:
+    en: Move one regular call to a tool you choose, and send the new link a week ahead.
+    fr: Déplacez un appel régulier vers un outil de votre choix et envoyez le nouveau lien une semaine à l'avance.
+  minutes: 15
+  recipes: [calls-without-zoom]
+  alternatives: [element, jitsi-meet]
+
+- id: support-the-open-web
+  month: 6
+  title:
+    en: Support the open web
+    fr: Soutenez le web ouvert
+  summary:
+    en: Much of the software this site runs on was given away by people who never asked for anything back. It stays usable because others give something back.
+    fr: Une bonne partie des logiciels sur lesquels repose ce site ont été offerts par des gens qui n'ont rien demandé en retour. Ils restent utilisables parce que d'autres redonnent.
+  action:
+    en: Pick one open-source project you rely on, and report a bug, fix a translation, or send a donation.
+    fr: Choisissez un projet à code source ouvert dont vous dépendez, puis signalez un bogue, corrigez une traduction ou faites un don.
+  minutes: 30
+  recipes: []
+  alternatives: [nextcloud, navidrome]
+
+- id: discover-canadian-alternatives
+  month: 7
+  title:
+    en: Discover Canadian alternatives
+    fr: Découvrez des solutions canadiennes
+  summary:
+    en: Canada has more of its own digital services than most people expect. Some are small, and some are very good.
+    fr: Le Canada compte plus de services numériques à lui que la plupart des gens ne l'imaginent. Certains sont petits, et certains sont très bons.
+  action:
+    en: Try one Canadian service for a week, and keep it only if it earns its place.
+    fr: Essayez un service canadien pendant une semaine et gardez-le seulement s'il mérite sa place.
+  minutes: 30
+  recipes: []
+  alternatives: [sync-com, stingray-music, cbc-listen, gander]
+
+- id: own-your-media
+  month: 8
+  title:
+    en: Own your media
+    fr: Reprenez la main sur vos médias
+  summary:
+    en: Books and music are easier to keep when you hold the files yourself. A service can part with its copy; you cannot, unless you have one.
+    fr: Les livres et la musique se conservent mieux quand vous détenez les fichiers. Un service peut se séparer de sa copie; vous, non, à moins d'en avoir une.
+  action:
+    en: Pick one album or book you return to, and buy a copy you keep.
+    fr: Choisissez un album ou un livre que vous reprenez souvent et achetez-en une copie que vous conservez.
+  minutes: 30
+  recipes: [ebooks-without-amazon, music-without-streaming]
+  alternatives: [kobo, public-library, qobuz]
+
+- id: build-digital-skills-together
+  month: 9
+  title:
+    en: Build digital skills together
+    fr: Apprenez ensemble
+  summary:
+    en: Nobody works this out alone. Five people in a room with one recipe move faster than a hundred open browser tabs.
+    fr: Personne n'y arrive seul. Cinq personnes dans une salle avec une recette avancent plus vite que cent onglets ouverts.
+  action:
+    en: Invite two people to a session with one recipe, and let everyone leave with one service moved.
+    fr: Invitez deux personnes à une séance autour d'une recette, et laissez chacun repartir avec un service de moins.
+  minutes: 60
+  recipes: [calls-without-zoom]
+  alternatives: [public-library]
+
+- id: explore-open-source
+  month: 10
+  title:
+    en: Explore open-source software
+    fr: Explorez les logiciels libres
+  summary:
+    en: Open source is not a licence detail. It is what lets someone else keep the software alive after the company that made it loses interest.
+    fr: Le code source ouvert n'est pas un détail de licence. C'est ce qui permet à d'autres de maintenir un logiciel quand l'entreprise qui l'a créé s'en désintéresse.
+  action:
+    en: Replace one paid app with an open-source one, and use it for a week before deciding.
+    fr: Remplacez une application payante par une application à code source ouvert, et utilisez-la une semaine avant de décider.
+  minutes: 45
+  recipes: []
+  alternatives: [nextcloud, navidrome, element]
+
+- id: rethink-ai-and-data
+  month: 11
+  title:
+    en: Rethink AI and data
+    fr: Repensez l'IA et les données
+  summary:
+    en: Everything typed into an assistant is data about you, and much of it stays. It is worth knowing what you have already given away.
+    fr: Tout ce qui est écrit dans un assistant est une donnée sur vous, et une bonne partie reste. Il vaut la peine de savoir ce que vous avez déjà donné.
+  action:
+    en: Open the conversations you have saved with an assistant, and delete the ones you do not need.
+    fr: Ouvrez les conversations que vous avez conservées avec un assistant et supprimez celles dont vous n'avez pas besoin.
+  minutes: 20
+  recipes: []
+  alternatives: [proton-drive]
 
 - id: share-digital-independence
   month: 12

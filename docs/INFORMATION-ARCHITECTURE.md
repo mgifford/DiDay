@@ -34,12 +34,13 @@ where each later phase slots in.
 ├── Take action ▾
 │   ├── Switch recipes  .. /recipes/
 │   ├── What to cancel  .. /cancel/
-│   └── Alternatives    .. /alternatives/
+│   ├── Alternatives    .. /alternatives/
+│   └── Monthly themes  .. /themes/
 ├── About ............... /about/
 └── (footer) Design system ... /styleguide/
 ```
 
-Three top-level items, one of them a group. The homepage carries the
+Three top-level items, one of them a group with four children. The homepage carries the
 participation paths (this month's theme, how participation works, around the
 world, in Canada, resources) as page sections rather than as navigation
 entries, because they are the page's argument rather than separate
@@ -57,7 +58,7 @@ creates it.
 | --- | --- | --- | --- |
 | Home | now | — | Also the site name link |
 | Take action | now | Switch recipes, What to cancel, Alternatives | |
-| Monthly themes | phase 3 | The twelve themes, "All themes" | `/themes/` index plus `/themes/<id>/` |
+| Monthly themes | **now**, as a child of Take action | Twelve theme pages | `/themes/` index plus `/themes/<id>/` |
 | Around the world | phase 4 | International campaigns, Events | `/world/` |
 | Canada | phase 5 | Organizations, Open-source projects | `/canada/` |
 | Get involved | phase 6 | Organize an event, Community stories, Organizer toolkit | `/get-involved/` |
@@ -111,8 +112,8 @@ Existing URLs are preserved. New pages follow the existing pattern: a
 language prefix, a section, then a slug.
 
 ```
-/{lang}/themes/              all twelve themes
-/{lang}/themes/{id}/         one theme
+/{lang}/themes/              all twelve themes (built)
+/{lang}/themes/{id}/         one theme (built)
 /{lang}/world/               international campaigns and events
 /{lang}/canada/              Canadian organizations and projects
 /{lang}/get-involved/        organizing, toolkits, stories
@@ -150,14 +151,18 @@ copy a slash.
 5. Check the row at 320px in both languages: French labels are longer and wrap
    sooner.
 
-## 9. Open questions for the maintainers
+## 9. Decisions and open questions
 
-- **Should "Monthly themes" be top-level or a child of "Take action"?** The
-  theme is a suggestion for what to do this month, which argues for "Take
-  action". It is also a browsable archive of twelve pages, which argues for
-  top-level. Phase 3 should decide with the pages in front of it.
-- **Where does "Get involved" overlap with "Canada"?** Organizing is national;
-  the directory of organizations is Canadian. Phase 5 and 6 should not both
-  claim "who is doing this".
+**Decided in phase 3: "Monthly themes" is a child of "Take action", not a
+top-level item.** With the twelve pages built, the archive is still something
+you use *to act*: each theme page leads to a recipe, an alternative or a small
+task. It also keeps the top level at three items, which is what the header can
+carry at 320px without a menu button. If themes later grow their own events and
+organizer material (phases 4 and 6), revisit this: at that point they are a
+destination, not an action.
+
+**Open: where does "Get involved" overlap with "Canada"?** Organizing is
+national; the directory of organizations is Canadian. Phases 5 and 6 should
+not both claim "who is doing this".
 - **Does the footer need a persistent "Design system" link?** Today it is
   reachable from About only.

@@ -11,5 +11,9 @@ export default function () {
   catalog.recipePages = catalog.site.languages.flatMap((lang) =>
     catalog.recipes.map((recipe) => ({ lang, recipe }))
   );
+  // One page per language per monthly theme.
+  catalog.themePages = catalog.site.languages.flatMap((lang) =>
+    catalog.themes.map((theme) => ({ lang, theme }))
+  );
   return catalog;
 }

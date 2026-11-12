@@ -27,8 +27,8 @@ layout: base.njk
 
 {% if theme %}
 <section class="section spotlight" id="this-month" aria-labelledby="this-month-heading">
-  <p class="hero__eyebrow">{{ "this_month_eyebrow" | t(lang) }}</p>
-  <h2 id="this-month-heading">{{ theme.title | loc(lang) }}</h2>
+  <p class="hero__eyebrow">{{ "theme_eyebrow" | t(lang) }}</p>
+  <h2 id="this-month-heading"><a href="/{{ lang }}/themes/{{ theme.id }}/">{{ theme.title | loc(lang) }}</a></h2>
   <p>{{ theme.summary | loc(lang) }}</p>
   <p><strong>{{ "this_month_action_label" | t(lang) }}{{ "colon" | t(lang) }}</strong> {{ theme.action | loc(lang) }}</p>
   {% if theme.minutes %}

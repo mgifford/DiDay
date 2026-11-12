@@ -55,3 +55,48 @@ test("lists the months with no theme, in order", () => {
   assert.ok(!missing.includes(12), "December is defined");
   assert.deepEqual(missing, [...missing].sort((a, b) => a - b));
 });
+
+// The data side: the year must be complete, because the homepage and the
+// themes index both assume twelve entries.
+import { loadCatalog } from "../lib/catalog.js";
+
+test("every month of the year has exactly one theme", () => {
+  const { themes } = loadCatalog();
+  assert.equal(themes.length, 12, "expected twelve themes");
+  const months = themes.map((theme) => theme.month).sort((a, b) => a - b);
+  assert.deepEqual(months, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+});
+
+test("theme ids are unique and usable as URL slugs", () => {
+  const { themes } = loadCatalog();
+  const ids = themes.map((theme) => theme.id);
+  assert.equal(new Set(ids).size, ids.length, "duplicate theme id");
+  for (const id of ids) {
+    assert.match(id, /^[a-z0-9]+(-[a-z0-9]+)*$/, `id "${id}" is not a slug`);
+  }
+});
+
+test("every theme reference points at an entry that exists", () => {
+  const { themes, recipes, alternatives } = loadCatalog();
+  const recipeIds = new Set(recipes.map((recipe) => recipe.id));
+  const alternativeIds = new Set(alternatives.map((a) => a.id));
+  for (const theme of themes) {
+    for (const id of theme.recipes) {
+      assert.ok(recipeIds.has(id), `${theme.id}: unknown recipe "${id}"`);
+    }
+    for (const id of theme.alternatives) {
+      assert.ok(alternativeIds.has(id), `${theme.id}: unknown alternative "${id}"`);
+    }
+  }
+});
+
+test("each theme is titled, summarised and given an action in both languages", () => {
+  const { themes } = loadCatalog();
+  for (const theme of themes) {
+    for (const field of ["title", "summary", "action"]) {
+      for (const lang of ["en", "fr"]) {
+        assert.ok(theme[field]?.[lang]?.trim(), `${theme.id}.${field}.${lang} is empty`);
+      }
+    }
+  }
+});

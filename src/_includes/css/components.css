@@ -822,3 +822,9 @@ details li {
   width: 6rem;
   height: 6rem;
 }
+
+/* On a theme page the month label follows the breadcrumb. Give it room so it
+   does not read as the last crumb. */
+.breadcrumbs + .hero__eyebrow {
+  margin-top: var(--space-m);
+}
