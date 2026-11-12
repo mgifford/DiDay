@@ -20,7 +20,11 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned, not ubuntu-latest: on 2026-11-12 the latest label moved to
+    # ubuntu 26.04, and Playwright 1.56 has no Firefox build for it, so the
+    # accessibility step failed before it ran. Move this forward when
+    # Playwright publishes a build for the new image.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
