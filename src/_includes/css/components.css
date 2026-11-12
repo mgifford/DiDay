@@ -60,19 +60,114 @@
   text-decoration: none;
 }
 
-.site-header nav ul {
+/* ------------------------------------------------------------ navigation */
+/* A group is a <details> disclosure: it opens without JavaScript, and the
+   summary announces expanded and collapsed state on its own. On a wide
+   screen the panel is positioned; on a narrow one it opens in place, so it
+   never covers content and never needs a hamburger. */
+.nav {
+  margin-top: var(--space-2xs);
+}
+
+.nav__list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: var(--space-3xs) 1.25rem;
   padding: 0;
-  margin: var(--space-2xs) 0 0;
+  margin: 0;
 }
 
-.site-header nav a[aria-current="page"] {
+.nav__item {
+  position: relative;
+}
+
+.nav__item > a,
+.nav__summary {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.nav__item > a[aria-current="page"],
+.nav__summary[aria-current="true"] {
   color: var(--ink);
   font-weight: var(--weight-semibold);
   text-decoration: none;
+}
+
+.nav__summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Remove the browser's own disclosure triangle; the chevron replaces it. */
+.nav__summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav__summary::marker {
+  content: "";
+}
+
+.nav__chevron {
+  /* Matches the 12:8 viewBox, so the chevron stays crisp at small sizes
+     instead of being letterboxed into a square. */
+  width: 0.8em;
+  height: 0.53em;
+  flex: none;
+  transition: transform var(--transition-fast);
+}
+
+.nav__group[open] .nav__chevron {
+  transform: rotate(180deg);
+}
+
+.nav__panel {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-3xs) 0 var(--space-3xs) var(--space-s);
+}
+
+.nav__panel li {
+  margin: 0;
+}
+
+.nav__panel a {
+  display: inline-block;
+  padding-block: 0.35rem;
+}
+
+/* The current page inside an open panel, marked the same way as a top-level
+   item so the position in the site is consistent. */
+.nav__panel a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+@media (min-width: 40rem) {
+  .nav__panel {
+    position: absolute;
+    left: 0;
+    top: calc(100% + var(--space-3xs));
+    z-index: 20;
+    min-width: 15rem;
+    padding: var(--space-2xs);
+    background: var(--surface);
+    border: var(--border-width) solid var(--rule);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .nav__panel a {
+    display: block;
+    padding: var(--space-2xs) var(--space-xs);
+  }
 }
 
 /* WCAG 2.2 target size (2.5.8): plain text links measure smaller than 24px
@@ -81,7 +176,8 @@
    anything on screen. Applies to every link that is not running prose. */
 .site-name a,
 .lang-switch,
-.site-header nav a,
+.nav__list > .nav__item > a,
+.nav__summary,
 .site-footer a {
   display: inline-block;
   padding-block: 0.45rem;
@@ -657,3 +753,72 @@ details li {
 .spec-body { font-size: var(--text-base); }
 .spec-small { font-size: var(--text-sm); color: var(--muted); }
 .spec-xs { font-size: var(--text-xs); color: var(--muted); }
+
+/* ---------------------------------------------------------- monthly theme */
+/* The homepage spotlight for the current month's theme. A surface panel with
+   a brand edge, so it reads as an invitation rather than as an alert. */
+.spotlight {
+  padding: var(--space-s) var(--space-m);
+  background: var(--surface);
+  border: var(--border-width) solid var(--rule);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+}
+
+.spotlight > :first-child {
+  margin-top: 0;
+}
+
+.spotlight > :last-child {
+  margin-bottom: 0;
+}
+
+.spotlight h2 {
+  margin-top: var(--space-3xs);
+}
+
+/* ------------------------------------------------------------ hero date */
+/* The next date keeps its own block, so the hero's two calls to action can
+   sit above it without pushing the date out of view on a phone. */
+.hero__date {
+  margin-top: var(--space-m);
+  padding-top: var(--space-s);
+  border-top: var(--border-width) solid var(--rule);
+}
+
+.hero__date .next-label {
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------- linked lists */
+/* A short list of destinations with a description: the international
+   section, and anything else that is a link plus a sentence. */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin-block: var(--space-s);
+}
+
+.link-list li {
+  margin-bottom: var(--space-xs);
+}
+
+.link-list a {
+  font-weight: var(--weight-semibold);
+}
+
+.link-list span {
+  display: block;
+  color: var(--muted);
+}
+
+/* The brand mark leads the hero but must not dominate it: at its intrinsic
+   128px it pushed the headline below the fold on a phone. */
+.hero__mark {
+  margin: 0;
+}
+
+.hero__mark svg {
+  width: 6rem;
+  height: 6rem;
+}

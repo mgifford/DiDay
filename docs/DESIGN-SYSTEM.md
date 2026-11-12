@@ -361,16 +361,75 @@ state come from the element itself.
 The separator is drawn in CSS, so it is never read aloud and never needs
 translating. The `aria-label` is translated.
 
-### Header, navigation, language switch, theme toggle
+### Navigation
 
-- One `<nav aria-label>` per page, currently the site navigation.
-- `aria-current="page"` on the current item; sections use `aria-current="true"`.
+The nav is data-driven: `data/nav.yaml` lists items, `src/_includes/nav.njk`
+renders them. See `docs/INFORMATION-ARCHITECTURE.md` for the structure and for
+why the pattern below was chosen.
+
+```html
+<nav class="wrap nav" aria-label="Main">
+  <ul class="nav__list">
+    <li class="nav__item"><a href="/en/" aria-current="page">Home</a></li>
+    <li class="nav__item">
+      <details class="nav__group">
+        <summary class="nav__summary" aria-current="true">
+          <span>Take action</span>
+          <svg class="nav__chevron" aria-hidden="true" focusable="false">…</svg>
+        </summary>
+        <ul class="nav__panel">
+          <li><a href="/en/recipes/">Switch recipes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+```
+
+Rules:
+
+- **A group is a `<details>`.** The browser supplies the open state, keyboard
+  operation, focus order and the expanded announcement. Do not replace it with
+  a `role="menu"`, and do not add ARIA that duplicates what the element already
+  does.
+- **A summary is a button, not a link.** A group's destinations are the links
+  inside the panel. Do not make a group navigable.
+- **`aria-current`.** `page` on a link that is the current page; `true` on a
+  summary whose section contains the current page, so a closed panel still
+  tells the visitor where they are.
+- **Two levels only.** Deeper structure belongs on a landing page.
+- **`src/js/nav.js` is an enhancement.** Escape, close-on-outside-click and
+  "one group at a time" are script-only; without script the group still opens
+  and closes natively. Never move a link behind script.
+- **Mobile opens in place.** Below 40rem the panel is static and pushes content
+  down; above 40rem it is positioned. No hamburger.
+
+### Language switch and theme toggle
+
 - The language switch names its destination **in that language**
   (`aria-label="Passer au français"` on the English page) and carries
   `hreflang` and `lang`.
 - The theme toggle is hidden without JavaScript, because it cannot persist a
   choice without script and the site sets no cookies. Without it the page still
   follows the operating system setting.
+
+### Spotlight
+
+`.spotlight` is the surface panel with a brand edge, used for the homepage's
+monthly theme. It is an invitation, not an alert: no `role`, no live region,
+and the panel still reads correctly if the colour is lost.
+
+### Link list
+
+`.link-list` is a short list of destinations each followed by a description on
+its own line. Used for the international section. If an item needs more than a
+link and a sentence, it is a card, not a list item.
+
+### Hero date
+
+`.hero__date` groups the next-date label, the date and the calendar link,
+separated from the hero's calls to action by a rule. The date is the only
+element allowed to use `--text-3xl`.
 
 ### Metadata
 
@@ -554,6 +613,7 @@ content that does not exist is untestable and drifts:
 | Organization card | Phase 5 (`data/initiatives.yaml`) | `.card` plus contribution category badges |
 | International story card | Phase 4 (`data/global-stories.yaml`) | `.card` plus country label |
 | Pagination and filtering | Content volume that needs it | Server-rendered first; no client-side filter until a page needs one |
+| Theme cards, breadcrumb trails on theme pages | Phase 3 | The `.card` and `.breadcrumbs` components exist; Phase 3 supplies the pages |
 | Poster and social templates | Phase 6 toolkit | SVG, generated from the same tokens |
 
 Adding one of these means adding a modifier to `.card`, not a new layout.

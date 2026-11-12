@@ -38,6 +38,24 @@ Rules:
 
 Describe what a company does and link a source. Do not add claims about a company's conduct without a published, citable source.
 
+## Adding a navigation item
+
+Navigation is data. Add the page first, then add an entry to `data/nav.yaml`
+with a stable `id`, a label in both languages, and either a `url` or
+`children`. Keep a group to five children or fewer, and keep the top level to
+seven items. Read [docs/INFORMATION-ARCHITECTURE.md](docs/INFORMATION-ARCHITECTURE.md)
+before changing the structure.
+
+## Adding a monthly theme
+
+Add an entry to `data/themes.yaml` with a `month` from 1 to 12, a bilingual
+`title`, `summary` and `action`, and optional `recipes` and `alternatives`
+references. Never copy a recipe's text into a theme: link to it by `id`.
+
+The homepage shows the theme for the month of the next first Sunday. If a month
+has no theme, the homepage hides the section and the build prints a warning.
+There must be exactly one theme per month number.
+
 ## Changing the look of the site
 
 Style lives in `src/_includes/css/`. Change a token in `tokens.css` before

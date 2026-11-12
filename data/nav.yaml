@@ -1,0 +1,44 @@
+# Top-level navigation, in on-screen order. This file is the information
+# architecture in data form: see docs/INFORMATION-ARCHITECTURE.md.
+#
+# An item is either a link (url) or a group (children). A group's summary is a
+# disclosure button, never a link, so a group should offer an "all" link as its
+# first child when an overview page exists.
+#
+# `url` values are language-relative: the template adds "/en" or "/fr".
+#
+# Later phases add items here. Nothing is listed until its page exists,
+# because the internal link check fails on a link to a page that is not built.
+items:
+  - id: home
+    label:
+      en: Home
+      fr: Accueil
+    url: /
+
+  - id: take-action
+    label:
+      en: Take action
+      fr: Passer à l'action
+    children:
+      - id: recipes
+        label:
+          en: Switch recipes
+          fr: Recettes pour changer
+        url: /recipes/
+      - id: cancel
+        label:
+          en: What to cancel
+          fr: Quoi annuler
+        url: /cancel/
+      - id: alternatives
+        label:
+          en: Alternatives
+          fr: Solutions de rechange
+        url: /alternatives/
+
+  - id: about
+    label:
+      en: About
+      fr: À propos
+    url: /about/

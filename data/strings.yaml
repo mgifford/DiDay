@@ -65,21 +65,6 @@ calendar_subscribe_google:
 calendar_subscribe_outlook:
   en: In Outlook, go to Add calendar, Subscribe from web, and paste the calendar link above.
   fr: Dans Outlook, allez à Ajouter un calendrier, S'abonner à partir du web, puis collez le lien du calendrier ci-dessus.
-how_heading:
-  en: How it works
-  fr: Comment ça marche
-how_steps:
-  en:
-    - Pick one U.S. service you pay for or rely on.
-    - Follow a switch recipe to move to a Canadian or non-U.S. option.
-    - Cancel the old subscription, then tell someone what you did.
-  fr:
-    - Choisissez un service américain que vous payez ou utilisez.
-    - Suivez une recette pour passer à une option canadienne ou non américaine.
-    - Annulez l'ancien abonnement, puis parlez-en à quelqu'un.
-how_pace:
-  en: One service a month is enough. Skipping a month is fine.
-  fr: Un service par mois suffit. Sauter un mois, ce n'est pas grave.
 recipes_intro:
   en: Step-by-step guides for moving one service at a time.
   fr: Des guides étape par étape pour changer un service à la fois.
@@ -400,12 +385,116 @@ styleguide_components:
 styleguide_states:
   en: States
   fr: États
-styleguide_sample:
-  en: Digital independence is something we do together.
-  fr: L'indépendance numérique, c'est quelque chose que nous faisons ensemble.
 styleguide_focus_note:
   en: Press Tab to move through this page. Every control shows the same 3px focus ring, offset so it sits on the page background.
   fr: Appuyez sur Tab pour parcourir cette page. Chaque contrôle affiche le même anneau de focus de 3 px, décalé pour reposer sur le fond de la page.
 about_design_intro:
   en: The colours, type and components are documented and demonstrated in the
   fr: Les couleurs, la typographie et les composants sont documentés et présentés dans le
+
+# --- Phase 2: homepage and participation -----------------------------------
+# The campaign line is the homepage heading. It is working copy approved by
+# the maintainer on 2026-11-12, not a final slogan.
+hero_headline:
+  en: Digital independence is something we do together.
+  fr: L'indépendance numérique, c'est quelque chose que nous faisons ensemble.
+hero_eyebrow:
+  en: First Sunday, every month
+  fr: Le premier dimanche de chaque mois
+hero_lead:
+  en: People in Canada and around the world move one service away from Big Tech, one small step at a time. Pick a step that fits your life. It is free, and you do not need an account.
+  fr: Au Canada et ailleurs dans le monde, des gens quittent un service des géants du numérique, une petite étape à la fois. Choisissez une étape qui convient à votre vie. C'est gratuit et aucun compte n'est requis.
+hero_cta_primary:
+  en: Start with a switch recipe
+  fr: Commencer avec une recette
+hero_cta_secondary:
+  en: How people take part
+  fr: Comment les gens participent
+this_month_eyebrow:
+  en: This month
+  fr: Ce mois-ci
+this_month_action_label:
+  en: Suggested action
+  fr: Geste suggéré
+this_month_more:
+  en: See all the switch recipes
+  fr: Voir toutes les recettes
+participate_heading:
+  en: How participation works
+  fr: Comment participer
+participate_intro:
+  en: One service a month is enough. The order below is a suggestion, not a set of rules.
+  fr: Un service par mois suffit. L'ordre ci-dessous est une suggestion, pas un ensemble de règles.
+participate_steps:
+  en:
+    - Choose one service you already use.
+    - Prepare by reading the recipe and setting aside the time it needs.
+    - Try the alternative, or switch properly if it fits.
+    - Share what you did, if you want to.
+    - Return next month for one more step.
+  fr:
+    - Choisissez un service que vous utilisez déjà.
+    - Préparez-vous en lisant la recette et en réservant le temps qu'elle demande.
+    - Essayez la solution de rechange, ou changez pour de bon si elle vous convient.
+    - Partagez ce que vous avez fait, si vous le souhaitez.
+    - Revenez le mois suivant pour une étape de plus.
+participate_note:
+  en: Skipping a month is fine. Nothing is counted, and no account is created.
+  fr: Sauter un mois n'a pas d'importance. Rien n'est compté et aucun compte n'est créé.
+world_heading:
+  en: Around the world
+  fr: Partout dans le monde
+world_intro:
+  en: Digital Independence Day began in Germany and is marked in several countries. Each country runs its own campaign, in its own language. This site is the Canadian one.
+  fr: La Journée de l'indépendance numérique a commencé en Allemagne et est soulignée dans plusieurs pays. Chaque pays mène sa propre campagne, dans sa propre langue. Ce site est le volet canadien.
+world_diday:
+  en: DI.DAY international
+  fr: DI.DAY international
+world_diday_note:
+  en: The international site, with guides in several languages.
+  fr: Le site international, avec des guides en plusieurs langues.
+world_events:
+  en: International event calendar
+  fr: Calendrier international des événements
+world_events_note:
+  en: Events listed by organizers in each country.
+  fr: Les événements inscrits par les organisateurs de chaque pays.
+world_netherlands:
+  en: Doeidag, the Netherlands
+  fr: Doeidag, aux Pays-Bas
+world_netherlands_note:
+  en: The Dutch campaign, built around the same first Sunday.
+  fr: La campagne néerlandaise, organisée autour du même premier dimanche.
+world_note:
+  en: Those sites are run by other groups. We link to them and do not speak for them.
+  fr: Ces sites sont gérés par d'autres groupes. Nous renvoyons vers eux sans parler en leur nom.
+canada_heading:
+  en: In Canada
+  fr: Au Canada
+canada_orgs_link:
+  en: About page
+  fr: page À propos
+canada_intro:
+  en: You do not need to organize anything to take part. If you would rather do it with others, these work well.
+  fr: Nul besoin d'organiser quoi que ce soit pour participer. Si vous préférez le faire à plusieurs, ces formules fonctionnent bien.
+canada_library:
+  en: Ask at your public library. Many lend e-books and run technology help sessions.
+  fr: Demandez à votre bibliothèque publique. Beaucoup prêtent des livres numériques et offrent de l'aide technologique.
+canada_group:
+  en: Do it with a group. A few people, one recipe, an hour together, and everyone leaves with one service moved.
+  fr: Faites-le en groupe. Quelques personnes, une recette, une heure ensemble, et chacun repart avec un service de moins.
+canada_orgs:
+  en: Organizations working on the same problem in Canada are listed on the
+  fr: Les organismes qui travaillent sur le même enjeu au Canada sont listés sur la
+resources_heading:
+  en: Practical resources
+  fr: Ressources pratiques
+resources_intro:
+  en: Everything here is free to use, copy and translate.
+  fr: Tout ici est libre d'utilisation, de copie et de traduction.
+calendar_card_title:
+  en: Calendar
+  fr: Calendrier
+calendar_card_body:
+  en: Subscribe once and the dates arrive on their own, every month.
+  fr: Abonnez-vous une fois et les dates arrivent d'elles-mêmes, chaque mois.
