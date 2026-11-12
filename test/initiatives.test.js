@@ -174,3 +174,65 @@ test("rejects an organization with no documented contribution", () => {
   record.contributions = [];
   fails(record, /at least one documented contribution/);
 });
+
+// The data side. These run against data/initiatives.yaml, so a record that
+// breaks a rule fails the build rather than the page.
+import { loadCatalog } from "../lib/catalog.js";
+
+const contextFor = (catalog) => ({
+  alternativesIds: new Set(catalog.alternatives.map((a) => a.id)),
+  campaignIds: new Set(catalog.campaigns.map((c) => c.id)),
+  themesIds: new Set(catalog.themes.map((t) => t.id)),
+  projectIds: new Set(),
+});
+
+test("every published record passes the rules", () => {
+  const catalog = loadCatalog();
+  assert.ok(catalog.initiatives.length > 0, "the directory would be empty");
+  assert.deepEqual(validateInitiatives(catalog.initiatives, contextFor(catalog)), []);
+});
+
+test("the first publication set is the ten approved organizations", () => {
+  const { initiatives } = loadCatalog();
+  assert.deepEqual(initiatives.map((i) => i.id).sort(), [
+    "c4ds", "cds", "cira", "code-for-canada", "equalitie",
+    "evolving-web", "fnigc", "koumbit", "openmedia", "savoir-faire-linux",
+  ]);
+});
+
+test("at most two entries are featured, and each explains why", () => {
+  const { initiatives } = loadCatalog();
+  const featured = initiatives.filter((i) => i.featured);
+  assert.ok(featured.length <= 2, `${featured.length} featured entries`);
+  for (const entry of featured) {
+    assert.ok(entry.featured_rationale?.en && entry.featured_rationale?.fr, `${entry.id} has no rationale`);
+    assert.equal(entry.status, "documented-contributor", `${entry.id} is featured but only listed`);
+  }
+});
+
+test("nothing is marked verified without a review date", () => {
+  const { initiatives } = loadCatalog();
+  for (const entry of initiatives) {
+    if (entry.verified) assert.ok(entry.last_reviewed, `${entry.id} is verified with no date`);
+  }
+});
+
+test("the two organizations that moved out of campaigns are in the directory", () => {
+  const { initiatives, campaigns } = loadCatalog();
+  const ids = new Set(initiatives.map((i) => i.id));
+  assert.ok(ids.has("openmedia"));
+  assert.ok(ids.has("c4ds"));
+  const campaignIds = campaigns.map((c) => c.id);
+  assert.ok(!campaignIds.includes("openmedia"), "openmedia should have moved out of campaigns.yaml");
+  assert.ok(!campaignIds.includes("c4ds"), "c4ds should have moved out of campaigns.yaml");
+});
+
+test("every contribution is typed, sourced and bilingual", () => {
+  const { initiatives } = loadCatalog();
+  for (const entry of initiatives) {
+    for (const contribution of entry.contributions) {
+      assert.ok(contribution.sources.length > 0, `${entry.id}: a contribution has no source`);
+      assert.ok(contribution.description.en && contribution.description.fr, `${entry.id}: contribution is not bilingual`);
+    }
+  }
+});

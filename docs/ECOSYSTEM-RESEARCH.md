@@ -1,7 +1,9 @@
 # Canadian ecosystem research inventory
 
-Status: **phase 5, PR 1.** Research only. Nothing here is published, and no
-organization in this file has been approved as a listing.
+Status: **phase 5, PR 2.** The ten organizations in section 7 are now recorded
+in `data/initiatives.yaml`. They are not yet on a page: the directory itself is
+PR 3. Every record is `verified: false` and will say "not yet reviewed" until a
+maintainer checks it.
 
 This inventory is deliberately wider than the directory will be. Its job is to
 record what the evidence supports, what it does not, and what still needs a
@@ -158,3 +160,37 @@ written rationale — see the policy, section 6.
   document asserts anything about them beyond what a secondary source says.
 - **No organization has been contacted.** Nothing here implies participation,
   endorsement or partnership.
+
+
+## 11. Decisions taken, and what shipped
+
+The six questions in section 9 were answered by the maintainer on 2026-11-12:
+
+| Question | Decision |
+| --- | --- |
+| OpenMedia and C4DS, already in `campaigns.yaml` | **Moved into the directory.** They are no longer in `campaigns.yaml`; the About page now lists only the remaining campaign and links to the world page. |
+| CIRA and FNIGC primary sources | The URLs given — <https://www.cira.ca/en/> and <https://fnigc.ca/> — are correct. **Both still return 403 to automated requests**, so neither could be read by the researcher. They are recorded as `listed`, not `documented-contributor`, and their contribution claim needs a person. |
+| Is a government team an organization? | **Yes.** `public-sector` stays; CDS is listed. |
+| Featured count | **Two**, with published rationales: eQualitie and Koumbit. |
+| French review | **Ship with the "not yet reviewed" marker**, like the rest of the site. |
+| The ten-organization set | **Approved as proposed.** |
+
+What that means in the data:
+
+- **Eight are `documented-contributor`**: the contribution was read at the
+  source named in the record — a repository, a published article, or the
+  organization's own description of the work.
+- **Two are `listed`**: CIRA and FNIGC, where the source could not be read.
+  They are in the directory because their Canadian connection is confirmed and
+  their work is well established; they are held back from the stronger state
+  until a person confirms the contribution.
+- **Every record is `verified: false`.** Nothing has been through maintainer
+  review. The site will say so on every entry.
+
+### Still outstanding after PR 2
+
+1. A person reads `cira.ca` and `fnigc.ca` and either confirms the contribution
+   (then sets `status: documented-contributor`) or replaces the claim.
+2. A maintainer reviews all ten records and sets `verified: true` with
+   `last_reviewed`.
+3. The French text is unreviewed, along with the rest of the site's backlog.

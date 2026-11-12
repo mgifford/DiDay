@@ -21,30 +21,3 @@
   verified: true
   last_reviewed: 2026-09-29
 
-- id: openmedia
-  name: OpenMedia
-  url: https://openmedia.org/
-  country: CA
-  description:
-    en: A Canadian digital rights non-profit whose guide to reclaiming digital autonomy from Big Tech overlaps closely with this project's approach, alongside its policy advocacy work.
-    fr: Un organisme canadien de défense des droits numériques dont le guide pour reprendre son autonomie numérique face aux géants du numérique recoupe largement la démarche de ce projet, en plus de son travail de représentation politique.
-  sources:
-    - title: "Defending Our 'Digital Selves' (OpenMedia)"
-      url: https://openmedia.org/article/item/defending-our-digital-selves-a-guide-for-canadians-to-reclaim-digital-autonomy-from-foreign-tech-giants
-  verified: true
-  last_reviewed: 2026-09-29
-
-- id: c4ds
-  name: Canadians for Digital Sovereignty
-  url: https://c4ds.ca/
-  country: CA
-  description:
-    en: A coalition of Canadian organizations and individuals, including OpenMedia, calling on the federal government to reset its digital policy agenda and strengthen Canada's digital sovereignty.
-    fr: Une coalition d'organismes et de personnes canadiennes, dont OpenMedia, qui demande au gouvernement fédéral de revoir sa politique numérique et de renforcer la souveraineté numérique du Canada.
-  sources:
-    - title: "C4DS – Canadians for Digital Sovereignty"
-      url: https://c4ds.ca/
-    - title: "Canadians for Digital Sovereignty (McConnell Foundation funding database)"
-      url: https://www.mcconnellfoundation.ca/funding-database/canadians-for-digital-sovereignty/
-  verified: true
-  last_reviewed: 2026-09-29

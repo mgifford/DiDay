@@ -64,6 +64,7 @@ npm run check:reviews   # lists entries by review date
 | `data/nav.yaml` | The site's navigation structure |
 | `data/themes.yaml` | The monthly theme, one entry per month number |
 | `data/global-stories.yaml` | International campaigns and directories, rendered at `/world/` |
+| `data/initiatives.yaml` | Canadian ecosystem records; the directory page lands in PR 3 |
 | `src/_includes/nav.njk` | Renders the navigation from `data/nav.yaml` |
 | `src/css/style.njk` | The stylesheet template: concatenates the partials below into `/css/style.css` |
 | `src/_includes/css/tokens.css` | Design tokens: palette, semantic colours, type scale, spacing |

@@ -3,6 +3,7 @@ import { loadCatalog } from "../lib/catalog.js";
 import { reasons, EXCLUDED } from "../lib/qualify.js";
 import { toDate } from "../lib/reviews.js";
 import { monthsWithoutTheme } from "../lib/themes.js";
+import { validateInitiatives } from "../lib/initiatives.js";
 
 const c = loadCatalog();
 const langs = c.site.languages;
@@ -233,6 +234,15 @@ for (const item of navItems) {
     errors.push(`${where}: url must start with "/"`);
   }
 }
+
+// Canadian ecosystem directory. The rules live in lib/initiatives.js and are
+// documented in docs/ECOSYSTEM-EDITORIAL-POLICY.md.
+const initiativeErrors = validateInitiatives(c.initiatives, {
+  alternativesIds: alternativeIds,
+  campaignIds: ids(c.campaigns),
+  themesIds: ids(c.themes),
+});
+errors.push(...initiativeErrors);
 
 // Review dates
 for (const kind of ["alternatives", "cancel", "recipes", "campaigns", "themes"]) {

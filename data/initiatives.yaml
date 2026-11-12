@@ -1,0 +1,362 @@
+# Canadian ecosystem directory.
+#
+# The rules are in docs/ECOSYSTEM-EDITORIAL-POLICY.md, the record format in
+# docs/ECOSYSTEM-SCHEMA.md, and the validator in lib/initiatives.js. All three
+# were merged before this file existed, so the data cannot bend the rules.
+#
+# Research and sources: docs/ECOSYSTEM-RESEARCH.md. Checked 2026-11-12.
+#
+# Nothing here is verified: no maintainer has reviewed these records yet, and
+# the site says so on every entry. `verified: true` and `last_reviewed` are set
+# by a person, never by a check.
+#
+# status:
+#   documented-contributor  the named contribution was read at its source
+#   listed                  the Canadian connection is confirmed, but the
+#                           contribution rests on a source that could not be
+#                           read by the researcher (CIRA and FNIGC both block
+#                           automated requests) and needs a person
+#
+# Order is editorial. It is not a ranking.
+
+- id: openmedia
+  name: OpenMedia
+  website: https://openmedia.org/
+  country: CA
+  organization_type: non-profit
+  categories: [digital-rights]
+  summary:
+    en: A Vancouver non-profit that campaigns for an open, affordable and surveillance-free internet, and publishes policy analysis on how platforms are regulated in Canada and the United States.
+    fr: Un organisme sans but lucratif de Vancouver qui milite pour un internet ouvert, abordable et sans surveillance, et publie des analyses sur la réglementation des plateformes au Canada et aux États-Unis.
+  canadian_connection:
+    type: headquartered
+    evidence: https://openmedia.org/contact
+  contributions:
+    - project: null
+      type: advocacy
+      description:
+        en: Publishes policy analysis aimed at Canadian and U.S. platform regulation, including work on safety-by-design rules that do not depend on surveillance.
+        fr: Publie des analyses de politiques visant la réglementation des plateformes au Canada et aux États-Unis, notamment sur des règles de sécurité dès la conception qui ne reposent pas sur la surveillance.
+      sources:
+        - https://openmedia.org/article/item/safety-by-design-how-platforms-can-reduce-harm-without-more-surveillance
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [protect-your-privacy]
+  sources:
+    - url: https://openmedia.org/about
+      supports: [organization_type, categories]
+    - url: https://openmedia.org/contact
+      supports: [canadian_connection]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: cira
+  name: Canadian Internet Registration Authority
+  website: https://www.cira.ca/en/
+  country: CA
+  organization_type: non-profit
+  categories: [public-infrastructure, open-governance]
+  summary:
+    en: The member-driven operator of the .ca domain, based in Ottawa, which also funds community internet projects and takes part in internet governance.
+    fr: L'exploitant du domaine .ca, dirigé par ses membres et établi à Ottawa, qui finance aussi des projets internet communautaires et participe à la gouvernance d'internet.
+  canadian_connection:
+    type: headquartered
+    evidence: https://www.cira.ca/en/
+  contributions:
+    - project: null
+      type: public-infrastructure
+      description:
+        en: Operates the .ca country-code registry and runs a community investment programme that funds Canadian internet projects.
+        fr: Exploite le registre national .ca et gère un programme d'investissement communautaire qui finance des projets internet canadiens.
+      sources:
+        - https://www.cira.ca/en/
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: []
+  sources:
+    - url: https://en.wikipedia.org/wiki/Canadian_Internet_Registration_Authority
+      supports: [organization_type, canadian_connection, open-governance]
+  status: listed
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: equalitie
+  name: eQualitie
+  website: https://equalitie.org/
+  country: CA
+  organization_type: non-profit
+  categories: [open-source-development, digital-rights]
+  summary:
+    en: A Montreal organization that builds and maintains free software for censorship resistance and secure communication, used by civil society and independent media.
+    fr: Un organisme montréalais qui construit et maintient des logiciels libres de résistance à la censure et de communication sécurisée, utilisés par la société civile et les médias indépendants.
+  canadian_connection:
+    type: headquartered
+    evidence: https://equalitie.org/about/
+  contributions:
+    - project: null
+      type: upstream-development
+      description:
+        en: Maintains Ouisync, a peer-to-peer file synchronisation tool, and Ouinet, a library for building censorship-resistant access to content. Both are published under open licences.
+        fr: Maintient Ouisync, un outil de synchronisation de fichiers pair à pair, et Ouinet, une bibliothèque pour un accès résistant à la censure. Les deux sont publiés sous licence libre.
+      sources:
+        - https://github.com/equalitie/ouisync
+        - https://github.com/equalitie/ouinet
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [protect-your-privacy]
+  sources:
+    - url: https://equalitie.org/about/
+      supports: [organization_type, canadian_connection, categories]
+  status: documented-contributor
+  featured: true
+  featured_rationale:
+    en: A Canadian organization maintaining open-source tools that people under censorship use every day, which is the clearest example of Canadian work on globally shared infrastructure.
+    fr: Un organisme canadien qui maintient des outils à code source ouvert utilisés chaque jour par des personnes sous censure, l'exemple le plus clair d'un travail canadien sur une infrastructure partagée à l'échelle mondiale.
+  verified: false
+  last_reviewed: null
+
+- id: savoir-faire-linux
+  name: Savoir-faire Linux
+  website: https://www.savoirfairelinux.com/
+  country: CA
+  organization_type: company
+  categories: [open-source-development]
+  summary:
+    en: A Montreal free-software engineering firm that maintains Jami, a peer-to-peer messaging and calling application used internationally.
+    fr: Une entreprise montréalaise de génie logiciel libre qui maintient Jami, une application de messagerie et d'appels pair à pair utilisée internationalement.
+  canadian_connection:
+    type: canadian-led-project
+    evidence: https://api.github.com/orgs/savoirfairelinux
+  contributions:
+    - project: null
+      type: upstream-development
+      description:
+        en: Maintains the Jami daemon, published under the GNU GPL v3, and the Jami applications built on it. Jami is free software for encrypted calling and messaging without a central account.
+        fr: Maintient le démon Jami, publié sous GNU GPL v3, et les applications Jami qui en dépendent. Jami est un logiciel libre d'appels et de messagerie chiffrés, sans compte central.
+      sources:
+        - https://github.com/savoirfairelinux/jami-daemon
+        - https://jami.net/
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [free-your-conversations]
+  sources:
+    - url: https://api.github.com/orgs/savoirfairelinux
+      supports: [canadian_connection, open-source-development]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: cds
+  name: Canadian Digital Service
+  website: https://digital.canada.ca/
+  country: CA
+  organization_type: public-sector
+  categories: [public-infrastructure, open-source-development]
+  summary:
+    en: A team inside the Government of Canada that builds digital services for federal departments and publishes much of its work as reusable open-source software.
+    fr: Une équipe au sein du gouvernement du Canada qui construit des services numériques pour les ministères fédéraux et publie une bonne partie de son travail comme logiciels libres réutilisables.
+  canadian_connection:
+    type: headquartered
+    evidence: https://digital.canada.ca/
+  contributions:
+    - project: null
+      type: public-infrastructure
+      description:
+        en: Publishes the GC Design System web components under the MIT licence, so other public-sector teams can reuse accessible, bilingual interface components instead of rebuilding them.
+        fr: Publie les composants web du système de design du GC sous licence MIT, pour que d'autres équipes du secteur public réutilisent des composants d'interface accessibles et bilingues au lieu de les reconstruire.
+      sources:
+        - https://github.com/cds-snc/gcds-components
+        - https://digital.canada.ca/
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: []
+  sources:
+    - url: https://github.com/cds-snc/gcds-components
+      supports: [public-infrastructure, open-source-development]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: koumbit
+  name: Koumbit
+  website: https://koumbit.org/
+  country: CA
+  organization_type: cooperative
+  categories: [public-infrastructure]
+  summary:
+    en: A self-managed non-profit collective in Montreal/Tio'tia:ke, running web hosting and system administration on free software since 2004 as an alternative to large technology providers.
+    fr: Un collectif autogéré à but non lucratif à Montréal/Tio'tia:ke, qui offre hébergement web et administration système sur logiciels libres depuis 2004 comme solution de rechange aux grands fournisseurs technologiques.
+  canadian_connection:
+    type: headquartered
+    evidence: https://koumbit.org/fr/apropos
+  contributions:
+    - project: null
+      type: hosting
+      description:
+        en: Hosts and administers websites and mail for community organizations on free software, under cooperative self-management rather than outside ownership.
+        fr: Héberge et administre des sites web et du courriel pour des organismes communautaires sur logiciels libres, sous autogestion coopérative plutôt que sous propriété externe.
+      sources:
+        - https://koumbit.org/fr/apropos
+        - https://koumbit.org/fr/services/hebergement
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [explore-open-source]
+  sources:
+    - url: https://koumbit.org/fr/apropos
+      supports: [organization_type, canadian_connection, categories]
+  status: documented-contributor
+  featured: true
+  featured_rationale:
+    en: A worker cooperative that has run shared infrastructure on free software since 2004, which shows that digital independence can be organized democratically rather than only bought from a vendor.
+    fr: Une coopérative de travail qui exploite une infrastructure partagée sur logiciels libres depuis 2004, ce qui montre que l'indépendance numérique peut s'organiser démocratiquement au lieu de simplement s'acheter.
+  verified: false
+  last_reviewed: null
+
+- id: evolving-web
+  name: Evolving Web
+  website: https://evolvingweb.com/
+  country: CA
+  organization_type: company
+  categories: [open-source-development]
+  summary:
+    en: A Montreal web agency that builds on Drupal and WordPress and maintains public tools under open licences, alongside training and accessibility work.
+    fr: Une agence web montréalaise qui travaille avec Drupal et WordPress et maintient des outils publics sous licence libre, en plus de formation et de travail sur l'accessibilité.
+  canadian_connection:
+    type: headquartered
+    evidence: https://evolvingweb.com/contact
+  contributions:
+    - project: null
+      type: upstream-development
+      description:
+        en: Maintains SiteDiff, a tool for comparing two versions of a site before and after a migration, published under the GNU GPL v2, and other public modules used in Drupal work.
+        fr: Maintient SiteDiff, un outil pour comparer deux versions d'un site avant et après une migration, publié sous GNU GPL v2, ainsi que d'autres modules publics utilisés dans le travail Drupal.
+      sources:
+        - https://github.com/evolvingweb/sitediff
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [explore-open-source]
+  sources:
+    - url: https://evolvingweb.com/contact
+      supports: [organization_type, canadian_connection]
+    - url: https://github.com/evolvingweb/sitediff
+      supports: [open-source-development]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: code-for-canada
+  name: Code for Canada
+  website: https://codefor.ca/
+  country: CA
+  organization_type: non-profit
+  categories: [public-infrastructure, digital-rights]
+  summary:
+    en: A national non-profit that works with governments and community organizations on digital services, with a stated aim of leaving partners able to keep delivering them without a vendor.
+    fr: Un organisme sans but lucratif national qui travaille avec des gouvernements et des organismes communautaires sur des services numériques, avec l'objectif déclaré de laisser les partenaires capables de les livrer sans fournisseur.
+  canadian_connection:
+    type: headquartered
+    evidence: https://codefor.ca/about
+  contributions:
+    - project: null
+      type: training
+      description:
+        en: Delivers public-service projects while building the partner team's own capacity, rather than tying the result to ongoing vendor support.
+        fr: Mène des projets de service public tout en renforçant la capacité de l'équipe partenaire, plutôt que de lier le résultat à un soutien continu de fournisseur.
+      sources:
+        - https://codefor.ca/about
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: [build-digital-skills-together]
+  sources:
+    - url: https://codefor.ca/about
+      supports: [organization_type, canadian_connection, categories]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: c4ds
+  name: Canadians for Digital Sovereignty
+  website: https://c4ds.ca/
+  country: CA
+  organization_type: non-profit
+  categories: [digital-rights, open-governance]
+  summary:
+    en: A coalition of Canadian organizations and individuals pressing the federal government to treat digital infrastructure and vendor dependence as a sovereignty question.
+    fr: Une coalition d'organismes et de personnes au Canada qui demande au gouvernement fédéral de traiter l'infrastructure numérique et la dépendance envers les fournisseurs comme une question de souveraineté.
+  canadian_connection:
+    type: canadian-members
+    evidence: https://c4ds.ca/
+  contributions:
+    - project: null
+      type: advocacy
+      description:
+        en: Publishes collective letters and public positions on Canadian digital policy, signed by member organizations.
+        fr: Publie des lettres collectives et des prises de position publiques sur la politique numérique canadienne, signées par des organismes membres.
+      sources:
+        - https://c4ds.ca/
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: []
+  sources:
+    - url: https://c4ds.ca/
+      supports: [organization_type, canadian_connection, categories]
+  status: documented-contributor
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null
+
+- id: fnigc
+  name: First Nations Information Governance Centre
+  website: https://fnigc.ca/
+  country: CA
+  organization_type: non-profit
+  categories: [indigenous-data-sovereignty]
+  summary:
+    en: An Ontario-based First Nations organization that publishes and teaches the OCAP® principles, the First Nations standards for owning, controlling, accessing and possessing data about their communities.
+    fr: Un organisme des Premières Nations établi en Ontario qui publie et enseigne les principes OCAP®, les normes des Premières Nations sur la propriété, le contrôle, l'accès et la possession des données les concernant.
+  canadian_connection:
+    type: headquartered
+    evidence: https://fnigc.ca/
+  contributions:
+    - project: null
+      type: standards
+      description:
+        en: Publishes the OCAP® principles and the training that goes with them, which set out how First Nations data is governed, in the First Nations' own terms rather than in a general open-data frame.
+        fr: Publie les principes OCAP® et la formation qui les accompagne, qui définissent la gouvernance des données des Premières Nations selon leurs propres termes plutôt que dans un cadre général de données ouvertes.
+      sources:
+        - https://fnigc.ca/
+  relationships:
+    alternatives: []
+    campaigns: []
+    themes: []
+  sources:
+    - url: https://en.wikipedia.org/wiki/First_Nations_Information_Governance_Centre
+      supports: [organization_type, canadian_connection]
+  status: listed
+  featured: false
+  featured_rationale: null
+  verified: false
+  last_reviewed: null

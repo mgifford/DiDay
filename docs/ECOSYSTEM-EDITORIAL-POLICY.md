@@ -175,12 +175,9 @@ Rules:
 | `data/global-stories.yaml` | Who is doing this outside Canada? | International only. A Canadian organization belongs here, not there. |
 | `data/themes.yaml` | What should I do this month? | Themes link to initiatives with `relationships.themes`; a theme does not repeat an organization's description. |
 
-Two organizations currently appear in both `campaigns.yaml` and the planned
-directory (OpenMedia, C4DS). PR 2 must decide whether to move them out of
-`campaigns.yaml`, as DI.DAY Germany and Doeidag were moved in phase 4, or to
-keep the campaign entry as the "who they are" and the initiative record as the
-"what they contributed". This is recorded as an open question in the research
-inventory rather than decided here.
+Resolved on 2026-11-12: OpenMedia and C4DS moved out of `campaigns.yaml` into
+`data/initiatives.yaml`, as DI.DAY Germany and Doeidag were moved in phase 4.
+One description, one place.
 
 ## 12. Where the rules live
 
