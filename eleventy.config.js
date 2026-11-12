@@ -1,7 +1,7 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { loadCatalog } from "./lib/catalog.js";
 import { ranked, reasons } from "./lib/qualify.js";
-import { reviewStatus } from "./lib/reviews.js";
+import { reviewStatus, toDate } from "./lib/reviews.js";
 import { stripComments } from "./lib/css.js";
 import { themeForDate, byMonth, themeAfter } from "./lib/themes.js";
 
@@ -105,14 +105,34 @@ export default function (eleventyConfig) {
       .format(new Date(Date.UTC(2026, month - 1, 15)))
   );
 
-  // Dates are stored as UTC midnight, so format them in UTC.
-  eleventyConfig.addFilter("longDate", (date, lang) =>
-    new Intl.DateTimeFormat(`${lang}-CA`, {
-      weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
-    }).format(date)
-  );
+  // Dates are stored as UTC midnight, so format them in UTC. YAML may hand
+  // over a Date or a "YYYY-MM-DD" string depending on the loader, so accept
+  // both and fail loudly on anything else.
+  const asDate = (value) => (value instanceof Date ? value : toDate(value));
 
-  eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
+  eleventyConfig.addFilter("longDate", (value, lang) => {
+    const date = asDate(value);
+    if (!date) throw new Error(`longDate: not a date: ${value}`);
+    return new Intl.DateTimeFormat(`${lang}-CA`, {
+      weekday: "long", year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
+    }).format(date);
+  });
+
+  // Day, month and year, without the weekday: used for "checked on" lines,
+  // where the weekday is noise.
+  eleventyConfig.addFilter("shortDate", (value, lang) => {
+    const date = asDate(value);
+    if (!date) throw new Error(`shortDate: not a date: ${value}`);
+    return new Intl.DateTimeFormat(`${lang}-CA`, {
+      year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
+    }).format(date);
+  });
+
+  eleventyConfig.addFilter("isoDate", (value) => {
+    const date = asDate(value);
+    if (!date) throw new Error(`isoDate: not a date: ${value}`);
+    return date.toISOString().slice(0, 10);
+  });
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },

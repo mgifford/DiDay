@@ -42,6 +42,12 @@ items:
           fr: Thèmes mensuels
         url: /themes/
 
+  - id: world
+    label:
+      en: Around the world
+      fr: Partout dans le monde
+    url: /world/
+
   - id: about
     label:
       en: About

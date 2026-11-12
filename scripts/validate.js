@@ -186,6 +186,36 @@ if (missingThemes.length) {
   errors.push(`themes: no theme for month(s) ${missingThemes.join(", ")}. Add one entry per month, 1 to 12.`);
 }
 
+// The international movement. Each entry names its source and its relationship
+// to this project; nothing implies a partnership.
+const RELATIONSHIPS = ["international-initiative", "related-campaign", "event-directory"];
+unique(c.globalStories, "global-stories");
+for (const story of c.globalStories) {
+  const where = `global-stories.${story.id}`;
+  bilingual(story.title, `${where}.title`);
+  bilingual(story.summary, `${where}.summary`);
+  country(story.country, `${where}.country`);
+  if (!story.source_url?.startsWith("https://")) {
+    errors.push(`${where}: needs a https source_url that supports the description`);
+  }
+  if (!RELATIONSHIPS.includes(story.relationship)) {
+    errors.push(`${where}: relationship must be one of ${RELATIONSHIPS.join(", ")}`);
+  }
+  if (story.event_url && !story.event_url.startsWith("https://")) {
+    errors.push(`${where}: event_url must start with https://`);
+  }
+  // An image may only appear with both a credit and a stated licence.
+  if (story.image && (!story.image_credit || !story.image_licence)) {
+    errors.push(`${where}: an image needs image_credit and image_licence`);
+  }
+  const checked = toDate(story.last_verified);
+  if (!checked) errors.push(`${where}: last_verified must be a date written as YYYY-MM-DD`);
+  else if (checked > new Date()) errors.push(`${where}: last_verified is in the future`);
+  if (story.verified === true && !checked) {
+    errors.push(`${where}: verified: true needs a last_verified date`);
+  }
+}
+
 // Navigation: every item is a link or a group, labelled in both languages.
 const navItems = c.nav?.items || [];
 if (!navItems.length) errors.push("nav.items: the site needs at least one navigation item");

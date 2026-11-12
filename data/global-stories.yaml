@@ -1,0 +1,98 @@
+# The international movement: campaigns, coalitions and directories that exist
+# outside Canada. Rendered at /world/.
+#
+# Rules for this file:
+#   - `relationship` records what the link actually is. "related-campaign" never
+#     means "chapter", and a similar name is not evidence of affiliation.
+#   - `source_url` must be a page that supports the description above it.
+#   - `image` stays null unless the licence allows reuse and permits it here.
+#     Nothing is copied from another campaign's site.
+#   - Entries are verified against the source by a maintainer, not by an
+#     automated check, which is why `verified` starts false.
+#
+# Checked against the sources on 2026-11-12.
+#
+# Relationship values:
+#   international-initiative  a coalition or project coordinating DI.DAY itself
+#   related-campaign          a national campaign sharing the first-Sunday idea
+#   event-directory           a maintained list of events, not a campaign
+
+- id: di-day
+  country: null
+  title:
+    en: DI.DAY international
+    fr: DI.DAY international
+  summary:
+    en: The international DI.DAY site, run by Save Social in Hamburg, with switch recipes and campaign material in English, German, Italian, Slovenian and Dutch. It also coordinates the organisers' network.
+    fr: Le site international de DI.DAY, géré par Save Social à Hambourg, avec des recettes et du matériel de campagne en anglais, en allemand, en italien, en slovène et en néerlandais. Il coordonne aussi le réseau des organisateurs.
+  organization: Save Social – Networks For Democracy
+  source_url: https://di.day/en/contact
+  event_url: null
+  event_date: null
+  last_verified: 2026-11-12
+  image: null
+  image_credit: null
+  image_licence: null
+  relationship: international-initiative
+  featured: true
+  verified: false
+
+- id: diday-org
+  country: DE
+  title:
+    en: DI.DAY in Germany
+    fr: DI.DAY en Allemagne
+  summary:
+    en: The German campaign that most of this project follows, with step-by-step switching guides. It is run by CCC Hansestadt Hamburg e.V., and its written material is released under CC0.
+    fr: La campagne allemande dont ce projet s'inspire le plus directement, avec des guides de changement étape par étape. Elle est gérée par CCC Hansestadt Hamburg e.V., et ses textes sont publiés sous CC0.
+  organization: CCC Hansestadt Hamburg e.V.
+  source_url: https://diday.org/en/legal/
+  event_url: null
+  event_date: null
+  last_verified: 2026-11-12
+  image: null
+  image_credit: null
+  image_licence: null
+  relationship: related-campaign
+  featured: false
+  verified: false
+
+- id: doeidag
+  country: NL
+  title:
+    en: Doeidag, the Netherlands
+    fr: Doeidag, aux Pays-Bas
+  summary:
+    en: The Dutch sibling campaign, built around the same first Sunday, with its own recipes in Dutch. It is run by three volunteers and published on Codeberg.
+    fr: La campagne sœur néerlandaise, organisée autour du même premier dimanche, avec ses propres recettes en néerlandais. Elle est animée par trois bénévoles et publiée sur Codeberg.
+  organization: Doeidag (volunteers)
+  source_url: https://doeidag.nl/over-ons/
+  event_url: null
+  event_date: null
+  last_verified: 2026-11-12
+  image: null
+  image_credit: null
+  image_licence: null
+  relationship: related-campaign
+  featured: false
+  verified: false
+
+- id: diday-events
+  country: null
+  title:
+    en: DI.DAY event calendar
+    fr: Calendrier des événements DI.DAY
+  summary:
+    en: A shared calendar of DI.DAY events, listed by the organisers themselves. It is the reliable place to see what is happening outside Canada this month, because events change far more often than a page like this can.
+    fr: Un calendrier partagé des événements DI.DAY, inscrits par les organisateurs eux-mêmes. C'est l'endroit fiable pour voir ce qui se passe hors du Canada ce mois-ci, car les événements changent bien plus souvent qu'une page comme celle-ci.
+  organization: DI.DAY organisers network
+  source_url: https://events.diday.org/
+  event_url: https://events.diday.org/
+  event_date: null
+  last_verified: 2026-11-12
+  image: null
+  image_credit: null
+  image_licence: null
+  relationship: event-directory
+  featured: false
+  verified: false

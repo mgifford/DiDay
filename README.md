@@ -58,6 +58,7 @@ npm run check:reviews   # lists entries by review date
 | `src/js/nav.js` | Navigation groups: Escape, close on outside click, one open at a time |
 | `data/nav.yaml` | The site's navigation structure |
 | `data/themes.yaml` | The monthly theme, one entry per month number |
+| `data/global-stories.yaml` | International campaigns and directories, rendered at `/world/` |
 | `src/_includes/nav.njk` | Renders the navigation from `data/nav.yaml` |
 | `src/css/style.njk` | The stylesheet template: concatenates the partials below into `/css/style.css` |
 | `src/_includes/css/tokens.css` | Design tokens: palette, semantic colours, type scale, spacing |
@@ -67,6 +68,7 @@ npm run check:reviews   # lists entries by review date
 | `docs/DESIGN-SYSTEM.md` | Design system: goals, tokens, tested contrast, component rules |
 | `docs/INFORMATION-ARCHITECTURE.md` | Navigation structure, why the disclosure pattern, what ships when |
 | `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
+| `src/pages/world.njk` | The international page at `/world/` |
 | `data/review.yaml` | How long a review stays current |
 | `lib/reviews.js`, `scripts/check-reviews.js` | Review date tracking |
 | `data/link-check.yaml` | URLs the link checker skips |
