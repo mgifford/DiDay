@@ -216,6 +216,9 @@ countries:
   DE:
     en: Germany
     fr: Allemagne
+  FR:
+    en: France
+    fr: France
   NL:
     en: Netherlands
     fr: Pays-Bas
@@ -370,3 +373,39 @@ language_fr:
 language_de:
   en: German
   fr: allemand
+
+# Design system page, at /en/styleguide/ and /fr/styleguide/. Technical
+# token names stay in code; only the section headings are translated.
+styleguide_title:
+  en: Design system
+  fr: Système de conception
+styleguide_lead:
+  en: The colours, type and components every page is built from, shown with the production stylesheet rather than a copy of it.
+  fr: Les couleurs, la typographie et les composants sur lesquels repose chaque page, présentés avec la feuille de style de production plutôt qu'avec une copie.
+styleguide_colour:
+  en: Colour
+  fr: Couleur
+styleguide_colour_note:
+  en: Semantic tokens. The same names render light and dark, so a component never names a raw colour.
+  fr: Jetons sémantiques. Les mêmes noms s'appliquent au thème clair et au thème sombre, donc un composant ne nomme jamais une couleur brute.
+styleguide_type:
+  en: Typography
+  fr: Typographie
+styleguide_space:
+  en: Space and layout
+  fr: Espacement et mise en page
+styleguide_components:
+  en: Components
+  fr: Composants
+styleguide_states:
+  en: States
+  fr: États
+styleguide_sample:
+  en: Digital independence is something we do together.
+  fr: L'indépendance numérique, c'est quelque chose que nous faisons ensemble.
+styleguide_focus_note:
+  en: Press Tab to move through this page. Every control shows the same 3px focus ring, offset so it sits on the page background.
+  fr: Appuyez sur Tab pour parcourir cette page. Chaque contrôle affiche le même anneau de focus de 3 px, décalé pour reposer sur le fond de la page.
+about_design_intro:
+  en: The colours, type and components are documented and demonstrated in the
+  fr: Les couleurs, la typographie et les composants sont documentés et présentés dans le
