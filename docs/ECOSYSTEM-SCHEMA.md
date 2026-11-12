@@ -91,7 +91,7 @@ So this version deliberately omits:
 | `canadian_connection.evidence` | string | yes | `https://` URL that supports the connection claimed. |
 | `contributions` | list | yes | At least one. Each entry is a claim with its own evidence. |
 | `contributions[].project` | slug or null | no | Id in `data/projects.yaml`. See "Projects" below. |
-| `contributions[].type` | enum | yes | See below. |
+| `contributions[].type` | enum | yes | See below. `advocacy` exists because a digital-rights organization contributes published analysis and campaigning, not code. |
 | `contributions[].description` | `{en, fr}` | yes | The specific work, not "uses open source". |
 | `contributions[].sources` | list of URL | yes | At least one `https://` URL per contribution. |
 | `relationships.alternatives` | list of id | no | Must exist in `data/alternatives.yaml`. |
