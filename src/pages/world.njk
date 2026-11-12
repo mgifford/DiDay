@@ -1,0 +1,53 @@
+---
+# The international movement. Everything here is checked against the source
+# named on each entry; see data/global-stories.yaml for the rules.
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/world/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'world_heading' | t(lang) }}"
+  description: "{{ 'world_page_intro' | t(lang) | safe }}"
+---
+{#- Display order is the order of data/global-stories.yaml; the featured entry is written first. -#}
+<h1>{{ "world_heading" | t(lang) }}</h1>
+<p>{{ "world_page_intro" | t(lang) }}</p>
+
+<ul class="card-grid">
+  {% for s in catalog.globalStories %}
+  <li>
+    <article class="card">
+      <p class="card__meta">
+        {% if s.country %}{{ s.country | country(lang) }}{% else %}{{ "world_scope_international" | t(lang) }}{% endif %}
+        ·
+        {% if s.relationship == "international-initiative" %}{{ "world_relationship_international" | t(lang) }}
+        {%- elif s.relationship == "related-campaign" %}{{ "world_relationship_campaign" | t(lang) }}
+        {%- else %}{{ "world_relationship_events" | t(lang) }}{% endif %}
+      </p>
+      <h2 class="card__title"><a href="{{ s.source_url }}">{{ s.title | loc(lang) }}</a></h2>
+      <p class="card__body">{{ s.summary | loc(lang) }}</p>
+      <p class="card__meta">{{ "world_org_label" | t(lang) }}{{ "colon" | t(lang) }} {{ s.organization }}</p>
+      {% if s.event_url %}
+      <p class="card__meta"><a href="{{ s.event_url }}">{{ "world_events" | t(lang) }}</a></p>
+      {% endif %}
+      <p class="reviewed">{{ "world_checked_label" | t(lang) }}{{ "colon" | t(lang) }} <time datetime="{{ s.last_verified | isoDate }}">{{ s.last_verified | shortDate(lang) }}</time></p>
+      {% if not s.verified %}<p class="card__meta">{{ "world_unreviewed" | t(lang) }}</p>{% endif %}
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+
+<p class="card__meta">{{ "world_check_note" | t(lang) }}</p>
+
+<section class="section">
+  <h2>{{ "world_collab_heading" | t(lang) }}</h2>
+  <p>{{ "world_collab_intro" | t(lang) }}</p>
+  <ul class="plain">
+    <li>{{ "world_collab_translate" | t(lang) }}</li>
+    <li>{{ "world_collab_event" | t(lang) }}</li>
+    <li>{{ "world_collab_guides" | t(lang) }}</li>
+  </ul>
+</section>

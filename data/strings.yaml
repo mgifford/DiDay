@@ -447,24 +447,9 @@ world_heading:
 world_intro:
   en: Digital Independence Day began in Germany and is marked in several countries. Each country runs its own campaign, in its own language. This site is the Canadian one.
   fr: La Journée de l'indépendance numérique a commencé en Allemagne et est soulignée dans plusieurs pays. Chaque pays mène sa propre campagne, dans sa propre langue. Ce site est le volet canadien.
-world_diday:
-  en: DI.DAY international
-  fr: DI.DAY international
-world_diday_note:
-  en: The international site, with guides in several languages.
-  fr: Le site international, avec des guides en plusieurs langues.
 world_events:
   en: International event calendar
   fr: Calendrier international des événements
-world_events_note:
-  en: Events listed by organizers in each country.
-  fr: Les événements inscrits par les organisateurs de chaque pays.
-world_netherlands:
-  en: Doeidag, the Netherlands
-  fr: Doeidag, aux Pays-Bas
-world_netherlands_note:
-  en: The Dutch campaign, built around the same first Sunday.
-  fr: La campagne néerlandaise, organisée autour du même premier dimanche.
 world_note:
   en: Those sites are run by other groups. We link to them and do not speak for them.
   fr: Ces sites sont gérés par d'autres groupes. Nous renvoyons vers eux sans parler en leur nom.
@@ -530,3 +515,50 @@ theme_next:
 breadcrumbs_label:
   en: Breadcrumb
   fr: Fil d'Ariane
+
+# --- Phase 4: the international movement ----------------------------------
+world_page_intro:
+  en: Digital Independence Day is marked in more than one country, and each country runs its own campaign. These are the ones we have checked, with what each one actually is.
+  fr: La Journée de l'indépendance numérique est soulignée dans plus d'un pays, et chaque pays mène sa propre campagne. Voici celles que nous avons vérifiées, avec ce qu'elles sont réellement.
+world_relationship_international:
+  en: International initiative
+  fr: Initiative internationale
+world_relationship_campaign:
+  en: Related campaign
+  fr: Campagne sœur
+world_relationship_events:
+  en: Event directory
+  fr: Répertoire d'événements
+world_scope_international:
+  en: International
+  fr: International
+world_checked_label:
+  en: Checked against the source
+  fr: Vérifié à la source
+world_unreviewed:
+  en: Not yet reviewed by a maintainer.
+  fr: Pas encore vérifié par une personne responsable.
+world_org_label:
+  en: Run by
+  fr: Géré par
+world_check_note:
+  en: We link to these and do not speak for them. Each description was checked against the source on the date shown.
+  fr: Nous renvoyons vers ces sites sans parler en leur nom. Chaque description a été vérifiée à la source à la date indiquée.
+world_collab_heading:
+  en: Take part internationally
+  fr: Participer à l'international
+world_collab_intro:
+  en: You do not have to stay inside the Canadian campaign. These routes are open to anyone.
+  fr: Il n'est pas nécessaire de rester dans la campagne canadienne. Ces pistes sont ouvertes à tout le monde.
+world_collab_translate:
+  en: Help translate the international site. It is maintained in five languages and takes corrections.
+  fr: Aidez à traduire le site international. Il est tenu en cinq langues et accepte les corrections.
+world_collab_event:
+  en: Publish a Canadian event in the shared calendar, so people looking for something nearby can find it.
+  fr: Inscrivez un événement canadien dans le calendrier partagé, pour que les personnes qui cherchent une activité près de chez elles le trouvent.
+world_collab_guides:
+  en: Share a switch recipe with the international project if yours works better than theirs.
+  fr: Partagez une recette avec le projet international si la vôtre fonctionne mieux que la leur.
+about_world_intro:
+  en: international campaigns and events are listed on their own page.
+  fr: les campagnes et événements internationaux sont présentés sur leur propre page.
