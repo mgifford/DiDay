@@ -49,7 +49,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
   accessibility-chromium:
-    runs-on: ubuntu-latest
+    # Pinned for the same reason as the build job in pages.yml: the browser
+    # install step needs a runner image Playwright supports.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
