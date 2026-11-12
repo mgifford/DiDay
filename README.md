@@ -174,7 +174,7 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 - French text needs review by a fluent francophone. All French texts are currently marked as not reviewed (run `npm run french` for the current count).
 - URL slugs are English in both languages.
 - Siteimprove Alfa is deferred. axe-core is in CI.
-- The Firefox check uses Playwright's Firefox, a patched build rather than the release build. Keyboard, reflow, text-spacing and forced-colours checks have only been scripted, in Firefox; no screen reader testing has been done. See `ACCESSIBILITY.md`.
+- The Firefox check uses Playwright's Firefox, a patched build rather than the release build. Keyboard, reflow, text-spacing and forced-colours checks are scripted and can be re-run with `npm run check:a11y:behaviour:all`; no screen reader testing has been done. See `ACCESSIBILITY.md`.
 - The external link check and the Wikidata ownership check run weekly in CI; the most recent run passed on 26 October 2026.
 - Hushmail has no Wikidata item.
 - The Mastodon inbox and reminders have been tested against a simulated server, not mstdn.ca.

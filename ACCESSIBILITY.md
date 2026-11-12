@@ -22,8 +22,8 @@ claim, or a substitute for testing with disabled people.
 | Public statement | This file, not a formal conformance statement |
 | Target standard | WCAG 2.2 Level AA |
 | Additional requirements | None documented for this project |
-| Last reviewed | 2026-11-03 |
-| Next review due | 2027-05-03, or at launch if earlier |
+| Last reviewed | 2026-11-04 |
+| Next review due | 2027-05-04, or at launch if earlier |
 
 ## 2. Conformance status
 
@@ -99,6 +99,7 @@ required step fails for a user, the task is not accessible.
 | axe-core with Playwright in Chromium | Same pages and settings | Weekly, and by hand | Opens or updates an "Accessibility problems in Chromium" issue |
 | French review warning | Every bilingual text pair | Every pull request and deploy | Warns; does not stop the build |
 | External link check | Every URL in the data files | Weekly | Opens or updates a "Broken links" issue |
+| `npm run check:a11y:behaviour` (Firefox) and `npm run check:a11y:behaviour:all` (both engines) | 19 pages: keyboard traversal and focus, skip link, theme toggle, language switch, 320 CSS pixel reflow, text-spacing overrides, forced-colours emulation | By hand before launch and after layout or interaction changes | Exits 1 and writes `reports/a11y-behaviour.md` |
 
 Tool versions are pinned in `package.json` and `package-lock.json`; the axe
 rule tags are `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` and `wcag22aa`.
@@ -110,20 +111,22 @@ only part of WCAG.
 
 | Check | Status | Evidence or note |
 | --- | --- | --- |
-| Keyboard operation, every page type | Scripted check passed on 2026-11-03; not tested by a person | A one-off Playwright Firefox script tabbed through all 19 pages. The first stop was the skip link, every focused element had the 3px outline, the skip link moved focus to `main`, the theme toggle switched and saved the theme, and the language switch reached the other language home |
+| Keyboard operation, every page type | Repeatable check passes in Firefox and Chromium; not tested by a person | `npm run check:a11y:behaviour:all` tabbed through all 19 pages. Where a page has a skip link, it is the first stop; every focused element has the 3px outline; the skip link moves focus to `main`; the theme toggle switches and saves the theme; and the language switch reaches the other language home |
 | NVDA with Firefox | Not done | Listed in `LAUNCH.md` section 6 |
 | VoiceOver with Safari on iOS | Not done | Listed in `LAUNCH.md` section 6 |
 | TalkBack on Android | Not done | Listed in `LAUNCH.md` section 6 |
-| 400% zoom and reflow | Scripted check passed on 2026-11-03; not tested by a person | At a 320 CSS pixel viewport, equivalent to 1280 at 400%, no page had horizontal scrolling or an element that overflowed the viewport |
-| Text spacing overrides | Scripted check passed on 2026-11-03; not tested by a person | With the WCAG 1.4.12 overrides injected, no text was clipped and no page scrolled horizontally |
-| Windows forced-colors mode | Emulated in Firefox on 2026-11-03; not tested in Windows | The `forced-colors` media query applied the system palette and underlined links. No person reviewed the screenshots |
+| 400% zoom and reflow | Repeatable check passes in Firefox and Chromium; not tested by a person | At a 320 CSS pixel viewport, equivalent to 1280 at 400%, no page scrolls horizontally and no element overflows the viewport |
+| Text spacing overrides | Repeatable check passes in Firefox and Chromium; not tested by a person | With the WCAG 1.4.12 overrides, no text is clipped and no page scrolls horizontally |
+| Windows forced-colours mode | Emulated in Firefox and Chromium; not tested in Windows | The media query applies the system palette, and the first link on each page keeps an underline or a border |
 | Light and dark visual review | Not recorded by a person | Automated runs exercise both schemes and the toggle |
 | French language quality review | In progress | 140 texts need a fluent reviewer; see `npm run french` |
 
-The scripted checks are not part of `npm test`. They ran in Playwright's Firefox
-only, at one viewport per check, and they measure a few properties rather than
-looking at the page. Chromium, Safari and assistive technology were not
-exercised. Re-run them before launch and record the date.
+The scripted checks are not part of `npm test`. Run
+`npm run check:a11y:behaviour` for Firefox or
+`npm run check:a11y:behaviour:all` for both engines. They load every page, at
+one viewport per check, and measure a few properties rather than looking at the
+page. Safari and assistive technology are not exercised. Re-run them before
+launch and record the date.
 
 No assistive technology and browser combination has been evaluated yet. This
 table will be replaced with dated combinations and results as testing happens.
@@ -135,10 +138,12 @@ A change is ready when:
 1. `npm test` passes.
 2. `npm run check:a11y` passes for any change that affects rendered HTML, CSS,
    or JavaScript. Every reported best-practice or needs-review item is fixed or
-   explained in the pull request.
+   explained in the pull request. Layout or interaction changes also pass
+   `npm run check:a11y:behaviour:all`.
 3. The changed interaction has been operated by keyboard.
 4. Layout changes are checked at 320 CSS pixels wide and at 400% zoom, and in
-   both themes.
+   both themes. The scripted part is covered by
+   `npm run check:a11y:behaviour:all`.
 5. Every new image has useful alternative text; decorative images and icons
    are hidden from assistive technology.
 6. New or changed text exists in both languages, and French that has not been
@@ -175,7 +180,6 @@ issue is accepted, deferred, or closed.
 | No screen reader testing | All pages | Screen reader users have not been verified | None documented | `LAUNCH.md` section 6 | Maintainers | Before launch |
 | Reflow and text spacing checked by script only | All pages | Visual problems at 400% zoom may remain | Check by hand before launch | `LAUNCH.md` section 6 | Maintainers | Before launch |
 | Forced-colours mode emulated only | All pages | Windows high-contrast users have not been verified | None documented | This file | Maintainers | Before launch |
-| Scripted keyboard, reflow and text-spacing checks ran in Firefox only | Those checks | Other engines may behave differently | Chromium runs axe weekly | This file | Maintainers | Before launch |
 | French text awaiting review | French pages | Translation errors may confuse readers | English pages are available | `npm run french` | Maintainers | Before launch |
 | No formal accessibility evaluation | Whole site | No conformance claim can be made | None | This file | Maintainers | Before any claim |
 | Linked sites and profiles are not controlled | External destinations | Barriers may exist after leaving this site | Contact the destination owner | Not applicable | Destination owners | Not scheduled |
@@ -232,6 +236,7 @@ Review this file:
 | --- | --- | --- | --- |
 | 2026-11-02 | First version | Repository review and the automated runs recorded above | Project maintainers |
 | 2026-11-03 | Record the scripted keyboard, reflow, text-spacing and forced-colours checks | One-off Playwright Firefox run across 19 pages | Project maintainers |
+| 2026-11-04 | Make those checks repeatable in Firefox and Chromium | `npm run check:a11y:behaviour:all`: no failures across 19 pages | Project maintainers |
 
 ## 13. References
 
