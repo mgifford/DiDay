@@ -1,0 +1,74 @@
+---
+pagination:
+  data: catalog.themePages
+  size: 1
+  alias: p
+  addAllPagesToCollections: true
+permalink: "/{{ p.lang }}/themes/{{ p.theme.id }}/"
+layout: base.njk
+eleventyComputed:
+  lang: "{{ p.lang }}"
+  pageTitle: "{{ p.theme.title | loc(p.lang) }}"
+  description: "{{ p.theme.summary | loc(p.lang) | safe }}"
+---
+{%- set t = p.theme -%}
+{%- set after = catalog.themes | themeAfter(t) -%}
+<nav class="breadcrumbs" aria-label="{{ 'breadcrumbs_label' | t(lang) }}">
+  <ol>
+    <li><a href="/{{ lang }}/">{{ "nav_home" | t(lang) }}</a></li>
+    <li><a href="/{{ lang }}/themes/">{{ "nav_themes" | t(lang) }}</a></li>
+    <li aria-current="page">{{ t.title | loc(lang) }}</li>
+  </ol>
+</nav>
+<p class="hero__eyebrow">{{ t.month | monthName(lang) }}</p>
+<h1>{{ t.title | loc(lang) }}</h1>
+<p class="hero__lead">{{ t.summary | loc(lang) }}</p>
+
+<div class="spotlight">
+  <h2>{{ "theme_action_heading" | t(lang) }}</h2>
+  <p>{{ t.action | loc(lang) }}</p>
+  {% if t.minutes %}
+  <p class="card__meta">{{ "time" | t(lang) }}{{ "colon" | t(lang) }} {{ t.minutes }} {{ "minutes" | t(lang) }}</p>
+  {% endif %}
+</div>
+
+{% if t.recipes.length %}
+<section class="section">
+  <h2>{{ "theme_recipes_heading" | t(lang) }}</h2>
+  <ul class="card-grid">
+    {% for r in catalog.recipes | byIds(t.recipes) %}
+    <li>
+      <article class="card">
+        <h3 class="card__title"><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ r.title | loc(lang) }}</a></h3>
+        <p class="card__meta">{{ r.minutes }} {{ "minutes" | t(lang) }}</p>
+        <p class="card__body">{{ r.summary | loc(lang) }}</p>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if t.alternatives.length %}
+<section class="section">
+  <h2>{{ "theme_alternatives_heading" | t(lang) }}</h2>
+  <ul class="plain">
+    {% for a in catalog.alternatives | byIds(t.alternatives) | ranked %}
+    <li><a href="/{{ lang }}/alternatives/#{{ a.id }}">{{ a.name | loc(lang) }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="section">
+  <h2>{{ "theme_more_heading" | t(lang) }}</h2>
+  <ul class="plain">
+    <li><a href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a></li>
+    <li><a href="/{{ lang }}/cancel/">{{ "nav_cancel" | t(lang) }}</a></li>
+    <li><a href="/{{ lang }}/alternatives/">{{ "nav_alternatives" | t(lang) }}</a></li>
+  </ul>
+</section>
+
+{% if after %}
+<p class="card__meta">{{ "theme_next" | t(lang) }}{{ "colon" | t(lang) }} <a href="/{{ lang }}/themes/{{ after.id }}/">{{ after.title | loc(lang) }}</a></p>
+{% endif %}

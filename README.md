@@ -94,7 +94,7 @@ npm run check:reviews   # lists entries by review date
 1. Push to a repository with `main` as the default branch.
 2. In Settings, Pages, set Source to "GitHub Actions".
 3. The workflow sets the path prefix automatically, so project pages (`/repo-name/`) and custom domains both work.
-4. The site rebuilds every Monday so the next date stays correct.
+4. The site rebuilds every Monday so the next date stays correct. The same build moves the monthly theme on, because the theme is chosen from the month of the next first Sunday: after each DI.DAY the theme switches within a day, and a first Sunday that falls on the 1st is no different.
 
 ## Automated maintenance
 
@@ -107,7 +107,7 @@ Every build and pull request:
 
 Every Monday:
 
-- The site rebuilds so the next date is correct.
+- The site rebuilds so the next date and the current monthly theme are correct.
 - **Link check.** Every URL in the data files is requested. Broken links (404, 410, no response, repeated server errors) open or update an issue titled "Broken links". Responses such as 403 and 429 usually mean a site refused an automated request, so they are listed for a person to check but do not open an issue on their own.
 - **Accessibility in Chromium.** The same axe-core check runs in Chromium, to catch problems that appear in only one browser engine. WCAG failures open or update an issue titled "Accessibility problems in Chromium".
 - **Ownership check.** For each alternative with a `wikidata` ID, the check follows "parent organization" and "owned by" up to the top owner and compares that owner's country, and the headquarters country, with the data. Any disagreement opens or updates an issue titled "Ownership changes to review", and ownership moving to an excluded country is called out.

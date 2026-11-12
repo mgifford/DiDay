@@ -36,6 +36,11 @@ items:
           en: Alternatives
           fr: Solutions de rechange
         url: /alternatives/
+      - id: themes
+        label:
+          en: Monthly themes
+          fr: Thèmes mensuels
+        url: /themes/
 
   - id: about
     label:

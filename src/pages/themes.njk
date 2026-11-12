@@ -1,0 +1,31 @@
+---
+# Every month of the year, in order. The current one is marked, so a reader who
+# arrives in July can see where they are in the cycle.
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/themes/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "{{ 'nav_themes' | t(lang) }}"
+  description: "{{ 'themes_intro' | t(lang) | safe }}"
+---
+{%- set current = catalog.themes | monthTheme(dates.next) -%}
+<h1>{{ "nav_themes" | t(lang) }}</h1>
+<p>{{ "themes_intro" | t(lang) }}</p>
+<ul class="card-grid">
+  {% for theme in catalog.themes | byMonth %}
+  <li>
+    <article class="card">
+      <p class="card__meta">
+        {{ theme.month | monthName(lang) }}{% if current and current.id == theme.id %} <span class="badge badge--brand">{{ "themes_current" | t(lang) }}</span>{% endif %}
+      </p>
+      <h2 class="card__title"><a href="/{{ lang }}/themes/{{ theme.id }}/">{{ theme.title | loc(lang) }}</a></h2>
+      <p class="card__body">{{ theme.summary | loc(lang) }}</p>
+    </article>
+  </li>
+  {% endfor %}
+</ul>
+<p>{{ "themes_note" | t(lang) }}</p>

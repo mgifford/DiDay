@@ -3,7 +3,7 @@ import { loadCatalog } from "./lib/catalog.js";
 import { ranked, reasons } from "./lib/qualify.js";
 import { reviewStatus } from "./lib/reviews.js";
 import { stripComments } from "./lib/css.js";
-import { themeForDate } from "./lib/themes.js";
+import { themeForDate, byMonth, themeAfter } from "./lib/themes.js";
 
 export default function (eleventyConfig) {
   const { strings, review, site } = loadCatalog();
@@ -92,6 +92,17 @@ export default function (eleventyConfig) {
   // has no theme yet; the template then hides the section.
   eleventyConfig.addFilter("monthTheme", (themes, nextFirstSunday) =>
     themeForDate(themes, nextFirstSunday)
+  );
+
+  eleventyConfig.addFilter("byMonth", (themes) => byMonth(themes));
+
+  eleventyConfig.addFilter("themeAfter", (themes, theme) => themeAfter(themes, theme));
+
+  // Month name for a month number, in the page's language. Formatted from a
+  // fixed date in UTC so a build in any timezone names the same month.
+  eleventyConfig.addFilter("monthName", (month, lang) =>
+    new Intl.DateTimeFormat(`${lang}-CA`, { month: "long", timeZone: "UTC" })
+      .format(new Date(Date.UTC(2026, month - 1, 15)))
   );
 
   // Dates are stored as UTC midnight, so format them in UTC.

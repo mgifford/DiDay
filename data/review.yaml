@@ -5,5 +5,6 @@ max_age_months:
   cancel: 6
   recipes: 12
   campaigns: 12
+  themes: 12
 # Start warning this many days before a review expires.
 due_soon_days: 30

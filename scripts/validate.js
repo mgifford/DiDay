@@ -160,6 +160,10 @@ for (const theme of c.themes) {
   if (!Number.isInteger(theme.month) || theme.month < 1 || theme.month > 12) {
     errors.push(`${where}: month must be a whole number from 1 to 12`);
   }
+  // The id becomes a URL slug at /themes/<id>/.
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(theme.id || "")) {
+    errors.push(`${where}: id must be lower-case words joined by hyphens, because it is used in the URL`);
+  }
   const sameMonth = c.themes.filter((t) => t.month === theme.month);
   if (sameMonth.length > 1) {
     errors.push(`${where}: month ${theme.month} already has a theme (${sameMonth.map((t) => t.id).join(", ")})`);
@@ -176,11 +180,10 @@ for (const theme of c.themes) {
   }
 }
 
-// The homepage hides this section when the month has no theme, so a gap is a
-// warning rather than a failure. Phase 3 fills the remaining months.
+// Every month needs a theme: the homepage and /themes/ assume a full year.
 const missingThemes = monthsWithoutTheme(c.themes);
 if (missingThemes.length) {
-  warnings.push(`themes: no theme for month(s) ${missingThemes.join(", ")}; the homepage will hide the "this month" section in those months`);
+  errors.push(`themes: no theme for month(s) ${missingThemes.join(", ")}. Add one entry per month, 1 to 12.`);
 }
 
 // Navigation: every item is a link or a group, labelled in both languages.
@@ -202,7 +205,7 @@ for (const item of navItems) {
 }
 
 // Review dates
-for (const kind of ["alternatives", "cancel", "recipes", "campaigns"]) {
+for (const kind of ["alternatives", "cancel", "recipes", "campaigns", "themes"]) {
   if (!c.review?.max_age_months?.[kind]) errors.push(`review.yaml: missing max_age_months.${kind}`);
   for (const item of c[kind]) {
     const where = `${kind}.${item.id}`;
