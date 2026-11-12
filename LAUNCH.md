@@ -46,7 +46,7 @@ automation that has only been tested in a sandbox.
 - [ ] Add a Wikidata ID to each entry that has one.
 - [ ] Research Hushmail's ownership, or leave it as a draft.
 - [ ] French review by a fluent reader, then `npm run french -- approve ...`.
-- [ ] Write at least one more recipe so the first month has a choice.
+- [x] Write at least one more recipe so the first month has a choice. Two added for December 2026: music without Apple, Amazon or YouTube, and cloud storage without Google One or iCloud, with eight sourced alternatives. Every new entry is still `verified: false` and needs the same review as the rest.
 
 ## 6. Accessibility and sustainability
 

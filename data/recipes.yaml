@@ -101,3 +101,61 @@
       - Publiez à la fois sur l'ancien et le nouveau compte pendant quelques semaines, pour laisser à vos abonnés actuels le temps de le remarquer et de vous suivre.
       - Une fois que la plupart de vos contacts habituels ont migré, cessez de publier sur l'ancien compte et mettez à jour sa biographie pour pointer vers le nouveau.
   verified: false
+
+- id: music-without-streaming
+  title:
+    en: Music without Apple, Amazon or YouTube Music
+    fr: De la musique sans Apple, Amazon ni YouTube
+  summary:
+    en: Keep the albums you actually listen to, add free Canadian radio, and cancel the music subscription.
+    fr: Conservez les albums que vous écoutez vraiment, ajoutez la radio canadienne gratuite et annulez l'abonnement musical.
+  minutes: 45
+  difficulty: average
+  replaces: [apple-music, amazon-music, youtube-music]
+  alternatives: [stingray-music, qobuz, cbc-listen, navidrome]
+  steps:
+    en:
+      - List the albums and playlists you would miss. Playlists do not move between services, so decide which ones you are willing to rebuild.
+      - Turn off auto-renewal on the music subscription, but keep it until the paid period ends.
+      - Buy the albums you keep playing again from a store that sells files you keep, such as Qobuz, and download them to a computer.
+      - Add free listening. CBC Listen carries radio and CBC Music in English, OHdio does the same in French, and Stingray Music has curated channels.
+      - If your collection is large, put the files on a computer and stream them to your phone with Navidrome instead of copying them to every device.
+      - Cancel the subscription once the albums are downloaded, and tell someone which albums you kept.
+    fr:
+      - Faites la liste des albums et des listes de lecture qui vous manqueraient. Les listes de lecture ne se transfèrent pas d'un service à l'autre, alors décidez lesquelles vous êtes prêt à refaire.
+      - Désactivez le renouvellement automatique de l'abonnement musical, mais gardez-le jusqu'à la fin de la période payée.
+      - Achetez les albums que vous réécoutez chez un marchand qui vend des fichiers que vous conservez, comme Qobuz, et téléchargez-les sur un ordinateur.
+      - Ajoutez des écoutes gratuites. CBC Listen diffuse la radio et CBC Music en anglais, OHdio fait de même en français, et Stingray Music propose des chaînes sélectionnées.
+      - Si votre collection est importante, mettez les fichiers sur un ordinateur et diffusez-les vers votre téléphone avec Navidrome, au lieu de les copier sur chaque appareil.
+      - Annulez l'abonnement une fois les albums téléchargés, puis dites à quelqu'un quels albums vous avez conservés.
+  verified: false
+
+- id: storage-without-google
+  title:
+    en: Cloud storage without Google One or iCloud
+    fr: Du stockage infonuagique sans Google One ni iCloud
+  summary:
+    en: Move your photos and files to a provider that does not scan them, then cancel the storage plan.
+    fr: Transférez vos photos et vos fichiers vers un fournisseur qui ne les analyse pas, puis annulez le forfait de stockage.
+  minutes: 60
+  difficulty: hard
+  replaces: [google-one, apple-one]
+  alternatives: [sync-com, nextcloud, proton-drive, infomaniak-kdrive]
+  steps:
+    en:
+      - Check how much space you use now, so the new plan is the same size or larger.
+      - Pick a destination. A Canadian provider such as Sync.com, a Swiss one such as Proton Drive or Infomaniak kDrive, or Nextcloud on a server you control.
+      - Download everything first, with Google Takeout or the iCloud data export, and keep that download on a drive you own.
+      - Upload the files to the new provider and compare the photo count with the old one before going further.
+      - Point the photo backup on your phone at the new app, then take a photo and check that it arrives.
+      - Cancel Google One or iCloud+ after a month has passed and nothing is missing.
+      - Keep the downloaded copy. A second copy of your photos is what makes the move safe.
+    fr:
+      - Vérifiez l'espace que vous utilisez actuellement, pour que le nouveau forfait soit de la même taille ou plus grand.
+      - Choisissez une destination. Un fournisseur canadien comme Sync.com, un fournisseur suisse comme Proton Drive ou Infomaniak kDrive, ou Nextcloud sur un serveur que vous contrôlez.
+      - Téléchargez d'abord tout le contenu, avec Google Takeout ou l'exportation de données d'iCloud, et gardez ce téléchargement sur un disque qui vous appartient.
+      - Téléversez les fichiers chez le nouveau fournisseur et comparez le nombre de photos avec l'ancien avant d'aller plus loin.
+      - Faites pointer la sauvegarde des photos de votre téléphone vers la nouvelle application, puis prenez une photo et vérifiez qu'elle arrive.
+      - Annulez Google One ou iCloud+ après un mois, une fois que rien ne manque.
+      - Conservez la copie téléchargée. Une deuxième copie de vos photos, c'est ce qui rend le transfert sûr.
+  verified: false

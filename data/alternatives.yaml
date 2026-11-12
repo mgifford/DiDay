@@ -187,3 +187,160 @@
       url: https://en.wikipedia.org/wiki/8x8
       supports: [headquarters, ownership]
   verified: false
+
+# --- Music streaming -------------------------------------------------------
+# Added for the December first Sunday: the music category had no entries, so
+# the Apple Music, Amazon Music and YouTube Music cancellation pages led nowhere.
+
+- id: stingray-music
+  name: Stingray Music
+  url: https://www.stingray.com/
+  category: music
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Curated music channels rather than on-demand streaming, from a Montreal company that also owns Canadian radio stations. Good for background music, and for anyone who would rather not be recommended to.
+    fr: Des chaînes musicales sélectionnées plutôt que de l'écoute à la demande, par une entreprise montréalaise qui possède aussi des stations de radio canadiennes. Pratique pour de la musique d'ambiance et pour qui préfère éviter les recommandations.
+  sources:
+    - title: Stingray Group (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Stingray_Group
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: qobuz
+  name: Qobuz
+  url: https://www.qobuz.com/
+  wikidata: Q3412507
+  category: music
+  headquarters: FR
+  ownership: FR
+  open_source: false
+  notes:
+    en: French service with a store as well as streaming. You can buy an album and keep the files, which is the part that lasts after a subscription ends.
+    fr: Service français qui offre une boutique en plus de l'écoute en continu. Vous pouvez acheter un album et conserver les fichiers, la partie qui reste une fois l'abonnement terminé.
+  sources:
+    - title: Qobuz (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Qobuz
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: cbc-listen
+  name: CBC Listen
+  url: https://www.cbc.ca/listen
+  category: music
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Free radio, CBC Music and podcasts from the public broadcaster. Most of it needs no account, so there is no subscription to cancel. In French, Radio-Canada's OHdio carries a similar catalogue.
+    fr: Radio, CBC Music et balados gratuits de la société d'État. La majeure partie ne demande aucun compte, donc aucun abonnement à annuler. En français, OHdio de Radio-Canada propose un catalogue semblable.
+  sources:
+    - title: Canadian Broadcasting Corporation (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Canadian_Broadcasting_Corporation
+      supports: [headquarters, ownership]
+    - title: CBC Listen
+      url: https://www.cbc.ca/listen
+      supports: []
+  verified: false
+
+- id: navidrome
+  name: Navidrome
+  url: https://www.navidrome.org/
+  category: music
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Free server software that streams the music files you already own to your phone and computer. It needs a computer or a small server to run on, so it suits people who already keep their own files.
+    fr: Logiciel serveur gratuit qui diffuse vers votre téléphone et votre ordinateur les fichiers musicaux que vous possédez déjà. Il faut un ordinateur ou un petit serveur pour l'héberger, ce qui convient à qui garde déjà ses propres fichiers.
+  sources:
+    - title: navidrome/navidrome (GitHub)
+      url: https://github.com/navidrome/navidrome
+      supports: [open_source]
+    - title: Navidrome
+      url: https://www.navidrome.org/
+      supports: []
+  verified: false
+
+# --- Cloud storage ---------------------------------------------------------
+# Added at the same time: Google One pointed at a storage category with no entries.
+
+- id: sync-com
+  name: Sync.com
+  url: https://www.sync.com/
+  category: storage
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Canadian cloud storage that keeps files in Canadian data centres. Paid plans, with a free tier, and no server to look after.
+    fr: Stockage infonuagique canadien qui garde les fichiers dans des centres de données au Canada. Forfaits payants, avec une version gratuite, et aucun serveur à gérer.
+  sources:
+    - title: "Sync.com: Truly Canadian Cloud Storage"
+      url: https://www.sync.com/blog/sync-com-truly-canadian-cloud-storage
+      supports: [headquarters, ownership]
+    - title: Sync.com
+      url: https://www.sync.com/
+      supports: []
+  verified: false
+
+- id: nextcloud
+  name: Nextcloud
+  url: https://nextcloud.com/
+  wikidata: Q25874683
+  category: storage
+  headquarters: DE
+  ownership: DE
+  open_source: true
+  notes:
+    en: Open-source file storage you can run on your own server or rent from a Canadian or European host. The software is free; hosting is the cost.
+    fr: Stockage de fichiers à code source ouvert que vous pouvez héberger vous-même ou louer chez un fournisseur canadien ou européen. Le logiciel est gratuit, l'hébergement représente le coût.
+  sources:
+    - title: Nextcloud contact, official headquarters (Nextcloud)
+      url: https://nextcloud.com/contact/
+      supports: [headquarters, ownership]
+    - title: nextcloud/server (GitHub)
+      url: https://github.com/nextcloud/server
+      supports: [open_source]
+  verified: false
+
+- id: proton-drive
+  name: Proton Drive
+  url: https://proton.me/drive
+  wikidata: Q114414086
+  category: storage
+  headquarters: CH
+  ownership: CH
+  open_source: false
+  notes:
+    en: End-to-end encrypted storage from the Swiss company behind Proton Mail. The free tier is smaller than Google's, so check the size of your photos folder first.
+    fr: Stockage chiffré de bout en bout offert par l'entreprise suisse derrière Proton Mail. La version gratuite est plus petite que celle de Google, alors vérifiez d'abord la taille de votre dossier de photos.
+  sources:
+    - title: About Proton (Proton AG and the Proton Foundation)
+      url: https://proton.me/about
+      supports: [headquarters, ownership]
+    - title: Proton Drive (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Proton_Drive
+      supports: []
+  verified: false
+
+- id: infomaniak-kdrive
+  name: Infomaniak kDrive
+  url: https://www.infomaniak.com/en/kdrive
+  wikidata: Q21117293
+  category: storage
+  headquarters: CH
+  ownership: CH
+  open_source: false
+  notes:
+    en: Swiss hosting company that runs its own data centres. kDrive is its file storage, with a free tier and paid plans.
+    fr: Hébergeur suisse qui exploite ses propres centres de données. kDrive est son service de stockage de fichiers, avec une version gratuite et des forfaits payants.
+  sources:
+    - title: Infomaniak (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Infomaniak
+      supports: [headquarters, ownership]
+    - title: kDrive (Infomaniak)
+      url: https://www.infomaniak.com/en/kdrive
+      supports: []
+  verified: false

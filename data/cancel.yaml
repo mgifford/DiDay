@@ -26,8 +26,8 @@
   service: Google One
   ownership: US
   cancel_url: https://support.google.com/googleone/answer/9056360
-  alternatives: []
-  recipe: null
+  alternatives: [sync-com, nextcloud, proton-drive]
+  recipe: storage-without-google
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -36,8 +36,8 @@
   service: Apple Music
   ownership: US
   cancel_url: https://support.apple.com/en-us/118399
-  alternatives: []
-  recipe: null
+  alternatives: [stingray-music, qobuz, cbc-listen]
+  recipe: music-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -56,8 +56,8 @@
   service: Amazon Music
   ownership: US
   cancel_url: https://www.amazon.com/gp/help/customer/display.html?nodeId=GCRZL3F2UZMNP3T3
-  alternatives: []
-  recipe: null
+  alternatives: [stingray-music, qobuz, cbc-listen]
+  recipe: music-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -96,8 +96,8 @@
   service: "Apple One (also covers Apple News+, Fitness+ and Arcade)"
   ownership: US
   cancel_url: https://support.apple.com/en-us/118428?device-type=mac
-  alternatives: []
-  recipe: null
+  alternatives: [stingray-music, qobuz, sync-com, proton-drive]
+  recipe: storage-without-google
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -116,8 +116,8 @@
   service: YouTube Music
   ownership: US
   cancel_url: https://support.google.com/youtube/answer/6308278
-  alternatives: []
-  recipe: null
+  alternatives: [stingray-music, qobuz, navidrome]
+  recipe: music-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
