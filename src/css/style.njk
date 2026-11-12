@@ -1,0 +1,21 @@
+---
+# One stylesheet, four source files. Eleventy concatenates the partials in
+# src/_includes/css/ into the single /css/style.css that every page links to,
+# so the browser still makes one request and nothing is duplicated at
+# runtime. Comments are stripped on the way out; edit the partials, never
+# _site/css/style.css.
+permalink: /css/style.css
+eleventyExcludeFromCollections: true
+---
+{%- set css -%}
+{% include "css/tokens.css" %}
+
+{% include "css/base.css" %}
+
+{% include "css/layout.css" %}
+
+{% include "css/components.css" %}
+{%- endset -%}
+/* DI.DAY Canada stylesheet. Generated from src/_includes/css/ by Eleventy.
+   Design reference: docs/DESIGN-SYSTEM.md */
+{{ css | cssmin | safe }}

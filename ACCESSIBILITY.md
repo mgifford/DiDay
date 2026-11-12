@@ -22,8 +22,8 @@ claim, or a substitute for testing with disabled people.
 | Public statement | This file, not a formal conformance statement |
 | Target standard | WCAG 2.2 Level AA |
 | Additional requirements | None documented for this project |
-| Last reviewed | 2026-11-04 |
-| Next review due | 2027-05-04, or at launch if earlier |
+| Last reviewed | 2026-11-12 |
+| Next review due | 2027-05-12, or at launch if earlier |
 
 ## 2. Conformance status
 
@@ -95,8 +95,9 @@ required step fails for a user, the task is not accessible.
 | `npm test`: unit tests, content validation, build | Content rules, bilingual completeness, sources, exclusion rules | Every pull request and deploy | Stops the build |
 | `html-validate` with the recommended ruleset | All built HTML | Every pull request and deploy | Stops the build |
 | Internal link and anchor check | All pages | Every pull request and deploy | Stops the build |
-| axe-core with Playwright in Firefox | 19 pages × light/dark × system/toggle × desktop/phone | Every pull request and the weekly deploy | WCAG 2.2 A/AA violations stop the deploy; best-practice and needs-review findings are reported |
+| axe-core with Playwright in Firefox | 25 pages × light/dark × system/toggle × desktop/phone | Every pull request and the weekly deploy | WCAG 2.2 A/AA violations stop the deploy; best-practice and needs-review findings are reported |
 | axe-core with Playwright in Chromium | Same pages and settings | Weekly, and by hand | Opens or updates an "Accessibility problems in Chromium" issue |
+| Behaviour check (`scripts/check-a11y-behaviour.js`) | 25 pages × keyboard order, visible focus, skip link, navigation groups, 320 px reflow, text spacing overrides, forced colours, reduced motion, failed asset requests, plus one scripting-disabled pass | Every pull request and deploy | Stops the build |
 | French review warning | Every bilingual text pair | Every pull request and deploy | Warns; does not stop the build |
 | External link check | Every URL in the data files | Weekly | Opens or updates a "Broken links" issue |
 | `npm run check:a11y:behaviour` (Firefox) and `npm run check:a11y:behaviour:all` (both engines) | 19 pages: keyboard traversal and focus, skip link, theme toggle, language switch, 320 CSS pixel reflow, text-spacing overrides, forced-colours emulation | By hand before launch and after layout or interaction changes | Exits 1 and writes `reports/a11y-behaviour.md` |
@@ -111,13 +112,15 @@ only part of WCAG.
 
 | Check | Status | Evidence or note |
 | --- | --- | --- |
-| Keyboard operation, every page type | Repeatable check passes in Firefox and Chromium; not tested by a person | `npm run check:a11y:behaviour:all` tabbed through all 19 pages. Where a page has a skip link, it is the first stop; every focused element has the 3px outline; the skip link moves focus to `main`; the theme toggle switches and saves the theme; and the language switch reaches the other language home |
+| Keyboard operation, every page type | Automated in CI since 2026-11-12; not tested by a person | `npm run check:a11y:behaviour:all` tabs through every page in Firefox and Chromium. Where a page has a skip link, it is the first stop; every focused element has the 3px outline; the skip link moves focus to `main`; the theme toggle switches and saves the theme; and the language switch reaches the other language home |
 | NVDA with Firefox | Not done | Listed in `LAUNCH.md` section 6 |
 | VoiceOver with Safari on iOS | Not done | Listed in `LAUNCH.md` section 6 |
 | TalkBack on Android | Not done | Listed in `LAUNCH.md` section 6 |
-| 400% zoom and reflow | Repeatable check passes in Firefox and Chromium; not tested by a person | At a 320 CSS pixel viewport, equivalent to 1280 at 400%, no page scrolls horizontally and no element overflows the viewport |
-| Text spacing overrides | Repeatable check passes in Firefox and Chromium; not tested by a person | With the WCAG 1.4.12 overrides, no text is clipped and no page scrolls horizontally |
+| 400% zoom and reflow | Automated in CI since 2026-11-12; not tested by a person | At a 320 CSS pixel viewport, equivalent to 1280 at 400%, no page scrolls horizontally and no element overflows the viewport |
+| Text spacing overrides | Automated in CI since 2026-11-12; not tested by a person | With the WCAG 1.4.12 overrides, no text is clipped and no page scrolls horizontally |
 | Windows forced-colours mode | Emulated in Firefox and Chromium; not tested in Windows | The media query applies the system palette, and the first link on each page keeps an underline or a border |
+| Reduced motion | Automated in CI since 2026-11-12; not tested by a person | The check emulates `prefers-reduced-motion: reduce` and fails if any transition or animation still runs |
+| Navigation groups | Automated in CI since 2026-11-12; not tested by a person | Enter opens a group, Escape closes it and returns focus to its summary, and one scripting-disabled pass confirms the groups still open without JavaScript |
 | Light and dark visual review | Not recorded by a person | Automated runs exercise both schemes and the toggle |
 | French language quality review | In progress | 140 texts need a fluent reviewer; see `npm run french` |
 
@@ -237,6 +240,7 @@ Review this file:
 | 2026-11-02 | First version | Repository review and the automated runs recorded above | Project maintainers |
 | 2026-11-03 | Record the scripted keyboard, reflow, text-spacing and forced-colours checks | One-off Playwright Firefox run across 19 pages | Project maintainers |
 | 2026-11-04 | Make those checks repeatable in Firefox and Chromium | `npm run check:a11y:behaviour:all`: no failures across 19 pages | Project maintainers |
+| 2026-11-12 | Design system: semantic colour tokens, a new palette, split stylesheet partials, a rendered styleguide, a contrast unit test, and reduced-motion, navigation-group, scripting-disabled and failed-asset checks added to the behaviour script | axe-core in Chromium, 25 pages in six settings, no findings. Behaviour check: all pass. Token contrast tests: 10 pass. Firefox not run in the environment this was written in; CI ran it on the pull request and passed. No manual or assistive technology testing was done. | AI-assisted draft, for maintainer review |
 
 ## 13. References
 

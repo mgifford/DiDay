@@ -38,6 +38,26 @@ Rules:
 
 Describe what a company does and link a source. Do not add claims about a company's conduct without a published, citable source.
 
+## Changing the look of the site
+
+Style lives in `src/_includes/css/`. Change a token in `tokens.css` before
+changing a component in `components.css`, and never edit `_site/css/style.css`,
+which is generated.
+
+- Colours, type sizes and spacing are tokens. Components reference tokens, not
+  raw values, so one change reaches the light scheme, the dark scheme, the
+  reader-mode colours and the styleguide together.
+- Every foreground/background pair in `docs/DESIGN-SYSTEM.md` is asserted by
+  `test/tokens.test.js`. If a change breaks one, `npm test` fails and names the
+  pair.
+- Add a component only when a pattern is used more than once. Extend `.card`
+  with a modifier rather than inventing a second card.
+- Look at `/en/styleguide/` and `/fr/styleguide/` in light and dark, at 320px
+  and on a desktop before you open a pull request.
+
+Read [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) for the rules, the tested
+contrast table, and the components that deliberately do not exist yet.
+
 ## Checking your change
 
 ```sh
@@ -46,6 +66,13 @@ npm test
 
 The content check lists every problem with its location, for example `alternatives.example-service: needs at least one source`.
 
-For changes that affect HTML, CSS or JavaScript, also run `npm run check:a11y` and follow the definition of done in [ACCESSIBILITY.md](ACCESSIBILITY.md).
+For changes that affect HTML, CSS or JavaScript, also run:
 
-For changes to layout or interaction, run `npm run check:a11y:behaviour:all`. It checks focus visibility, the skip link, the theme toggle, the language switch, reflow at 320 CSS pixels, text spacing and forced colours in Firefox and Chromium.
+```sh
+npm run check:a11y            # axe-core, light and dark, desktop and phone
+npm run check:a11y:behaviour  # keyboard, focus, reflow, text spacing, forced
+                              # colours, reduced motion, navigation groups
+```
+
+Both run in CI on every pull request. Then follow the definition of done in
+[ACCESSIBILITY.md](ACCESSIBILITY.md).

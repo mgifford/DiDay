@@ -1,0 +1,127 @@
+---
+# A rendered reference for the design system. Every element below is a real
+# production component: the same stylesheet, tokens and includes as the rest
+# of the site, so the preview cannot drift from what ships.
+# Kept out of collections.all, so it is not listed in sitemap.xml.
+pagination:
+  data: catalog.site.languages
+  size: 1
+  alias: lang
+  addAllPagesToCollections: true
+permalink: "/{{ lang }}/styleguide/"
+layout: base.njk
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  pageTitle: "{{ 'styleguide_title' | t(lang) }}"
+  description: "{{ 'styleguide_lead' | t(lang) | safe }}"
+---
+<h1>{{ "styleguide_title" | t(lang) }}</h1>
+<p class="hero__lead">{{ "styleguide_lead" | t(lang) }}</p>
+
+<section class="section">
+  <h2>{{ "styleguide_colour" | t(lang) }}</h2>
+  <p>{{ "styleguide_colour_note" | t(lang) }}</p>
+  <ul class="swatch-grid">
+    {% for token in ["paper", "surface", "ink", "muted", "brand", "brand-strong", "accent", "accent-bright", "forest", "danger", "rule", "rule-control", "focus", "on-brand", "on-accent"] %}
+    <li class="swatch-item">
+      <span class="swatch swatch--{{ token }}" aria-hidden="true"></span>
+      <span class="token">--{{ token }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="section">
+  <h2>{{ "styleguide_type" | t(lang) }}</h2>
+  <p class="spec-body">{{ "styleguide_sample" | t(lang) }}</p>
+  <p class="spec-lead">{{ "styleguide_sample" | t(lang) }}</p>
+  <p class="spec-small">{{ "styleguide_sample" | t(lang) }}</p>
+  <p class="spec-xs">{{ "styleguide_sample" | t(lang) }}</p>
+  <dl class="facts">
+    <div><dt>--font-serif</dt><dd>Iowan Old Style, Charter, Cambria, Georgia</dd></div>
+    <div><dt>--font-sans</dt><dd>system-ui, Segoe UI, Roboto, Noto Sans</dd></div>
+    <div><dt>--font-mono</dt><dd>ui-monospace, Menlo, Consolas</dd></div>
+  </dl>
+  <p>{{ "styleguide_focus_note" | t(lang) }}</p>
+</section>
+
+<section class="section">
+  <h2>{{ "styleguide_space" | t(lang) }}</h2>
+  <dl class="facts">
+    <div><dt>--space-2xs</dt><dd>0.5rem</dd></div>
+    <div><dt>--space-xs</dt><dd>0.75rem</dd></div>
+    <div><dt>--space-s</dt><dd>1rem</dd></div>
+    <div><dt>--space-m</dt><dd>1.5rem</dd></div>
+    <div><dt>--space-l</dt><dd>2.25rem</dd></div>
+    <div><dt>--space-xl</dt><dd>3rem</dd></div>
+    <div><dt>--measure</dt><dd>42rem</dd></div>
+    <div><dt>--measure-wide</dt><dd>56rem</dd></div>
+    <div><dt>--radius</dt><dd>0.6rem</dd></div>
+    <div><dt>--radius-pill</dt><dd>999px</dd></div>
+  </dl>
+</section>
+
+<section class="section">
+  <h2>{{ "styleguide_components" | t(lang) }}</h2>
+
+  <h3>{% if lang == "fr" %}Boutons{% else %}Buttons{% endif %}</h3>
+  <p class="cluster">
+    <a class="button button--primary" href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a>
+    <a class="button" href="/{{ lang }}/alternatives/">{{ "nav_alternatives" | t(lang) }}</a>
+    <a class="button button--quiet" href="/{{ lang }}/about/">{{ "nav_about" | t(lang) }}</a>
+  </p>
+
+  <h3>{% if lang == "fr" %}Cartes{% else %}Cards{% endif %}</h3>
+  <ul class="card-grid">
+    {% for r in catalog.recipes | slice(0, 2) %}
+    <li>
+      <article class="card">
+        <h4 class="card__title"><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ r.title | loc(lang) }}</a></h4>
+        <p class="card__meta">{{ r.minutes }} {{ "minutes" | t(lang) }}</p>
+        <p class="card__body">{{ r.summary | loc(lang) }}</p>
+        <p class="card__footer"><a href="/{{ lang }}/recipes/{{ r.id }}/">{{ "read_recipe" | t(lang) }}</a></p>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h3>{% if lang == "fr" %}Messages{% else %}Notices{% endif %}</h3>
+  <div class="notice">
+    <p>{% if lang == "fr" %}Message d'information.{% else %}Informational message.{% endif %}</p>
+  </div>
+  <div class="notice notice--warn">
+    <p>{% if lang == "fr" %}Avertissement.{% else %}Warning message.{% endif %}</p>
+  </div>
+  <div class="notice notice--ok">
+    <p>{% if lang == "fr" %}Confirmation.{% else %}Confirmation message.{% endif %}</p>
+  </div>
+
+  <h3>{% if lang == "fr" %}Étiquettes{% else %}Badges and flags{% endif %}</h3>
+  <p class="cluster">
+    <span class="badge badge--brand">{{ "listed_because" | t(lang) }}</span>
+    <span class="badge badge--accent">{{ "difficulty_hard" | t(lang) }}</span>
+    <span class="badge">{{ "nav_about" | t(lang) }}</span>
+    <span class="flag">{{ "unverified" | t(lang) }}</span>
+  </p>
+
+  <h3>{% if lang == "fr" %}Fiche de données{% else %}Facts list{% endif %}</h3>
+  <dl class="facts">
+    <div><dt>{{ "time" | t(lang) }}</dt><dd>30 {{ "minutes" | t(lang) }}</dd></div>
+    <div><dt>{{ "difficulty" | t(lang) }}</dt><dd>{{ "difficulty_easy" | t(lang) }}</dd></div>
+  </dl>
+
+  <h3>{% if lang == "fr" %}Fil d'Ariane{% else %}Breadcrumbs{% endif %}</h3>
+  <nav class="breadcrumbs" aria-label="{% if lang == 'fr' %}Fil d'Ariane{% else %}Breadcrumb{% endif %}">
+    <ol>
+      <li><a href="/{{ lang }}/">{{ "nav_home" | t(lang) }}</a></li>
+      <li><a href="/{{ lang }}/recipes/">{{ "nav_recipes" | t(lang) }}</a></li>
+      <li aria-current="page">{{ catalog.recipes[0].title | loc(lang) }}</li>
+    </ol>
+  </nav>
+
+  <h3>{% if lang == "fr" %}Section repliable{% else %}Disclosure{% endif %}</h3>
+  <details>
+    <summary>{{ "calendar_subscribe_heading" | t(lang) }}</summary>
+    <p>{{ "calendar_subscribe_intro" | t(lang) }}</p>
+  </details>
+</section>

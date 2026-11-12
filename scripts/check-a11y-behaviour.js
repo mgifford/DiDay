@@ -1,7 +1,8 @@
 // Checks that need a browser but cannot be expressed as axe rules:
 // keyboard traversal and focus visibility, the skip link, the theme toggle, the
-// language switch, reflow at 320 CSS pixels, WCAG 1.4.12 text spacing, and
-// forced-colours emulation.
+// language switch, navigation groups, reflow at 320 CSS pixels, WCAG 1.4.12
+// text spacing, forced-colours emulation, reduced motion, failed asset
+// requests, and one pass with scripting turned off.
 //
 //   node scripts/check-a11y-behaviour.js
 //   node scripts/check-a11y-behaviour.js --browsers=firefox,chromium
@@ -282,7 +283,133 @@ async function checkForcedColors(browser, name) {
   }
 }
 
+async function checkReducedMotion(browser, name) {
+  // The site promises no animation. Under this setting every transition must
+  // be effectively off, so a rule added later cannot quietly ignore it.
+  const context = await contextFor(browser, { viewport: { width: 1280, height: 800 }, reducedMotion: "reduce" });
+  try {
+    for (const page of pages) {
+      const tab = await context.newPage();
+      try {
+        await tab.goto(server.url + withPrefix(page), { waitUntil: "load" });
+        const moving = await tab.evaluate(() => {
+          const bad = [];
+          for (const el of document.querySelectorAll("*")) {
+            const style = getComputedStyle(el);
+            const durations = `${style.transitionDuration},${style.animationDuration}`
+              .split(",")
+              .map((value) => parseFloat(value) || 0);
+            if (durations.some((duration) => duration > 0.05)) bad.push(el.tagName.toLowerCase());
+          }
+          return bad.slice(0, 3);
+        });
+        if (moving.length) {
+          fail(name, page, "reduced motion", `still animating: ${moving.join(", ")}`);
+        }
+      } finally {
+        await tab.close();
+      }
+    }
+  } finally {
+    await context.close();
+  }
+}
+
+async function checkNavigationGroups(browser, name) {
+  // A group is a <details>, so the browser opens it; Escape and the focus
+  // return are the enhancement script's job. Closing hides the links inside.
+  const context = await contextFor(browser, { viewport: { width: 1280, height: 800 } });
+  try {
+    for (const page of pages) {
+      const tab = await context.newPage();
+      try {
+        await tab.goto(server.url + withPrefix(page), { waitUntil: "load" });
+        if ((await tab.locator(".nav__group").count()) === 0) continue;
+
+        await tab.locator(".nav__summary").first().focus();
+        await tab.keyboard.press("Enter");
+        const opened = await tab.locator(".nav__group").first().evaluate((el) => el.open);
+        const visible = await tab.locator(".nav__group .nav__panel a").first().isVisible().catch(() => false);
+        if (!opened || !visible) {
+          fail(name, page, "navigation groups", "Enter did not open the group, or its links stayed hidden");
+          continue;
+        }
+
+        await tab.keyboard.press("Escape");
+        const closed = await tab.locator(".nav__group").first().evaluate((el) => !el.open);
+        const restored = await tab.evaluate(() => document.activeElement?.classList.contains("nav__summary"));
+        if (!closed) fail(name, page, "navigation groups", "Escape did not close the group");
+        else if (!restored) fail(name, page, "navigation groups", "Escape closed the group but did not return focus to its summary");
+      } finally {
+        await tab.close();
+      }
+    }
+  } finally {
+    await context.close();
+  }
+}
+
+async function checkAssets(browser, name) {
+  // A stylesheet or script that 404s still renders a page, so axe would pass
+  // while the site looked wrong.
+  const context = await contextFor(browser, { viewport: { width: 1280, height: 800 } });
+  try {
+    for (const page of pages) {
+      const tab = await context.newPage();
+      const failed = [];
+      tab.on("response", (response) => {
+        try {
+          if (response.status() >= 400 && new URL(response.url()).origin === origin) {
+            failed.push(`${response.status()} ${new URL(response.url()).pathname}`);
+          }
+        } catch {
+          // Not an http(s) response.
+        }
+      });
+      try {
+        await tab.goto(server.url + withPrefix(page), { waitUntil: "load" });
+        if (failed.length) fail(name, page, "assets", failed.slice(0, 3).join(", "));
+      } finally {
+        await tab.close();
+      }
+    }
+  } finally {
+    await context.close();
+  }
+}
+
+async function checkWithoutJavaScript(browser, name) {
+  // Essential navigation and content must not depend on script. One page is
+  // enough to prove the pattern: the group still opens, and the theme toggle
+  // is absent rather than dead.
+  const context = await contextFor(browser, { viewport: { width: 375, height: 800 }, javaScriptEnabled: false });
+  try {
+    const tab = await context.newPage();
+    try {
+      await tab.goto(server.url + withPrefix("/en/"), { waitUntil: "load" });
+      const summary = tab.locator(".nav__summary").first();
+      if ((await summary.count()) > 0) {
+        await summary.focus();
+        await tab.keyboard.press("Enter");
+        const opened = await tab.locator(".nav__group").first().evaluate((el) => el.open);
+        const visible = await tab.locator(".nav__group .nav__panel a").first().isVisible();
+        if (!opened || !visible) {
+          fail(name, "/en/", "without javascript", "the navigation group did not open");
+        }
+      }
+      if (await tab.locator("#theme-toggle").isVisible()) {
+        fail(name, "/en/", "without javascript", "the theme toggle is visible but cannot work without script");
+      }
+    } finally {
+      await tab.close();
+    }
+  } finally {
+    await context.close();
+  }
+}
+
 const server = await serve(siteDir, { pathPrefix });
+const origin = new URL(server.url).origin;
 try {
   for (const name of BROWSERS) {
     const browser = await ENGINES[name].launch();
@@ -292,6 +419,10 @@ try {
       await checkReflow(browser, name);
       await checkTextSpacing(browser, name);
       await checkForcedColors(browser, name);
+      await checkReducedMotion(browser, name);
+      await checkNavigationGroups(browser, name);
+      await checkAssets(browser, name);
+      await checkWithoutJavaScript(browser, name);
     } finally {
       await browser.close();
     }
@@ -328,10 +459,11 @@ if (report.forcedColorsSkipped.length) {
 }
 lines.push(
   "This checks a few measurable properties: focus is visible, the skip link,",
-  "theme toggle and language switch work from the keyboard, nothing overflows",
-  "at 320 CSS pixels or with WCAG 1.4.12 text spacing, and forced colours",
-  "applies. It does not look at the page, and it is not assistive technology",
-  "testing.",
+  "theme toggle, language switch and navigation groups work from the keyboard,",
+  "nothing overflows at 320 CSS pixels or with WCAG 1.4.12 text spacing,",
+  "forced colours applies, reduced motion is honoured, no asset fails to load,",
+  "and the navigation still works with scripting off. It does not look at the",
+  "page, and it is not assistive technology testing.",
   "",
 );
 

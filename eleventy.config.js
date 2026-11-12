@@ -2,6 +2,7 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import { loadCatalog } from "./lib/catalog.js";
 import { ranked, reasons } from "./lib/qualify.js";
 import { reviewStatus } from "./lib/reviews.js";
+import { stripComments } from "./lib/css.js";
 
 export default function (eleventyConfig) {
   const { strings, review, site } = loadCatalog();
@@ -9,14 +10,19 @@ export default function (eleventyConfig) {
   // Rewrites absolute links for GitHub project pages (/repo-name/).
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
+  // The stylesheet is a template (src/css/style.njk) that concatenates the
+  // partials in src/_includes/css/, so it is not copied here.
   eleventyConfig.addPassthroughCopy({
-    "src/css": "css",
     "src/js": "js",
     "src/img": "img",
     "src/CNAME": "CNAME",
     "src/favicon.svg": "favicon.svg",
   });
   eleventyConfig.addWatchTarget("data/");
+
+  // The stylesheet's comments document the source; visitors should not
+  // download them. See lib/css.js.
+  eleventyConfig.addFilter("cssmin", (css) => stripComments(css));
 
   // Interface string: {{ "nav_home" | t(lang) }}
   eleventyConfig.addFilter("t", (key, lang) => {

@@ -58,16 +58,26 @@ jobs:
         run: npm run check:a11y
         env:
           PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
-      - name: Attach the accessibility report to the run
+      # Keyboard order, visible focus, navigation groups, 320px reflow, text
+      # spacing overrides, forced colours, reduced motion, failed assets and a
+      # scripting-disabled pass: things axe-core cannot measure. Firefox is
+      # already installed for the step above.
+      - name: Behaviour checks (keyboard, reflow, spacing, forced colours)
+        run: npm run check:a11y:behaviour
+        env:
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path && format('{0}/', steps.pages.outputs.base_path) || '/' }}
+      - name: Attach the accessibility reports to the run
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: a11y-report
-          path: reports/a11y.md
+          path: reports/
           if-no-files-found: ignore
-      - name: Add accessibility report to the run summary
+      - name: Add accessibility reports to the run summary
         if: always()
-        run: test -f reports/a11y.md && cat reports/a11y.md >> "$GITHUB_STEP_SUMMARY" || true
+        run: |
+          test -f reports/a11y.md && cat reports/a11y.md >> "$GITHUB_STEP_SUMMARY" || true
+          test -f reports/behaviour.md && cat reports/behaviour.md >> "$GITHUB_STEP_SUMMARY" || true
       # French that needs review is a warning, not a failure, so contributors
       # without French can still change English text.
       - name: French review status

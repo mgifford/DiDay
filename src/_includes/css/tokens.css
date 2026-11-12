@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Design tokens
+   --------------------------------------------------------------------------
+   Two layers:
+     1. Palette primitives. Raw colours, never used directly in components.
+     2. Semantic tokens. What a thing *is* (surface, text, border), which is
+        what components reference.
+
+   Every foreground/background pair listed in docs/DESIGN-SYSTEM.md is
+   asserted by test/tokens.test.js, so changing a colour here fails the test
+   suite if it drops below WCAG 2.2 AA. Add a pair to that test before adding
+   a new colour.
+
+   Colour schemes are duplicated across three blocks rather than using the
+   light-dark() function. light-dark() is shorter, but a browser without it
+   would lose every colour at once instead of just the dark theme. The site
+   is aimed at people on older devices, so the safe version wins.
+   ========================================================================= */
+
+:root {
+  /* Palette primitives: light */
+  --c-purple-700: #4e2372;
+  --c-purple-600: #5b2a86;
+  --c-orange-700: #b43a0a;
+  --c-orange-500: #d9501a;
+  --c-green-800: #1f4d3a;
+  --c-maple-700: #a4221a;
+  --c-cream-50: #fbf6ec;
+  --c-cream-25: #fffcf5;
+  --c-ink-900: #1c1a17;
+  --c-ink-600: #5a554c;
+  --c-sand-300: #e2d8c6;
+  --c-sand-500: #8a8071;
+
+  /* Palette primitives: dark */
+  --c-night-900: #14110e;
+  --c-night-800: #262019;
+  --c-cream-100: #f2ede4;
+  --c-cream-300: #c0b7a8;
+  --c-lilac-300: #c9a7f0;
+  --c-lilac-200: #e0c9fa;
+  --c-amber-400: #ffa06b;
+  --c-amber-300: #ffb088;
+  --c-mint-300: #8fd3b0;
+  --c-coral-300: #ff8a80;
+  --c-night-rule: #3b342b;
+  --c-night-control: #7a6e5f;
+
+  /* Semantic: colour, light scheme (the default) */
+  --paper: var(--c-cream-50);
+  --surface: var(--c-cream-25);
+  --ink: var(--c-ink-900);
+  --muted: var(--c-ink-600);
+  --brand: var(--c-purple-600);
+  --brand-strong: var(--c-purple-700);
+  --accent: var(--c-orange-700);
+  --accent-bright: var(--c-orange-500);
+  --forest: var(--c-green-800);
+  --danger: var(--c-maple-700);
+  --rule: var(--c-sand-300);
+  --rule-control: var(--c-sand-500);
+  --on-brand: var(--c-cream-25);
+  --on-accent: #ffffff;
+  --focus: var(--c-purple-600);
+
+  color-scheme: light dark;
+}
+
+/* Dark by operating-system preference, unless the theme toggle has stored an
+   explicit light choice (data-theme on <html>, written by src/js/theme.js). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: var(--c-night-900);
+    --surface: var(--c-night-800);
+    --ink: var(--c-cream-100);
+    --muted: var(--c-cream-300);
+    --brand: var(--c-lilac-300);
+    --brand-strong: var(--c-lilac-200);
+    --accent: var(--c-amber-400);
+    --accent-bright: var(--c-amber-300);
+    --forest: var(--c-mint-300);
+    --danger: var(--c-coral-300);
+    --rule: var(--c-night-rule);
+    --rule-control: var(--c-night-control);
+    --on-brand: var(--c-night-900);
+    --on-accent: var(--c-night-900);
+    --focus: var(--c-lilac-300);
+    color-scheme: dark;
+  }
+}
+
+/* An explicit choice wins over the system preference in either direction. */
+:root[data-theme="dark"] {
+  --paper: var(--c-night-900);
+  --surface: var(--c-night-800);
+  --ink: var(--c-cream-100);
+  --muted: var(--c-cream-300);
+  --brand: var(--c-lilac-300);
+  --brand-strong: var(--c-lilac-200);
+  --accent: var(--c-amber-400);
+  --accent-bright: var(--c-amber-300);
+  --forest: var(--c-mint-300);
+  --danger: var(--c-coral-300);
+  --rule: var(--c-night-rule);
+  --rule-control: var(--c-night-control);
+  --on-brand: var(--c-night-900);
+  --on-accent: var(--c-night-900);
+  --focus: var(--c-lilac-300);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --paper: var(--c-cream-50);
+  --surface: var(--c-cream-25);
+  --ink: var(--c-ink-900);
+  --muted: var(--c-ink-600);
+  --brand: var(--c-purple-600);
+  --brand-strong: var(--c-purple-700);
+  --accent: var(--c-orange-700);
+  --accent-bright: var(--c-orange-500);
+  --forest: var(--c-green-800);
+  --danger: var(--c-maple-700);
+  --rule: var(--c-sand-300);
+  --rule-control: var(--c-sand-500);
+  --on-brand: var(--c-cream-25);
+  --on-accent: #ffffff;
+  --focus: var(--c-purple-600);
+  color-scheme: light;
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   System fonts only: no downloads, no third-party requests, no layout shift.
+   The serif stack is the campaign voice (headings, the date); the sans stack
+   carries body text and interface labels.
+   -------------------------------------------------------------------------- */
+:root {
+  --font-serif: "Iowan Old Style", "Charter", "Bitstream Charter", "Sitka Text",
+    Cambria, Georgia, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --text-xs: 0.8125rem;   /* 13px: labels, badges */
+  --text-sm: 0.9375rem;   /* 15px: metadata, sources */
+  --text-base: 1.0625rem; /* 17px: body */
+  --text-lg: 1.25rem;     /* 20px: card titles, site name */
+  --text-xl: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  --text-3xl: clamp(2rem, 7vw, 3.25rem);
+
+  --leading-tight: 1.2;
+  --leading-body: 1.55;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Space, measure, shape
+   -------------------------------------------------------------------------- */
+:root {
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.25rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+
+  --measure: 42rem;       /* body text column */
+  --measure-wide: 56rem;  /* gallery and card grids */
+
+  --radius-sm: 0.3rem;
+  --radius: 0.6rem;
+  --radius-lg: 1rem;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgb(28 26 23 / 8%), 0 6px 16px rgb(28 26 23 / 6%);
+  --shadow-raised: 0 2px 4px rgb(28 26 23 / 10%), 0 12px 28px rgb(28 26 23 / 10%);
+
+  --border-width: 1px;
+  --border-width-strong: 2px;
+  --focus-width: 3px;
+  --focus-offset: 3px;
+
+  --tap-target: 2.75rem; /* 44px, larger than WCAG 2.5.8's 24px minimum */
+
+  --transition-fast: 120ms ease-out;
+}
+
+/* Breakpoints are documented constants, not custom properties: CSS cannot
+   read a custom property inside a media query. Keep this list in step with
+   docs/DESIGN-SYSTEM.md.
+     --bp-sm: 40rem  (640px)  phone to tablet
+     --bp-md: 56rem  (896px)  tablet to desktop
+     --bp-lg: 68rem (1088px)  wide desktop */
+
+/* Shadows are a light-scheme affordance. On a dark background they read as
+   smudges, so surfaces separate by colour instead. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --shadow-card: none;
+    --shadow-raised: none;
+  }
+}
+:root[data-theme="dark"] {
+  --shadow-card: none;
+  --shadow-raised: none;
+}

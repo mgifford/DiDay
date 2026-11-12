@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Base layer
+   Reset, document defaults, typography, links, focus, and the global
+   behaviour overrides (forced colours, reduced motion).
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+}
+
+/* Media never overflows its container. */
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------------------------------------------------------------- headings */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-semibold);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+  margin: var(--space-m) 0 var(--space-s);
+}
+
+h2 {
+  font-size: var(--text-xl);
+  margin: var(--space-l) 0 var(--space-2xs);
+}
+
+h3 {
+  font-size: var(--text-lg);
+  margin: var(--space-m) 0 var(--space-3xs);
+}
+
+h4 {
+  font-size: var(--text-base);
+  margin: var(--space-s) 0 var(--space-3xs);
+}
+
+p,
+ul,
+ol,
+dl {
+  margin-block: 0 var(--space-s);
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------------- links */
+a {
+  color: var(--brand);
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* A link is recognised by colour *and* underline, so the difference does not
+   depend on colour vision alone (WCAG 1.4.1). */
+a:not([class]) {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------- focus */
+/* One focus treatment for the whole site: a 3px ring, offset so it sits on
+   the page background and stays visible against filled buttons too
+   (WCAG 2.4.11 Focus Appearance). */
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* The ring replaces the default, but never removes all indication. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+/* --------------------------------------------------------------- skip link */
+.skip {
+  position: absolute;
+  left: var(--space-s);
+  top: -4rem;
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.skip:focus {
+  top: var(--space-2xs);
+}
+
+/* --------------------------------------------------------- reduced motion */
+/* The site ships no animation today. This block exists so that a transition
+   added later cannot ignore the setting: it neutralises animation and
+   smooth scrolling for anyone who asks for less movement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------- forced colours */
+/* Windows High Contrast and similar modes replace the palette with system
+   colours. Borders that carry meaning must survive that swap. */
+@media (forced-colors: active) {
+  .flag,
+  .alt,
+  .card,
+  .notice,
+  .facts {
+    border-color: CanvasText;
+  }
+
+  .button {
+    border-color: ButtonText;
+  }
+
+  /* Keep the focus ring, whatever the system palette is. */
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
