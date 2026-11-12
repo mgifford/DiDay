@@ -34,6 +34,8 @@ npm run check:wikidata  # compares ownership with Wikidata (needs network)
 npm run check:a11y      # axe-core in Firefox (run `npx playwright install firefox` once first)
 npm run check:a11y:chromium  # Chromium only
 npm run check:a11y:all       # Firefox, then Chromium
+npm run check:a11y:behaviour # keyboard, focus, 320px reflow, text spacing,
+                             # forced colours, reduced motion, nav groups
 npm run french          # lists French text that needs review
 npm run check:reviews   # lists entries by review date
 ```
@@ -53,13 +55,21 @@ npm run check:reviews   # lists entries by review date
 | `scripts/validate.js` | Content checks run before every build |
 | `src/` | Templates, CSS and JS |
 | `src/js/theme.js` | Light/dark theme toggle, overriding the OS setting |
+| `src/css/style.njk` | The stylesheet template: concatenates the partials below into `/css/style.css` |
+| `src/_includes/css/tokens.css` | Design tokens: palette, semantic colours, type scale, spacing |
+| `src/_includes/css/base.css` | Reset, typography, links, focus, forced colours, reduced motion |
+| `src/_includes/css/layout.css` | Page width, vertical rhythm, grids |
+| `src/_includes/css/components.css` | Every reusable component |
+| `docs/DESIGN-SYSTEM.md` | Design system: goals, tokens, tested contrast, component rules |
+| `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
 | `data/review.yaml` | How long a review stays current |
 | `lib/reviews.js`, `scripts/check-reviews.js` | Review date tracking |
 | `data/link-check.yaml` | URLs the link checker skips |
 | `lib/links.js`, `scripts/check-links.js` | Link checker |
 | `lib/wikidata.js`, `scripts/check-wikidata.js` | Ownership check against Wikidata |
 | `lib/translations.js`, `scripts/french.js`, `data/translations.lock.yaml` | French review tracking |
-| `lib/serve.js`, `scripts/check-a11y.js` | Accessibility check |
+| `lib/serve.js`, `scripts/check-a11y.js` | Accessibility check (axe-core) |
+| `scripts/check-a11y-behaviour.js` | Keyboard, focus, nav groups, reflow, text spacing, forced colours, reduced motion, assets |
 | `scripts/report-issue.sh` | Opens or updates an issue with a report (GitHub only) |
 | `test/` | Unit tests, run without network access |
 | `.github/workflows/pages.yml` | Build, validate and deploy to GitHub Pages |
@@ -174,7 +184,8 @@ The output in `_site/` is plain HTML and CSS. To move to Codeberg Pages, run the
 - French text needs review by a fluent francophone. All French texts are currently marked as not reviewed (run `npm run french` for the current count).
 - URL slugs are English in both languages.
 - Siteimprove Alfa is deferred. axe-core is in CI.
-- The Firefox check uses Playwright's Firefox, a patched build rather than the release build. Keyboard, reflow, text-spacing and forced-colours checks are scripted and can be re-run with `npm run check:a11y:behaviour:all`; no screen reader testing has been done. See `ACCESSIBILITY.md`.
+- The Firefox check uses Playwright's Firefox, a patched build rather than the release build. Keyboard, reflow, text-spacing, forced-colours, reduced-motion and navigation-group checks are scripted and run in CI with `npm run check:a11y:behaviour:all`; no screen reader testing has been done. See `ACCESSIBILITY.md`.
+- The design system page at `/en/styleguide/` is linked from the About page. It is left out of `sitemap.xml` on purpose; it is a reference for contributors, not campaign content.
 - The external link check and the Wikidata ownership check run weekly in CI; the most recent run passed on 26 October 2026.
 - Hushmail has no Wikidata item.
 - The Mastodon inbox and reminders have been tested against a simulated server, not mstdn.ca.
