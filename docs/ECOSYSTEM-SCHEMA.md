@@ -85,7 +85,7 @@ So this version deliberately omits:
 | `website` | string | yes | `https://`. The organization's own site, not a profile page. |
 | `country` | string | yes | `CA` only. The directory is specifically Canadian. |
 | `organization_type` | enum | yes | See below. One value. |
-| `categories` | list of enum | yes | At least one. See below. |
+| `categories` | list of enum | yes | At least one. See below. **The first category is the primary one**: it decides which group the organization appears in on `/canada/`, and the others are shown as labels. This is why an organization appears exactly once on the page. |
 | `summary` | `{en, fr}` | yes | What it contributes. Not a mission statement. |
 | `canadian_connection.type` | enum | yes | See below. |
 | `canadian_connection.evidence` | string | yes | `https://` URL that supports the connection claimed. |

@@ -37,6 +37,7 @@ where each later phase slots in.
 │   ├── Alternatives    .. /alternatives/
 │   └── Monthly themes  .. /themes/
 ├── Around the world .... /world/
+├── Canada .............. /canada/
 ├── About ............... /about/
 └── (footer) Design system ... /styleguide/
 ```
@@ -61,7 +62,7 @@ creates it.
 | Take action | now | Switch recipes, What to cancel, Alternatives | |
 | Monthly themes | **now**, as a child of Take action | Twelve theme pages | `/themes/` index plus `/themes/<id>/` |
 | Around the world | **now**, as a single page | International campaigns and events share the page until there is enough for a section | `/world/` |
-| Canada | phase 5 | Organizations, Open-source projects | `/canada/` |
+| Canada | **now**, as a single page | The directory groups organizations by contribution, so it does not need children yet | `/canada/` |
 | Get involved | phase 6 | Organize an event, Community stories, Organizer toolkit | `/get-involved/` |
 | About | now | — | Adds campaigns, evidence, how the site is built |
 
@@ -76,7 +77,7 @@ eighth destination, it belongs inside an existing group.
 | What is this? | Home, then About |
 | What can I do right now? | Take action, or the hero's primary button |
 | What is this month about? | Home section, later `/themes/<current>/` |
-| Who else is doing this? | Around the world; Canada (phase 5) |
+| Who else is doing this? | Around the world, for other countries; Canada, for Canadian organizations |
 | How do I bring other people in? | Get involved (phase 6) |
 | How do I report a problem? | Every entry, plus About |
 
@@ -116,7 +117,7 @@ language prefix, a section, then a slug.
 /{lang}/themes/              all twelve themes (built)
 /{lang}/themes/{id}/         one theme (built)
 /{lang}/world/               international campaigns and events (built)
-/{lang}/canada/              Canadian organizations and projects
+/{lang}/canada/              Canadian organizations and projects (built)
 /{lang}/get-involved/        organizing, toolkits, stories
 ```
 

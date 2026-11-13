@@ -395,6 +395,12 @@
   margin: 0;
 }
 
+/* Source URLs are long and unbreakable by default, which scrolls the page
+   sideways at 320px. Break them inside a card rather than anywhere else. */
+.card a {
+  overflow-wrap: anywhere;
+}
+
 /* Pushes the trailing link to the bottom, so cards in a row line up. */
 .card__footer {
   margin-top: auto;
@@ -411,7 +417,11 @@
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
   color: var(--muted);
-  white-space: nowrap;
+  /* Labels wrap rather than spilling out of a card: French category names are
+     long, and a badge that overflows puts text outside the surface it sits
+     on. */
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .badge--brand {

@@ -559,6 +559,115 @@ world_collab_event:
 world_collab_guides:
   en: Share a switch recipe with the international project if yours works better than theirs.
   fr: Partagez une recette avec le projet international si la vôtre fonctionne mieux que la leur.
+about_canada_intro:
+  en: a directory of Canadian organizations whose work supports digital independence, with a source for every claim.
+  fr: un répertoire d'organismes canadiens dont le travail appuie l'indépendance numérique, avec une source pour chaque affirmation.
 about_world_intro:
   en: international campaigns and events are listed on their own page.
   fr: les campagnes et événements internationaux sont présentés sur leur propre page.
+
+# --- Phase 5: Canadian ecosystem directory ---------------------------------
+nav_canada:
+  en: Canada
+  fr: Canada
+canada_title:
+  en: Canadians helping build a more independent internet.
+  fr: Des personnes au Canada qui bâtissent un internet plus indépendant.
+canada_lead:
+  en: Canadian developers, companies, communities and public-interest organizations help build and sustain open digital infrastructure used around the world.
+  fr: Des développeurs, des entreprises, des communautés et des organismes d'intérêt public au Canada aident à construire et à maintenir une infrastructure numérique ouverte utilisée partout dans le monde.
+canada_why_heading:
+  en: Why this directory exists
+  fr: Pourquoi ce répertoire existe
+canada_why_ownership:
+  en: Canadian ownership is not the same thing as digital independence. A Canadian-owned service can still lock in its users, keep its code closed and hold data it will not give back. What matters is whether the technology is open, portable, interoperable and accountable.
+  fr: La propriété canadienne n'est pas la même chose que l'indépendance numérique. Un service canadien peut tout de même enfermer ses utilisateurs, garder son code fermé et retenir des données qu'il ne rendra pas. Ce qui compte, c'est que la technologie soit ouverte, portable, interopérable et redevable.
+canada_why_global:
+  en: Much of the software this site runs on was built by communities rather than companies, and is maintained across borders. Canadians contribute to that work, and those contributions are part of digital independence even when the project is not Canadian and never will be.
+  fr: Une bonne partie des logiciels sur lesquels repose ce site ont été construits par des communautés plutôt que par des entreprises, et sont maintenus par-delà les frontières. Des personnes au Canada contribuent à ce travail, et ces contributions font partie de l'indépendance numérique même quand le projet n'est pas canadien et ne le sera jamais.
+canada_categories_heading:
+  en: Browse by kind of contribution
+  fr: Parcourir par type de contribution
+canada_how_heading:
+  en: How this directory is researched
+  fr: Comment ce répertoire est documenté
+canada_how_body:
+  en:
+    - Every organization needs a documented Canadian connection and at least one specific contribution, each with its own source.
+    - A link is not evidence. Someone reads the source and checks that it supports the sentence above it.
+    - Nothing here is a ranking, an endorsement or a partnership. Inclusion is a statement about one documented contribution, not a verdict on the organization.
+    - Organizations can ask to be removed, and corrections are welcome.
+  fr:
+    - Chaque organisme doit avoir un lien canadien documenté et au moins une contribution précise, chacune avec sa propre source.
+    - Un lien n'est pas une preuve. Quelqu'un lit la source et vérifie qu'elle appuie la phrase qui la précède.
+    - Rien ici n'est un classement, une approbation ou un partenariat. L'inscription porte sur une contribution documentée, pas sur un jugement global.
+    - Un organisme peut demander à être retiré, et les corrections sont bienvenues.
+canada_policy_link:
+  en: Read the editorial policy
+  fr: Lire la politique éditoriale
+canada_corrections:
+  en: Know an organization that should be here, or one that should not? Tell us.
+  fr: Vous connaissez un organisme qui devrait figurer ici, ou un qui ne le devrait pas? Dites-le-nous.
+canada_website:
+  en: Website
+  fr: Site Web
+canada_sources:
+  en: Sources and evidence
+  fr: Sources et preuves
+canada_featured:
+  en: Why this one is featured
+  fr: Pourquoi cette fiche est mise en avant
+canada_count:
+  en: organizations
+  fr: organismes
+not_reviewed:
+  en: Not yet reviewed by a maintainer.
+  fr: Pas encore vérifié par une personne responsable.
+canada_category_open-source-development:
+  en: Open-source development
+  fr: Développement à code source ouvert
+canada_category-funding:
+  en: Funding open source
+  fr: Financement du libre
+canada_category_open-governance:
+  en: Open governance and standards
+  fr: Gouvernance ouverte et normes
+canada_category_public-infrastructure:
+  en: Public digital infrastructure
+  fr: Infrastructure numérique publique
+canada_category_digital-rights:
+  en: Digital rights and community capacity
+  fr: Droits numériques et capacité communautaire
+canada_category_indigenous-data-sovereignty:
+  en: Indigenous data sovereignty
+  fr: Souveraineté des données autochtones
+canada_type_non-profit:
+  en: Non-profit
+  fr: Organisme sans but lucratif
+canada_type_cooperative:
+  en: Cooperative
+  fr: Coopérative
+canada_type_company:
+  en: Company
+  fr: Entreprise
+canada_type_public-sector:
+  en: Public sector
+  fr: Secteur public
+canada_type_foundation:
+  en: Foundation
+  fr: Fondation
+canada_type_community-group:
+  en: Community group
+  fr: Groupe communautaire
+canada_connection_headquartered:
+  en: Headquartered in Canada
+  fr: Siège au Canada
+canada_connection_canadian-operations:
+  en: Canadian operations
+  fr: Activités au Canada
+canada_connection_canadian-led-project:
+  en: Canadian-led project
+  fr: Projet dirigé depuis le Canada
+canada_connection_canadian-members:
+  en: Canadian members
+  fr: Membres canadiens

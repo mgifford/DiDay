@@ -134,7 +134,7 @@
     fr: Une entreprise montréalaise de génie logiciel libre qui maintient Jami, une application de messagerie et d'appels pair à pair utilisée internationalement.
   canadian_connection:
     type: canadian-led-project
-    evidence: https://api.github.com/orgs/savoirfairelinux
+    evidence: https://github.com/savoirfairelinux
   contributions:
     - project: null
       type: upstream-development
@@ -149,7 +149,7 @@
     campaigns: []
     themes: [free-your-conversations]
   sources:
-    - url: https://api.github.com/orgs/savoirfairelinux
+    - url: https://github.com/savoirfairelinux
       supports: [canadian_connection, open-source-development]
   status: documented-contributor
   featured: false

@@ -79,6 +79,7 @@ npm run check:reviews   # lists entries by review date
 | `lib/initiatives.js`, `test/initiatives.test.js` | Validator for ecosystem records and its tests |
 | `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
 | `src/pages/world.njk` | The international page at `/world/` |
+| `src/pages/canada.njk` | The Canadian ecosystem directory at `/canada/` |
 | `data/review.yaml` | How long a review stays current |
 | `lib/reviews.js`, `scripts/check-reviews.js` | Review date tracking |
 | `data/link-check.yaml` | URLs the link checker skips |

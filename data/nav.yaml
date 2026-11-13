@@ -48,6 +48,12 @@ items:
       fr: Partout dans le monde
     url: /world/
 
+  - id: canada
+    label:
+      en: Canada
+      fr: Canada
+    url: /canada/
+
   - id: about
     label:
       en: About

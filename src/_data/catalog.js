@@ -1,5 +1,6 @@
 import { loadCatalog } from "../../lib/catalog.js";
 import { pending } from "../../lib/translations.js";
+import { CATEGORIES } from "../../lib/initiatives.js";
 
 export default function () {
   const catalog = loadCatalog();
@@ -15,5 +16,17 @@ export default function () {
   catalog.themePages = catalog.site.languages.flatMap((lang) =>
     catalog.themes.map((theme) => ({ lang, theme }))
   );
+  // The directory groups organizations by their first category, so each one
+  // appears once. The remaining categories are shown as labels on the card.
+  // Every source URL for an entry, once, for the "sources" disclosure.
+  for (const entry of catalog.initiatives) {
+    entry.sourceLinks = [...new Set([
+      ...(entry.sources || []).map((source) => source.url),
+      ...(entry.contributions || []).flatMap((contribution) => contribution.sources || []),
+    ])];
+  }
+  catalog.initiativeGroups = CATEGORIES
+    .map((id) => ({ id, initiatives: catalog.initiatives.filter((entry) => entry.categories[0] === id) }))
+    .filter((group) => group.initiatives.length > 0);
   return catalog;
 }
