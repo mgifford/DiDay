@@ -457,8 +457,8 @@ canada_heading:
   en: In Canada
   fr: Au Canada
 canada_orgs_link:
-  en: About page
-  fr: page À propos
+  en: Canadian directory
+  fr: répertoire canadien
 canada_intro:
   en: You do not need to organize anything to take part. If you would rather do it with others, these work well.
   fr: Nul besoin d'organiser quoi que ce soit pour participer. Si vous préférez le faire à plusieurs, ces formules fonctionnent bien.
@@ -469,8 +469,8 @@ canada_group:
   en: Do it with a group. A few people, one recipe, an hour together, and everyone leaves with one service moved.
   fr: Faites-le en groupe. Quelques personnes, une recette, une heure ensemble, et chacun repart avec un service de moins.
 canada_orgs:
-  en: Organizations working on the same problem in Canada are listed on the
-  fr: Les organismes qui travaillent sur le même enjeu au Canada sont listés sur la
+  en: Organizations working on the same problem in Canada are listed in the
+  fr: Les organismes qui travaillent sur le même enjeu au Canada sont listés dans le
 resources_heading:
   en: Practical resources
   fr: Ressources pratiques
@@ -671,3 +671,30 @@ canada_connection_canadian-led-project:
 canada_connection_canadian-members:
   en: Canadian members
   fr: Membres canadiens
+
+# --- Phase 5, PR 4: integrations -------------------------------------------
+home_canada_cta:
+  en: Browse the Canadian directory
+  fr: Parcourir le répertoire canadien
+theme_initiatives_heading:
+  en: Organizations working on this
+  fr: Des organismes qui travaillent sur ce sujet
+canada_contrast_heading:
+  en: Five things that are not the same
+  fr: Cinq choses qui ne sont pas la même
+canada_contrast_intro:
+  en: This site keeps these apart on purpose. The word "Canadian" does not carry the same meaning in each one.
+  fr: Ce site les distingue volontairement. Le mot « canadien » n'a pas le même sens dans chacun.
+canada_distinction:
+  en:
+    - "A Canadian alternative service, listed in Alternatives, where the question is where the product is owned and whether it is open."
+    - "A Canadian organization contributing to global open source, listed in this directory, where the question is what it contributes."
+    - "An international project with Canadian contributors. The project does not become Canadian, and does not need to: the contribution is what counts."
+    - "A Canadian digital rights organization. Advocacy and policy work, not a product."
+    - "A formal DI.DAY partnership. Nothing on this site claims one: linking to another campaign is not a partnership."
+  fr:
+    - "Un service de rechange canadien, inscrit dans Solutions de rechange, où la question est la propriété du produit et son ouverture."
+    - "Un organisme canadien qui contribue au libre à l'échelle mondiale, inscrit dans ce répertoire, où la question est ce qu'il apporte."
+    - "Un projet international avec des contributeurs canadiens. Le projet ne devient pas canadien, et n'a pas besoin de le devenir: c'est la contribution qui compte."
+    - "Un organisme canadien de droits numériques. Du travail de défense et de politique, pas un produit."
+    - "Un partenariat officiel avec DI.DAY. Rien sur ce site n'en revendique un: renvoyer vers une autre campagne n'est pas un partenariat."

@@ -160,7 +160,9 @@ owns or governs the project.
 
 - **Alternatives** describe products and their suitability. An initiative
   describes organizational contribution. `relationships.alternatives` links
-  them; nothing is copied.
+  them; nothing is copied. As of PR 4 no record uses it, because no documented
+  connection between a listed product and a listed organization exists yet —
+  the field is ready for the first one that is sourced.
 - **Campaigns** describe who is campaigning. Where an organization is in both,
   the initiative summary is about contribution and the campaign entry keeps
   the mission text. The overlap decision for the two current cases is an open
