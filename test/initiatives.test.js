@@ -248,3 +248,35 @@ test("every initiative appears in exactly one directory group", () => {
   assert.equal(placed.length, catalog.initiatives.length, "an entry is missing from every group");
   assert.equal(new Set(placed).size, placed.length, "an entry appears in more than one group");
 });
+
+test("theme associations agree in both directions", () => {
+  const catalog = catalogData();
+  for (const theme of catalog.themes) {
+    for (const entry of theme.initiatives) {
+      assert.ok(
+        entry.relationships.themes.includes(theme.id),
+        `${entry.id} is shown on theme "${theme.id}" but does not name it`
+      );
+    }
+  }
+  for (const entry of catalog.initiatives) {
+    for (const id of entry.relationships.themes) {
+      const theme = catalog.themes.find((candidate) => candidate.id === id);
+      assert.ok(theme, `${entry.id} names a theme that does not exist: ${id}`);
+      assert.ok(
+        theme.initiatives.includes(entry),
+        `${entry.id} names theme "${id}" but is not shown on it`
+      );
+    }
+  }
+});
+
+test("no theme claims an organization the directory does not list", () => {
+  const catalog = catalogData();
+  const listed = new Set(catalog.initiatives.map((entry) => entry.id));
+  for (const theme of catalog.themes) {
+    for (const entry of theme.initiatives) {
+      assert.ok(listed.has(entry.id), `${theme.id} links to an unlisted organization`);
+    }
+  }
+});

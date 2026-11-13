@@ -38,7 +38,7 @@ eleventyComputed:
   <ul class="card-grid">
     {% for entry in group.initiatives %}
     <li>
-      <article class="card">
+      <article class="card" id="{{ entry.id }}">
         <p class="card__meta">{{ ("canada_type_" + entry.organization_type) | t(lang) }} · {{ ("canada_connection_" + entry.canadian_connection.type) | t(lang) }}</p>
         <h3 class="card__title">{{ entry.name }}</h3>
         <p class="card__body">{{ entry.summary | loc(lang) }}</p>
@@ -71,6 +71,14 @@ eleventyComputed:
   </ul>
 </section>
 {% endfor %}
+
+<section class="section">
+  <h2>{{ "canada_contrast_heading" | t(lang) }}</h2>
+  <p>{{ "canada_contrast_intro" | t(lang) }}</p>
+  <ul class="plain">
+    {% for item in "canada_distinction" | t(lang) %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</section>
 
 <section class="section">
   <h2>{{ "canada_how_heading" | t(lang) }}</h2>

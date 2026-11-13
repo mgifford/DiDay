@@ -60,6 +60,17 @@ eleventyComputed:
 </section>
 {% endif %}
 
+{% if t.initiatives.length %}
+<section class="section">
+  <h2>{{ "theme_initiatives_heading" | t(lang) }}</h2>
+  <ul class="plain">
+    {% for entry in t.initiatives %}
+    <li><a href="/{{ lang }}/canada/#{{ entry.id }}">{{ entry.name }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 <section class="section">
   <h2>{{ "theme_more_heading" | t(lang) }}</h2>
   <ul class="plain">

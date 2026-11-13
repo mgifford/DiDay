@@ -16,6 +16,12 @@ export default function () {
   catalog.themePages = catalog.site.languages.flatMap((lang) =>
     catalog.themes.map((theme) => ({ lang, theme }))
   );
+  // Reverse lookup: the organizations that named a theme. The relationship is
+  // stored once, on the initiative, so it cannot drift.
+  for (const theme of catalog.themes) {
+    theme.initiatives = catalog.initiatives.filter((entry) => (entry.relationships?.themes || []).includes(theme.id));
+  }
+  catalog.featuredInitiatives = catalog.initiatives.filter((entry) => entry.featured);
   // The directory groups organizations by their first category, so each one
   // appears once. The remaining categories are shown as labels on the card.
   // Every source URL for an entry, once, for the "sources" disclosure.
