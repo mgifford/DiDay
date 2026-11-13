@@ -236,3 +236,15 @@ test("every contribution is typed, sourced and bilingual", () => {
     }
   }
 });
+
+// The directory groups organizations by their first category. If a record
+// ever appeared twice, or not at all, the page would quietly lose or duplicate
+// it.
+import catalogData from "../src/_data/catalog.js";
+
+test("every initiative appears in exactly one directory group", () => {
+  const catalog = catalogData();
+  const placed = catalog.initiativeGroups.flatMap((group) => group.initiatives.map((entry) => entry.id));
+  assert.equal(placed.length, catalog.initiatives.length, "an entry is missing from every group");
+  assert.equal(new Set(placed).size, placed.length, "an entry appears in more than one group");
+});
