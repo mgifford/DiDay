@@ -194,3 +194,34 @@ What that means in the data:
 2. A maintainer reviews all ten records and sets `verified: true` with
    `last_reviewed`.
 3. The French text is unreviewed, along with the rest of the site's backlog.
+
+
+## 12. Verification pass (phase 5, PR 5)
+
+**Every source URL was requested on 2026-11-13.** 25 of 27 returned 200. The
+two that returned 403 are `cira.ca` and `fnigc.ca` — the two records that are
+already `listed` rather than `documented-contributor`. No
+`documented-contributor` record has a dead source.
+
+That check proves the pages exist. It does not prove they support the claims,
+which is why it is not treated as verification.
+
+**Five claims were tightened after re-reading their sources**, because the
+original wording described purpose rather than evidence:
+
+| Record | What changed |
+| --- | --- |
+| `cds` | Removed "so other public-sector teams can reuse accessible, bilingual components". The repository describes what it is, not who uses it or what it guarantees. |
+| `koumbit` | Removed "for community organizations". Their service pages describe what they do, not who the clients are. |
+| `code-for-canada` | Reworded to track their own published statement about leaving partners able to deliver independently, rather than an inferred motive. |
+| `savoir-faire-linux` | Removed "and the Jami applications built on it". The daemon is the verified artefact; the rest of the suite was not individually checked. |
+| `evolving-web` | Removed the vague "and other public modules". SiteDiff is the named, licensed artefact. |
+
+**Cross-dataset check:** no domain appears in more than one of
+`initiatives.yaml`, `campaigns.yaml`, `global-stories.yaml` and
+`alternatives.yaml`, and initiative names are unique. The move of OpenMedia
+and C4DS out of `campaigns.yaml` left no duplicate descriptions.
+
+**What this pass could not do:** read the two blocked sites, judge the French,
+or decide whether an organization should be listed. Those are the three items
+in `docs/ECOSYSTEM-REVIEW-CHECKLIST.md`.

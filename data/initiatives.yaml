@@ -139,8 +139,8 @@
     - project: null
       type: upstream-development
       description:
-        en: Maintains the Jami daemon, published under the GNU GPL v3, and the Jami applications built on it. Jami is free software for encrypted calling and messaging without a central account.
-        fr: Maintient le démon Jami, publié sous GNU GPL v3, et les applications Jami qui en dépendent. Jami est un logiciel libre d'appels et de messagerie chiffrés, sans compte central.
+        en: Maintains the Jami daemon, published under the GNU GPL v3. Jami is free software for encrypted calling and messaging without a central account.
+        fr: Maintient le démon Jami, publié sous GNU GPL v3. Jami est un logiciel libre d'appels et de messagerie chiffrés, sans compte central.
       sources:
         - https://github.com/savoirfairelinux/jami-daemon
         - https://jami.net/
@@ -173,8 +173,8 @@
     - project: null
       type: public-infrastructure
       description:
-        en: Publishes the GC Design System web components under the MIT licence, so other public-sector teams can reuse accessible, bilingual interface components instead of rebuilding them.
-        fr: Publie les composants web du système de design du GC sous licence MIT, pour que d'autres équipes du secteur public réutilisent des composants d'interface accessibles et bilingues au lieu de les reconstruire.
+        en: Publishes the GC Design System web components under the MIT licence, a component library for Government of Canada services.
+        fr: Publie les composants web du système de design du GC sous licence MIT, une bibliothèque de composants pour les services du gouvernement du Canada.
       sources:
         - https://github.com/cds-snc/gcds-components
         - https://digital.canada.ca/
@@ -207,8 +207,8 @@
     - project: null
       type: hosting
       description:
-        en: Hosts and administers websites and mail for community organizations on free software, under cooperative self-management rather than outside ownership.
-        fr: Héberge et administre des sites web et du courriel pour des organismes communautaires sur logiciels libres, sous autogestion coopérative plutôt que sous propriété externe.
+        en: Hosts and administers websites and mail on free software, under cooperative self-management rather than outside ownership.
+        fr: Héberge et administre des sites web et du courriel sur logiciels libres, sous autogestion coopérative plutôt que sous propriété externe.
       sources:
         - https://koumbit.org/fr/apropos
         - https://koumbit.org/fr/services/hebergement
@@ -243,8 +243,8 @@
     - project: null
       type: upstream-development
       description:
-        en: Maintains SiteDiff, a tool for comparing two versions of a site before and after a migration, published under the GNU GPL v2, and other public modules used in Drupal work.
-        fr: Maintient SiteDiff, un outil pour comparer deux versions d'un site avant et après une migration, publié sous GNU GPL v2, ainsi que d'autres modules publics utilisés dans le travail Drupal.
+        en: Maintains SiteDiff, a tool for comparing two versions of a site before and after a migration, published under the GNU GPL v2.
+        fr: Maintient SiteDiff, un outil pour comparer deux versions d'un site avant et après une migration, publié sous GNU GPL v2.
       sources:
         - https://github.com/evolvingweb/sitediff
   relationships:
@@ -278,8 +278,8 @@
     - project: null
       type: training
       description:
-        en: Delivers public-service projects while building the partner team's own capacity, rather than tying the result to ongoing vendor support.
-        fr: Mène des projets de service public tout en renforçant la capacité de l'équipe partenaire, plutôt que de lier le résultat à un soutien continu de fournisseur.
+        en: Works with governments and community organizations on digital services, with the stated aim of leaving partners with the skills to deliver them independently.
+        fr: Travaille avec des gouvernements et des organismes communautaires sur des services numériques, avec l'objectif déclaré de laisser aux partenaires les compétences pour les livrer de façon autonome.
       sources:
         - https://codefor.ca/about
   relationships:
