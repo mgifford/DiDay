@@ -42,9 +42,9 @@ automation that has only been tested in a sandbox.
 
 - [ ] Decide which sample entries to keep. Remove or complete the rest.
 - [ ] For each entry: replace placeholder Wikipedia sources with primary sources where possible, check each claim listed under `supports`, then set `verified: true` and `last_reviewed`.
-- [ ] Replace U.S. cancellation links with Canadian (.ca, en-ca, fr-ca) pages.
+- [ ] Replace U.S. cancellation links with Canadian (.ca, en-ca, fr-ca) pages. Done for Apple (3 entries) and Microsoft, which publish `en-ca` versions of the same articles, and Google/YouTube, which take a `?hl=en-CA` locale hint. Amazon, Audible, Paramount and OpenAI are unconfirmed: `amazon.ca` returned a page with no title for the same node id, which may be a bot block or a missing article.
 - [ ] Add a Wikidata ID to each entry that has one.
-- [ ] Research Hushmail's ownership, or leave it as a draft.
+- [x] Research Hushmail's ownership, or leave it as a draft. Hushmail's own privacy policy states that Hush Communications Canada Inc. is "a wholly owned subsidiary of Hush Communications Corporation, a private Delaware, USA company". Published with `ownership: US` and an exception, ranked last. The Canadian directories that call it Canadian are describing its head office, which is exactly the distinction the site's rules draw.
 - [ ] French review by a fluent reader, then `npm run french -- approve ...`.
 - [x] Write at least one more recipe so the first month has a choice. Two added for December 2026: music without Apple, Amazon or YouTube, and cloud storage without Google One or iCloud, with eight sourced alternatives. Every new entry is still `verified: false` and needs the same review as the rest.
 

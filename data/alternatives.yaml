@@ -55,16 +55,24 @@
   url: https://www.hushmail.com/
   category: email
   headquarters: CA
-  ownership: null
+  # Hush Communications Canada Inc. is a wholly owned subsidiary of Hush
+  # Communications Corporation, "a private Delaware, USA company" — stated by
+  # Hushmail itself. This is the case the rules exist for: a Canadian office
+  # does not make a service Canadian-owned.
+  ownership: US
   open_source: false
-  # Not published until ownership is sourced.
-  draft: true
+  exception:
+    en: Operated from Vancouver by Hush Communications Canada Inc., but owned by a private Delaware company, so it does not meet the ownership rules.
+    fr: Exploité depuis Vancouver par Hush Communications Canada Inc., mais détenu par une entreprise privée du Delaware; ne respecte donc pas les critères de propriété.
   notes:
-    en: Paid email service based in Vancouver. Ownership has not been researched yet.
-    fr: Service de courriel payant établi à Vancouver. La propriété n'a pas encore été vérifiée.
+    en: Paid encrypted email and forms, run from Vancouver, with servers in Vancouver and Calgary. The Canadian company is a subsidiary of a US parent.
+    fr: Courriel chiffré et formulaires payants, exploités depuis Vancouver, avec des serveurs à Vancouver et Calgary. L'entreprise canadienne est une filiale d'une société mère américaine.
   sources:
-    - title: Hushmail (Wikipedia)
-      url: https://en.wikipedia.org/wiki/Hushmail
+    - title: Hushmail privacy policy (corporate entities and server locations)
+      url: https://www.hushmail.com/privacy
+      supports: [headquarters, ownership]
+    - title: Hushmail contact page (Vancouver mailing address)
+      url: https://www.hushmail.com/contact
       supports: [headquarters]
   verified: false
 
