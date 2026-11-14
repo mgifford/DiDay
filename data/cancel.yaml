@@ -1,6 +1,13 @@
 # U.S. subscriptions with cancellation instructions.
 # Cancellation URLs come from resistandunsubscribe.com and point to U.S. help pages.
 # Replace them with Canadian (.ca, en-ca, fr-ca) pages where they exist.
+#
+# Checked 2026-11-14: Apple and Microsoft publish Canadian versions of the
+# same articles, and those are used below. Google's help pages are one article
+# with a locale hint, so they carry ?hl=en-CA. Amazon, Audible, Paramount and
+# OpenAI were not confirmed: amazon.ca returned a page with no title for the
+# same node id, which may be a bot block or a missing article, and swapping to
+# a page that loads but says the wrong thing is worse than a US link.
 - id: kindle-unlimited
   company: Amazon
   service: Kindle Unlimited
@@ -25,7 +32,7 @@
   company: Google
   service: Google One
   ownership: US
-  cancel_url: https://support.google.com/googleone/answer/9056360
+  cancel_url: https://support.google.com/googleone/answer/9056360?hl=en-CA
   alternatives: [sync-com, nextcloud, proton-drive]
   recipe: storage-without-google
   source: https://www.resistandunsubscribe.com/
@@ -35,7 +42,7 @@
   company: Apple
   service: Apple Music
   ownership: US
-  cancel_url: https://support.apple.com/en-us/118399
+  cancel_url: https://support.apple.com/en-ca/118399
   alternatives: [stingray-music, qobuz, cbc-listen]
   recipe: music-without-streaming
   source: https://www.resistandunsubscribe.com/
@@ -85,7 +92,7 @@
   company: Apple
   service: Apple TV+
   ownership: US
-  cancel_url: https://support.apple.com/en-us/118398
+  cancel_url: https://support.apple.com/en-ca/118398
   alternatives: []
   recipe: null
   source: https://www.resistandunsubscribe.com/
@@ -95,7 +102,7 @@
   company: Apple
   service: "Apple One (also covers Apple News+, Fitness+ and Arcade)"
   ownership: US
-  cancel_url: https://support.apple.com/en-us/118428?device-type=mac
+  cancel_url: https://support.apple.com/en-ca/118428?device-type=mac
   alternatives: [stingray-music, qobuz, sync-com, proton-drive]
   recipe: storage-without-google
   source: https://www.resistandunsubscribe.com/
@@ -115,7 +122,7 @@
   company: Google
   service: YouTube Music
   ownership: US
-  cancel_url: https://support.google.com/youtube/answer/6308278
+  cancel_url: https://support.google.com/youtube/answer/6308278?hl=en-CA
   alternatives: [stingray-music, qobuz, navidrome]
   recipe: music-without-streaming
   source: https://www.resistandunsubscribe.com/
@@ -125,7 +132,7 @@
   company: Microsoft
   service: Microsoft 365 (Office)
   ownership: US
-  cancel_url: https://support.microsoft.com/en-us/account-billing/cancel-your-microsoft-subscription-c2c6b0e3-cab3-cb98-d83e-c9ad54620530
+  cancel_url: https://support.microsoft.com/en-ca/account-billing/cancel-your-microsoft-subscription-c2c6b0e3-cab3-cb98-d83e-c9ad54620530
   alternatives: []
   recipe: null
   source: https://www.resistandunsubscribe.com/
