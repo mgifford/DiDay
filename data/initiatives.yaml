@@ -61,8 +61,8 @@
   organization_type: non-profit
   categories: [public-infrastructure, open-governance]
   summary:
-    en: The member-driven operator of the .ca domain, based in Ottawa, which also funds community internet projects and takes part in internet governance.
-    fr: L'exploitant du domaine .ca, dirigé par ses membres et établi à Ottawa, qui finance aussi des projets internet communautaires et participe à la gouvernance d'internet.
+    en: The member-driven operator of the .ca domain, based in Ottawa, which also funds Canadian internet projects and takes part in internet governance.
+    fr: L'exploitant du domaine .ca, dirigé par ses membres et établi à Ottawa, qui finance aussi des projets internet canadiens et participe à la gouvernance d'internet.
   canadian_connection:
     type: headquartered
     evidence: https://www.cira.ca/en/
@@ -70,18 +70,23 @@
     - project: null
       type: public-infrastructure
       description:
-        en: Operates the .ca country-code registry and runs a community investment programme that funds Canadian internet projects.
-        fr: Exploite le registre national .ca et gère un programme d'investissement communautaire qui finance des projets internet canadiens.
+        en: Operates the .ca country-code registry, and has awarded Net Good Grants since 2014, investing over a million dollars a year in Canadian projects on connectivity, online safety and internet policy.
+        fr: Exploite le registre national .ca et décerne depuis 2014 les bourses Net Good, en investissant plus d'un million de dollars par année dans des projets canadiens sur la connectivité, la sécurité en ligne et la politique internet.
       sources:
-        - https://www.cira.ca/en/
+        - https://www.cira.ca/en/about-cira/
+        - https://www.cira.ca/en/grants/
   relationships:
     alternatives: []
     campaigns: []
     themes: []
   sources:
+    - url: https://www.cira.ca/en/about-cira/
+      supports: [organization_type, public-infrastructure]
+    - url: https://www.cira.ca/en/grants/
+      supports: [funding]
     - url: https://en.wikipedia.org/wiki/Canadian_Internet_Registration_Authority
-      supports: [organization_type, canadian_connection, open-governance]
-  status: listed
+      supports: [canadian_connection, open-governance]
+  status: documented-contributor
   featured: false
   featured_rationale: null
   verified: false
@@ -344,18 +349,20 @@
     - project: null
       type: standards
       description:
-        en: Publishes the OCAP® principles and the training that goes with them, which set out how First Nations data is governed, in the First Nations' own terms rather than in a general open-data frame.
-        fr: Publie les principes OCAP® et la formation qui les accompagne, qui définissent la gouvernance des données des Premières Nations selon leurs propres termes plutôt que dans un cadre général de données ouvertes.
+        en: Publishes the First Nations principles of OCAP® — ownership, control, access and possession — and the training that goes with them, which set out how First Nations data is collected, protected, used and shared.
+        fr: Publie les principes des Premières Nations OCAP® — propriété, contrôle, accès et possession — et la formation qui les accompagne, qui définissent comment les données des Premières Nations sont recueillies, protégées, utilisées et partagées.
       sources:
-        - https://fnigc.ca/
+        - https://fnigc.ca/ocap-training/
   relationships:
     alternatives: []
     campaigns: []
     themes: []
   sources:
+    - url: https://fnigc.ca/ocap-training/
+      supports: [indigenous-data-sovereignty]
     - url: https://en.wikipedia.org/wiki/First_Nations_Information_Governance_Centre
       supports: [organization_type, canadian_connection]
-  status: listed
+  status: documented-contributor
   featured: false
   featured_rationale: null
   verified: false

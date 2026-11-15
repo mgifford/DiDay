@@ -50,18 +50,23 @@ A successful HTTP request is not review. Every URL below returned 200 on
 2026-11-13 except the two marked, and that says nothing about whether the page
 supports the claim.
 
-## The two records that cannot be verified by machine
+## The two records that block automated requests
 
-Both block automated requests (HTTP 403), so the researcher could not read
-them. Both are recorded as `listed`, not `documented-contributor`.
+`cira.ca` and `fnigc.ca` return **HTTP 403 to `curl`**, which is why they were
+originally recorded as `listed`. They are not unfetchable: **a real browser
+loads both**, and the claims were read on 2026-11-15.
 
-| Record | URL to open | What to confirm |
+Useful detail for next time: the block is on the user agent and TLS
+fingerprint, not on the content. A headless Chromium with a normal desktop user
+agent gets through, and so does any ordinary browser. `curl` alone does not.
+
+| Record | Page read | What it says |
 | --- | --- | --- |
-| `cira` | <https://www.cira.ca/en/> | That CIRA operates the `.ca` registry and runs a community investment programme funding Canadian internet projects. |
-| `fnigc` | <https://fnigc.ca/> | That FNIGC publishes and teaches the OCAP® principles. Describe it in FNIGC's own terms; do not reframe it as general open-data work. |
+| `cira` | <https://www.cira.ca/en/grants/> and <https://www.cira.ca/en/about-cira/> | CIRA has awarded **Net Good Grants** since 2014 and invests over a million dollars a year in Canadian projects on connectivity, online safety and internet policy. The older name "Community Investment Program" is gone — the record now uses the current one. |
+| `fnigc` | <https://fnigc.ca/ocap-training/> | "The First Nations principles of OCAP® establish how First Nations' data and information will be collected, protected, used, or shared." |
 
-If confirmed: set `status: documented-contributor` and add
-`verified: true` + `last_reviewed`.
+Both are now `documented-contributor`. **What remains is the maintainer's
+sign-off**: read the two pages, then set `verified: true` and `last_reviewed`.
 
 ## French review
 
