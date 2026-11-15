@@ -31,8 +31,11 @@ eleventyComputed:
   {% for step in r.steps[lang] %}<li>{{ step }}</li>{% endfor %}
 </ol>
 
+{% set options = catalog.alternatives | byIds(r.alternatives) | ranked %}
+{% if options.length %}
 <h2>{{ "options" | t(lang) }}</h2>
-{% for alt in catalog.alternatives | byIds(r.alternatives) | ranked %}
+{% for alt in options %}
   {% set level = 3 %}
   {% include "alternative.njk" %}
 {% endfor %}
+{% endif %}

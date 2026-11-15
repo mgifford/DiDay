@@ -34,7 +34,7 @@
   minutes: 60
   difficulty: average
   replaces: []
-  alternatives: [proton-mail]
+  alternatives: [web-networks, ncf, proton-mail]
   steps:
     en:
       - Open an account with the new provider.
@@ -158,4 +158,110 @@
       - Faites pointer la sauvegarde des photos de votre téléphone vers la nouvelle application, puis prenez une photo et vérifiez qu'elle arrive.
       - Annulez Google One ou iCloud+ après un mois, une fois que rien ne manque.
       - Conservez la copie téléchargée. Une deuxième copie de vos photos, c'est ce qui rend le transfert sûr.
+  verified: false
+
+- id: video-without-streaming
+  title:
+    en: Video without Prime Video or Apple TV+
+    fr: Vidéo sans Prime Video ni Apple TV+
+  summary:
+    en: Move from paid U.S. streaming to public broadcasters and free software, without pretending you can watch everything.
+    fr: Passez des services américains payants aux diffuseurs publics et aux logiciels libres, sans prétendre que tout reste accessible.
+  minutes: 30
+  difficulty: easy
+  replaces: [prime-video, apple-tv, paramount-plus, youtube-premium]
+  alternatives: [knowledge-network, cbc-gem, tou-tv, jellyfin]
+  steps:
+    en:
+      - List what you actually watch, and which of it exists only on a paid U.S. service.
+      - Try the free Canadian option first. CBC Gem in English, ICI TOU.TV in French, and Knowledge Network for documentaries.
+      - If you own films or series on disc or as files, put them on a computer and stream them with Jellyfin.
+      - Accept what you cannot replace. Some series are available nowhere else, and that is a real cost of leaving.
+      - Cancel the subscription once you have something to watch instead.
+    fr:
+      - Faites la liste de ce que vous regardez vraiment, et de ce qui n'existe que sur un service américain payant.
+      - Essayez d'abord l'option canadienne gratuite. CBC Gem en anglais, ICI TOU.TV en français, et Knowledge Network pour les documentaires.
+      - Si vous possédez des films ou des séries sur disque ou en fichiers, mettez-les sur un ordinateur et diffusez-les avec Jellyfin.
+      - Acceptez ce que vous ne pouvez pas remplacer. Certaines séries n'existent nulle part ailleurs, et c'est un vrai coût de partir.
+      - Annulez l'abonnement une fois que vous avez de quoi regarder à la place.
+  verified: false
+
+- id: documents-without-microsoft-365
+  title:
+    en: Documents without Microsoft 365
+    fr: Documents sans Microsoft 365
+  summary:
+    en: Open your files in a free office suite, check that the layout survives, and stop paying for the licence.
+    fr: Ouvrez vos fichiers dans une suite bureautique libre, vérifiez que la mise en page tient, et cessez de payer la licence.
+  minutes: 45
+  difficulty: average
+  replaces: [microsoft-office]
+  alternatives: [libreoffice, cryptpad]
+  steps:
+    en:
+      - Check whether your files really are in Office formats, or only named that way.
+      - Install LibreOffice and open the documents you use most, including the oldest one you still care about.
+      - Save them again in the same format and check that the layout survived.
+      - For documents you share, try CryptPad so the file does not sit in someone else's drive.
+      - Cancel the subscription after a month, once nothing has broken.
+    fr:
+      - Vérifiez si vos fichiers sont vraiment au format Office, ou seulement nommés ainsi.
+      - Installez LibreOffice et ouvrez les documents que vous utilisez le plus, y compris le plus ancien qui compte encore pour vous.
+      - Enregistrez-les à nouveau dans le même format et vérifiez que la mise en page a tenu.
+      - Pour les documents que vous partagez, essayez CryptPad pour que le fichier ne repose pas sur le nuage de quelqu'un d'autre.
+      - Annulez l'abonnement après un mois, une fois que rien n'a cassé.
+  verified: false
+
+- id: ai-without-chatgpt
+  title:
+    en: AI without ChatGPT
+    fr: IA sans ChatGPT
+  summary:
+    en: Decide what you actually use an assistant for, then replace it with something that runs locally or comes from Europe.
+    fr: Décidez à quoi vous sert vraiment un assistant, puis remplacez-le par un outil local ou européen.
+  minutes: 30
+  difficulty: hard
+  replaces: [chatgpt-plus]
+  alternatives: [ollama, mistral]
+  steps:
+    en:
+      - Decide what you use an assistant for. Most use is drafting, summarising and rewriting, and none of that needs the largest model.
+      - For text that must not leave your computer, install Ollama and run a small model locally.
+      - For everything else, try a European provider such as Mistral and compare the answers on work you already know well.
+      - Check what you have already sent to the assistant, and delete what you do not need.
+      - Cancel the subscription if the replacement is good enough for your real use, not for a benchmark.
+    fr:
+      - Décidez à quoi vous sert un assistant. La plupart des usages sont la rédaction, le résumé et la reformulation, et rien de cela n'exige le plus gros modèle.
+      - Pour un texte qui ne doit pas quitter votre ordinateur, installez Ollama et faites tourner un petit modèle localement.
+      - Pour le reste, essayez un fournisseur européen comme Mistral et comparez les réponses sur un travail que vous connaissez déjà bien.
+      - Vérifiez ce que vous avez déjà envoyé à l'assistant et supprimez ce dont vous n'avez pas besoin.
+      - Annulez l'abonnement si la solution de rechange suffit à votre usage réel, et non à un banc d'essai.
+  verified: false
+
+# A shopping habit has no software replacement, so this recipe has no
+# alternatives. The point is to find out what the convenience actually costs.
+- id: shop-without-amazon
+  title:
+    en: Shop without Amazon
+    fr: Acheter sans Amazon
+  summary:
+    en: Find out what Amazon is actually saving you, then decide whether the convenience is worth it.
+    fr: Découvrez ce qu'Amazon vous fait réellement économiser, puis décidez si la commodité en vaut le prix.
+  minutes: 20
+  difficulty: average
+  replaces: [amazon-prime, amazon-grocery]
+  alternatives: []
+  steps:
+    en:
+      - List what you actually order, and how often. Most Amazon orders come down to five things.
+      - Buy those five things locally for a month, even at a higher price, and find out what the difference really costs you.
+      - For books, ask a local bookshop to order them. Most will.
+      - For bulk or hard-to-find items, look for a Canadian co-op or a specialist shop before a marketplace.
+      - Cancel Prime once the month is over and you know what you missed.
+    fr:
+      - Faites la liste de ce que vous commandez vraiment, et à quelle fréquence. La plupart des commandes Amazon se résument à cinq articles.
+      - Achetez ces cinq articles localement pendant un mois, même à prix plus élevé, et voyez ce que la différence vous coûte réellement.
+      - Pour les livres, demandez à une librairie locale de les commander. La plupart le feront.
+      - Pour les articles en gros ou difficiles à trouver, cherchez une coopérative canadienne ou un commerce spécialisé avant une place de marché.
+      - Annulez Prime une fois le mois terminé et que vous savez ce qui vous a manqué.
   verified: false

@@ -24,7 +24,7 @@
   ownership: US
   cancel_url: https://www.amazon.com/amazonprime
   alternatives: []
-  recipe: null
+  recipe: shop-without-amazon
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -53,7 +53,7 @@
   service: Audible
   ownership: US
   cancel_url: https://help.audible.com/s/article/cancel-membership?language=en_US
-  alternatives: []
+  alternatives: [public-library]
   recipe: null
   source: https://www.resistandunsubscribe.com/
   verified: false
@@ -73,8 +73,8 @@
   service: Prime Video
   ownership: US
   cancel_url: https://www.primevideo.com/help?nodeId=GWGDSNXVPJ93UW5V
-  alternatives: []
-  recipe: null
+  alternatives: [knowledge-network, cbc-gem, jellyfin]
+  recipe: video-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -84,7 +84,7 @@
   ownership: US
   cancel_url: https://www.amazon.com/gp/help/customer/display.html?nodeId=T0o47frAQPUyjKryun
   alternatives: []
-  recipe: null
+  recipe: shop-without-amazon
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -93,8 +93,8 @@
   service: Apple TV+
   ownership: US
   cancel_url: https://support.apple.com/en-ca/118398
-  alternatives: []
-  recipe: null
+  alternatives: [knowledge-network, cbc-gem, tou-tv]
+  recipe: video-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -113,8 +113,8 @@
   service: YouTube Premium
   ownership: US
   cancel_url: https://www.youtube.com/paid_memberships
-  alternatives: []
-  recipe: null
+  alternatives: [peertube, jellyfin]
+  recipe: video-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -133,8 +133,8 @@
   service: Microsoft 365 (Office)
   ownership: US
   cancel_url: https://support.microsoft.com/en-ca/account-billing/cancel-your-microsoft-subscription-c2c6b0e3-cab3-cb98-d83e-c9ad54620530
-  alternatives: []
-  recipe: null
+  alternatives: [libreoffice, cryptpad]
+  recipe: documents-without-microsoft-365
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -143,8 +143,8 @@
   service: ChatGPT Plus / Team
   ownership: US
   cancel_url: https://help.openai.com/en/articles/7232927-how-do-i-cancel-my-chatgpt-subscription
-  alternatives: []
-  recipe: null
+  alternatives: [ollama, mistral]
+  recipe: ai-without-chatgpt
   source: https://www.resistandunsubscribe.com/
   verified: false
 
@@ -153,7 +153,7 @@
   service: Paramount+
   ownership: US
   cancel_url: https://support.paramountplus.com/s/article/PI-How-do-I-cancel-my-subscription?language=da
-  alternatives: []
-  recipe: null
+  alternatives: [cbc-gem, knowledge-network]
+  recipe: video-without-streaming
   source: https://www.resistandunsubscribe.com/
   verified: false

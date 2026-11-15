@@ -352,3 +352,204 @@
       url: https://www.infomaniak.com/en/kdrive
       supports: []
   verified: false
+
+# --- Video ---------------------------------------------------------------
+# Added for the four cancellation entries that had nowhere to send people:
+# Prime Video, Apple TV+, Paramount+ and YouTube Premium.
+
+- id: knowledge-network
+  name: Knowledge Network
+  url: https://www.knowledge.ca/
+  category: video
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: British Columbia's public educational broadcaster, free to watch. Documentary and children's programming, paid for publicly rather than by advertising.
+    fr: Le diffuseur éducatif public de la Colombie-Britannique, gratuit. Des documentaires et des émissions pour enfants, financés publiquement plutôt que par la publicité.
+  sources:
+    - title: Knowledge Network (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Knowledge_Network
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: cbc-gem
+  name: CBC Gem
+  url: https://gem.cbc.ca/
+  category: video
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Free streaming from the public broadcaster, with a paid tier that removes advertising. News, drama, documentary and children's programmes.
+    fr: Diffusion gratuite de la société d'État, avec un forfait payant qui retire la publicité. Information, fictions, documentaires et émissions pour enfants.
+  sources:
+    - title: Canadian Broadcasting Corporation (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Canadian_Broadcasting_Corporation
+      supports: [headquarters, ownership]
+    - title: CBC Gem
+      url: https://gem.cbc.ca/
+      supports: []
+  verified: false
+
+- id: tou-tv
+  name: ICI TOU.TV
+  url: https://ici.tou.tv/
+  category: video
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: Radio-Canada's French-language streaming service, free with an optional paid extra tier.
+    fr: Le service de diffusion en français de Radio-Canada, gratuit avec un forfait supplémentaire optionnel.
+  sources:
+    - title: Ici TOU.TV (Wikipedia)
+      url: https://en.wikipedia.org/wiki/ICI_TOU.TV
+      supports: [headquarters, ownership]
+  verified: false
+
+- id: jellyfin
+  name: Jellyfin
+  url: https://jellyfin.org/
+  category: video
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Free software that streams the films and series you already own to your devices. It needs a computer or a small server to run on.
+    fr: Logiciel libre qui diffuse vers vos appareils les films et séries que vous possédez déjà. Il faut un ordinateur ou un petit serveur pour l'héberger.
+  sources:
+    - title: jellyfin/jellyfin (GitHub)
+      url: https://github.com/jellyfin/jellyfin
+      supports: [open_source]
+  verified: false
+
+- id: peertube
+  name: PeerTube
+  url: https://joinpeertube.org/
+  category: video
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Free software for running a video site, used by organizations and individuals instead of one central platform. Servers can follow each other, so the audience is not trapped in one company's app.
+    fr: Logiciel libre pour exploiter un site vidéo, utilisé par des organisations et des particuliers au lieu d'une plateforme centrale unique. Les serveurs peuvent se suivre, donc le public n'est pas enfermé dans l'application d'une seule entreprise.
+  sources:
+    - title: Chocobozzz/PeerTube (GitHub)
+      url: https://github.com/Chocobozzz/PeerTube
+      supports: [open_source]
+  verified: false
+
+# --- Office software -----------------------------------------------------
+# Added for Microsoft 365, which had no alternative.
+
+- id: libreoffice
+  name: LibreOffice
+  url: https://www.libreoffice.org/
+  category: office
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Free office suite for documents, spreadsheets and presentations, maintained by a foundation rather than a company. Opens and saves the formats the paid suites use.
+    fr: Suite bureautique libre pour documents, feuilles de calcul et présentations, maintenue par une fondation plutôt que par une entreprise. Ouvre et enregistre les formats utilisés par les suites payantes.
+  sources:
+    - title: LibreOffice (Wikipedia)
+      url: https://en.wikipedia.org/wiki/LibreOffice
+      supports: [open_source]
+    - title: LibreOffice
+      url: https://www.libreoffice.org/
+      supports: []
+  verified: false
+
+- id: cryptpad
+  name: CryptPad
+  url: https://cryptpad.fr/
+  category: office
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Encrypted documents, spreadsheets and slides that run in the browser, with no account needed on the public instance.
+    fr: Documents, feuilles de calcul et diaporamas chiffrés qui fonctionnent dans le navigateur, sans compte requis sur l'instance publique.
+  sources:
+    - title: cryptpad/cryptpad (GitHub)
+      url: https://github.com/cryptpad/cryptpad
+      supports: [open_source]
+  verified: false
+
+# --- AI assistants -------------------------------------------------------
+# Added for ChatGPT Plus. Neither option is a like-for-like replacement, and
+# the notes say so.
+
+- id: ollama
+  name: Ollama
+  url: https://ollama.com/
+  category: ai
+  headquarters: null
+  ownership: null
+  open_source: true
+  notes:
+    en: Free software that runs language models on your own computer, so the conversation does not leave the machine. Slower than a hosted service, and it needs a reasonably recent computer.
+    fr: Logiciel libre qui fait tourner des modèles de langue sur votre ordinateur, donc la conversation ne quitte pas la machine. Plus lent qu'un service hébergé, et il faut un ordinateur assez récent.
+  sources:
+    - title: ollama/ollama (GitHub)
+      url: https://github.com/ollama/ollama
+      supports: [open_source]
+  verified: false
+
+- id: mistral
+  name: Mistral
+  url: https://mistral.ai/
+  category: ai
+  headquarters: FR
+  ownership: FR
+  open_source: false
+  notes:
+    en: A French company that publishes open-weight models and runs a hosted assistant. Listed for European ownership; the hosted service itself is not open source.
+    fr: Une entreprise française qui publie des modèles à poids ouverts et exploite un assistant hébergé. Inscrite pour sa propriété européenne; le service hébergé n'est pas libre.
+  sources:
+    - title: Mistral AI (Wikipedia)
+      url: https://en.wikipedia.org/wiki/Mistral_AI
+      supports: [headquarters, ownership]
+  verified: false
+
+# --- Canadian email ------------------------------------------------------
+# Added after research found two Canadian providers: a worker co-op and an
+# Ottawa non-profit. Both also sell internet access; email is the service the
+# recipe needs, so both are listed here.
+
+- id: web-networks
+  name: Web Networks
+  url: https://web.net/
+  category: email
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: A Canadian worker co-op running since 1987, selling @web.net email at a low monthly price and stating that it does not sell your data. Also offers hosting and mailing lists.
+    fr: Une coopérative de travail canadienne active depuis 1987, qui vend des adresses @web.net à faible coût mensuel et affirme ne pas vendre vos données. Offre aussi hébergement et listes de diffusion.
+  sources:
+    - title: Web Networks
+      url: https://web.net/
+      supports: [headquarters, ownership]
+    - title: About Web Networks
+      url: https://web.net/about
+      supports: [ownership]
+  verified: false
+
+- id: ncf
+  name: National Capital FreeNet
+  url: https://www.ncf.ca/
+  category: email
+  headquarters: CA
+  ownership: CA
+  open_source: false
+  notes:
+    en: A member-based non-profit in Ottawa offering email, internet access and digital-skills workshops, funded by members and donations rather than advertising.
+    fr: Un organisme sans but lucratif fondé sur ses membres, à Ottawa, offrant courriel, accès internet et ateliers numériques, financé par ses membres et des dons plutôt que par la publicité.
+  sources:
+    - title: National Capital FreeNet
+      url: https://www.ncf.ca/
+      supports: [headquarters, ownership]
+  verified: false
