@@ -225,3 +225,27 @@ and C4DS out of `campaigns.yaml` left no duplicate descriptions.
 **What this pass could not do:** read the two blocked sites, judge the French,
 or decide whether an organization should be listed. Those are the three items
 in `docs/ECOSYSTEM-REVIEW-CHECKLIST.md`.
+
+
+## 13. The blocked sources, resolved (2026-11-15)
+
+`cira.ca` and `fnigc.ca` were recorded as unreadable because they answer HTTP
+403 to `curl`. They are not unreadable: **a real browser loads both**, so the
+block is on the request fingerprint rather than on the content.
+
+That changed two things in the data:
+
+- **CIRA**: the funding programme is called **Net Good Grants**, has run since
+  2014, and invests over a million dollars a year. The record previously used
+  the older name "community investment programme", which is no longer what the
+  site says.
+- **FNIGC**: the OCAP® page states the claim directly — "the principles of
+  OCAP® establish how First Nations' data and information will be collected,
+  protected, used, or shared".
+
+Both are now `documented-contributor` with primary sources. Neither is
+`verified: true`: that still needs a maintainer, and the checklist says so.
+
+The lesson for the next blocked source: try a browser before concluding a site
+is unreadable. A 403 from a command-line client is evidence about the client,
+not about the content.
