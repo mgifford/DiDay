@@ -22,3 +22,15 @@
   name:
     en: Video calls
     fr: Appels vidéo
+- id: video
+  name:
+    en: Video streaming
+    fr: Vidéo en continu
+- id: office
+  name:
+    en: Office software
+    fr: Bureautique
+- id: ai
+  name:
+    en: AI assistants
+    fr: Assistants IA
