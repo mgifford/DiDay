@@ -22,7 +22,9 @@ eleventyComputed:
   <p>{{ "switch_to" | t(lang) }}{{ "colon" | t(lang) }}
     {% for a in alts %}<a href="/{{ lang }}/alternatives/#{{ a.id }}">{{ a.name | loc(lang) }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
   </p>
-  {% else %}
+  {% elif not x.recipe %}
+  {# Only ask for an alternative when there is nothing else to offer. An entry
+     with a recipe already has a next step below this line. #}
   <p><a href="{{ catalog.site.repo }}/issues">{{ "no_alternative" | t(lang) }}</a></p>
   {% endif %}
   {% set item = x %}{% set kind = "cancel" %}{% include "reviewed.njk" %}
