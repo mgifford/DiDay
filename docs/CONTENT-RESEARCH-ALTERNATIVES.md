@@ -135,3 +135,46 @@ Everything above was checked by reading the page, not by a status code. The
 candidates that resolved are listed with what their own site or an
 encyclopaedic source says — which is enough for identity and not enough for an
 ownership claim in every case.
+
+---
+
+## 10. Co-operatives and B Corporations (2026-11-15)
+
+Two more kinds of organization came up, and they are not the same thing.
+
+### Co-operatives are Canadian-owned
+
+A worker or member co-operative is owned by the people who work in it or use
+it, which is Canadian ownership under this project's rules. It needs no
+exception. Web Networks and National Capital FreeNet were listed that way.
+
+- **`bcca.coop`** — the BC Co-operative Association, a directory and
+  development body for British Columbia co-ops. Useful as a lead source, not
+  as an alternative itself.
+- **`cantrusthosting.coop`** — a hosting co-op, and a plausible entry. It
+  **blocks automated requests (HTTP 403)**, so its ownership statement needs a
+  person to read it. Recorded here rather than guessed at.
+
+### B Corporations are an exception reason, not a ranking
+
+You are right that B Corp certification commits a company to standards that
+include data protection, and that this is worth capturing. But it is a
+different kind of signal from ownership:
+
+- a B Corp can be American-owned, so it does not meet the ownership rule;
+- it can also be Canadian-owned, in which case it needs no exception at all.
+
+So certification is written into `CONTRIBUTING.md` as a **legitimate reason to
+give an exception** — never as a ranking, and never as a claim about a specific
+product. `bcorpdirectory.ca` is the Canadian directory and a good starting
+point; B Lab's own directory is the primary source.
+
+What this changes in practice: a US-owned B Corp becomes listable, with a
+bilingual exception saying why. What it does not change: Canadian-owned and
+open-source entries still rank above it.
+
+### What has not been done
+
+No B Corp or co-op entry has been added yet. Each needs the usual evidence —
+headquarters, ownership, a source — and `cantrusthosting.coop` in particular
+needs one page read by a person before it can be listed.

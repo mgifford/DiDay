@@ -14,7 +14,8 @@ Content review status: most catalogue entries are still `verified: false` and
 say so on the page. The design system, themes and structure are built; the
 editorial verification is not finished.
 
-See `LAUNCH.md` for the launch checklist and `ACCESSIBILITY.md` for the accessibility target, automated checks, manual testing status and known gaps.
+See `TODO.md` for what is next, including the phase 6 outline, and `LAUNCH.md`
+for the launch checklist and `ACCESSIBILITY.md` for the accessibility target, automated checks, manual testing status and known gaps.
 
 ## Principles
 
