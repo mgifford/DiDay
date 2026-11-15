@@ -34,6 +34,37 @@ Rules:
 - Company "About" pages, corporate registries and annual reports are preferred over news articles.
 - Leave `verified: false` and leave out `last_reviewed`. A maintainer sets both after checking the sources.
 
+## Certified B Corporations
+
+A US-owned service would normally need an `exception`. B Corporation
+certification is a legitimate reason to give one, because the certification
+commits the company to independent social and environmental standards
+including data protection:
+
+```yaml
+  ownership: US
+  exception:
+    en: American-owned, but a Certified B Corporation, which is why it is listed as an exception.
+    fr: Propriété américaine, mais certifiée B Corporation, d'où son inscription comme exception.
+  sources:
+    - title: Certified B Corporation directory
+      url: https://bcorpdirectory.ca/
+      supports: [ownership]
+```
+
+Rules:
+
+- **Certification is an exception reason, not a ranking.** It never moves an
+  entry above a Canadian-owned or open-source one.
+- **The source must show the certification.** The Canadian directory at
+  <https://bcorpdirectory.ca/> is a starting point; B Lab's own directory is
+  primary.
+- **A certification is not a claim about a specific product.** Note in the
+  description what the certification covers.
+- **Canadian co-operatives are a separate case**, not an exception: a
+  worker-owned co-op is Canadian-owned, and should be listed on that basis.
+  <https://bcca.coop/> lists British Columbia co-ops.
+
 ## Naming companies
 
 Describe what a company does and link a source. Do not add claims about a company's conduct without a published, citable source.
