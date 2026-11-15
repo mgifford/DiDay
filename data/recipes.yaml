@@ -34,7 +34,7 @@
   minutes: 60
   difficulty: average
   replaces: []
-  alternatives: [hushmail, proton-mail]
+  alternatives: [proton-mail]
   steps:
     en:
       - Open an account with the new provider.

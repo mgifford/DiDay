@@ -77,6 +77,7 @@ npm run check:reviews   # lists entries by review date
 | `docs/ECOSYSTEM-EDITORIAL-POLICY.md` | Inclusion, evidence, featured and correction rules for the ecosystem directory |
 | `docs/ECOSYSTEM-SCHEMA.md` | Record format for `data/initiatives.yaml`, and why projects are deferred |
 | `docs/ECOSYSTEM-REVIEW-CHECKLIST.md` | What a person must check before a record is marked verified |
+| `docs/CONTENT-RESEARCH-ALTERNATIVES.md` | Research for the categories with no alternatives yet (video, office, AI, email) |
 | `lib/initiatives.js`, `test/initiatives.test.js` | Validator for ecosystem records and its tests |
 | `src/pages/styleguide.njk` | Rendered design system reference at `/en/styleguide/` and `/fr/styleguide/` |
 | `src/pages/world.njk` | The international page at `/world/` |
