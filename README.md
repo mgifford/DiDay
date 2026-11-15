@@ -101,6 +101,8 @@ npm run check:reviews   # lists entries by review date
 | `lib/reminders.js`, `scripts/reminders.js` | Reminder posting and deletion |
 | `LAUNCH.md` | Launch checklist |
 | `ACCESSIBILITY.md` | Accessibility target, checks, manual testing status and known gaps |
+| `TODO.md` | What is next, the phase 6 outline, and the open backlogs |
+| `docs/RETROSPECTIVE.md` | What worked, the defects found and what each taught, and what to do differently |
 | `.github/workflows/mastodon.yml` | Daily Mastodon inbox |
 | `lib/mastodon.js`, `scripts/mastodon-inbox.js` | Turns public Mastodon mentions into issues |
 | `.github/ISSUE_TEMPLATE/out-of-date.yml` | Bilingual form for reporting a problem |
